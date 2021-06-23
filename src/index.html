@@ -1,12 +1,117 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="root"></div>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container logo-nav-container">
+            <div class="logo">
+                <a id="home">OLYMPEDIA</a>
+                <img src="img/logo.png" class="img-logo">
+            </div>
+            <button class="nav-toggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+              </button>
+            <nav class="navigation">
+                <ul class="nav-menu">
+                    <li><a id="athletes">ATLETAS</a></li>
+                    <li><a id="countries">PAISES</a></li>
+                    <li><a id="suscribe">SUSCRIBETE</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+    <main>
+        <section id="firstScreen" class="firstScreen">
+            <h2 class="partners">SOCIOS MUNDIALES DE LOS JUEGOS OLIMPICOS</h2>
+            <ul class="list-partners">
+                <li class="partners-item">
+                    <img class="img-partner" src="img/airbnb.png"></img>
+                </li>
+                <li class="partners-item">
+                    <img class="img-partner" src="img/alibaba.png"></img>
+                </li>
+                <li class="partners-item">
+                    <img class="img-partner" src="img/allianz.png"></img>
+                </li>
+                <li class="partners-item">
+                    <img class="img-partner" src="img/bridgestone.png"></img>
+                </li>
+                <li class="partners-item">
+                    <img class="img-partner" src="img/intel.png"></img>
+                </li>
+                <li class="partners-item">
+                    <img class="img-partner" src="img/samsung.png"></img>
+                </li>
+                <li class="partners-item">
+                    <img class="img-partner" src="img/toyota.png"></img>
+                </li>
+                <li class="partners-item">
+                    <img class="img-partner" src="img/visa.png"></img>
+                </li>
+            </ul>
+        </section>
+
+        <section id="secondScreen" style="display:none;">
+            <select id="gender">
+              <option value="">GENERO</option>
+              <option value="female">FEMENINO</option>
+              <option value="male">MASCULINO</option>
+            </select>
+
+            <select id="sport">
+              <option value="">DISCIPLINA</option>
+            </select>
+        </section>
+
+
+        <section id="thirdScreen" style="display:none;">
+            <select id="medals">
+              <option value="">N° DE MEDALLAS</option>
+              <option value="max">MAXIMO</option>
+              <option value="min">MINIMO</option>
+            </select>
+        </section>
+    </main>
+    <footer>
+        <div class="container-column">
+            <div class="column">
+                <h3>Sobre los juegos</h3>
+                <label>Vision</label><br>
+                <label>Emblema</label><br>
+                <label>Mascota</label><br>
+                <label>Sostenibilidad</label>
+            </div>
+            <div class="column">
+                <h3>Noticias</h3>
+                <label>Podcast</label><br>
+                <label>Temas</label>
+            </div>
+            <div class="column">
+                <h3>Redes Sociales</h3>
+                <label>Idioma</label>
+            </div>
+        </div>
+        <div class="containerFooter">
+            <label class="copyright">Olympedia 2021 - Todos los derechos reservados</label>
+        </div>
+    </footer>
+    </div>
     <script src="main.js" type="module"></script>
-  </body>
+    <script src="https://kit.fontawesome.com/7e5b2d153f.js" crossorigin="anonymous"></script>
+</body>
+
 </html>
