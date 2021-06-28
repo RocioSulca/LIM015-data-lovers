@@ -315,3 +315,6 @@ footer {
         line-height: 70px;
     }
 }
+.card {
+    background-color: aqua;
+}

@@ -1,6 +1,7 @@
 import { example } from './data.js';
+import athletes from './data/athletes/athletes.js';
 // import data from './data/lol/lol.js';
-import data from './data/pokemon/pokemon.js';
+
 // import data from './data/rickandmorty/rickandmorty.js';
 
 
@@ -16,12 +17,15 @@ navToggle.addEventListener("click", () => {
         navToggle.setAttribute("aria-label", "Abrir menú");
     }
 });
+import data from './data/athletes/athletes.js';
+const athletesData = data.athletes
 
 document.getElementById("athletes").addEventListener("click", () => {
     document.getElementById("firstScreen").style.display = "none";
     document.getElementById("secondScreen").style.display = "block";
     document.getElementById("thirdScreen").style.display = "none";
 });
+
 document.getElementById("countries").addEventListener("click", () => {
     document.getElementById("firstScreen").style.display = "none";
     document.getElementById("secondScreen").style.display = "none";
@@ -34,4 +38,7 @@ document.getElementById("home").addEventListener("click", () => {
 });
 
 
-console.log(example, data);
+
+
+
+console.log(unique);
