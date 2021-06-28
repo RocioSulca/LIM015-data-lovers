@@ -173,6 +173,129 @@ footer {
     grid-column: span 6;
 }
 
+#allAthletes {
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    flex-flow: wrap;
+    justify-content: space-around;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.box {
+    width: 20%;
+    background-color: #36a021;
+    border-radius: 10%;
+    margin: 1rem 1rem 1rem 1rem;
+    padding: .2rem;
+    box-sizing: border-box;
+}
+
+.avatar {
+    width: 80%;
+    margin-left: 10%;
+    position: center;
+}
+
+.name {
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    color: black;
+}
+
+.info {
+    font-size: .7rem;
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+    text-align: center;
+}
+
+
+/* modal */
+
+.hide {
+    display: none;
+}
+
+.modal-athlete {
+    padding-bottom: 2%;
+    position: absolute;
+}
+
+.box-modal {
+    background-color: rgba(142, 150, 142, 0.7);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    position: fixed;
+}
+
+.avatar2 {
+    width: 35%;
+    margin: 0% 0% 2% 0%;
+}
+
+.athlete {
+    background-color: rgb(42, 150, 150);
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0% 0% 2% 0%;
+    border-radius: 5%;
+    margin: auto;
+}
+
+.close {
+    text-align: center;
+    color: black;
+    font-size: 2rem;
+    cursor: pointer;
+    align-self: flex-end;
+    margin: 3% 3% 0% 0%;
+    background-color: #fdfdfd;
+    border-radius: 15%;
+    width: 9%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.name-modal {
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    color: white;
+}
+
+.info-modal {
+    font-size: .6rem;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0.5%;
+}
+
+td {
+    border: 1px solid white;
+    align-items: center;
+    justify-content: center;
+    padding: .4%;
+    box-sizing: border-box;
+}
+
 @media only screen and (max-width:1024px) {
     .logo {
         padding: 3%;
