@@ -26,11 +26,15 @@ document.getElementById("athletes").addEventListener("click", () => {
     document.getElementById("thirdScreen").style.display = "none";
 });
 
+
+
 document.getElementById("countries").addEventListener("click", () => {
     document.getElementById("firstScreen").style.display = "none";
     document.getElementById("secondScreen").style.display = "none";
     document.getElementById("thirdScreen").style.display = "block";
+
 });
+
 document.getElementById("home").addEventListener("click", () => {
     document.getElementById("secondScreen").style.display = "none";
     document.getElementById("thirdScreen").style.display = "none";
@@ -40,5 +44,3 @@ document.getElementById("home").addEventListener("click", () => {
 
 
 
-
-console.log(unique);
