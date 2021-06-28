@@ -66,15 +66,24 @@
         </section>
 
         <section id="secondScreen" style="display:none;">
-            <select id="gender">
-              <option value="">GENERO</option>
-              <option value="female">FEMENINO</option>
-              <option value="male">MASCULINO</option>
-            </select>
+            <div class="filter__select-group__input-group">
+                <input type="checkbox" id="check-female">
+                <label class="filter__select-group__label">Female
+                </label>
+            </div>
+
+            <div class="filter__select-group__input-group">
+                <input type="checkbox" id="check-male">
+                <label class="filter__select-group__label">Male
+                </label>
+            </div>
 
             <select id="sport">
               <option value="">DISCIPLINA</option>
             </select>
+
+            <div id="allAthletes" class="allAthletes"></div>
+            <div id="modal-athlete" class="modal-athlete hide"></div>
         </section>
 
 
