@@ -33,6 +33,8 @@ document.getElementById("countries").addEventListener("click", () => {
     document.getElementById("secondScreen").style.display = "none";
     document.getElementById("thirdScreen").style.display = "block";
 
+    
+
 });
 
 document.getElementById("home").addEventListener("click", () => {
