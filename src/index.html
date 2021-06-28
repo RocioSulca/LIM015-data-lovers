@@ -23,7 +23,7 @@
             </div>
             <button class="nav-toggle" aria-label="Abrir menú">
                 <i class="fas fa-bars"></i>
-              </button>
+            </button>
             <nav class="navigation">
                 <ul class="nav-menu">
                     <li><a id="athletes">ATLETAS</a></li>
@@ -66,6 +66,7 @@
         </section>
 
         <section id="secondScreen" style="display:none;">
+
             <div class="filter__select-group__input-group">
                 <input type="checkbox" id="check-female">
                 <label class="filter__select-group__label">Female
@@ -78,8 +79,9 @@
                 </label>
             </div>
 
+
             <select id="sport">
-              <option value="">DISCIPLINA</option>
+                <option value="">DISCIPLINA</option>
             </select>
 
             <div id="allAthletes" class="allAthletes"></div>
@@ -88,11 +90,19 @@
 
 
         <section id="thirdScreen" style="display:none;">
-            <select id="medals">
-              <option value="">N° DE MEDALLAS</option>
-              <option value="max">MAXIMO</option>
-              <option value="min">MINIMO</option>
+
+            <select id="country">
+                <option value="" class="options" disabled selected>PAISES</option>
             </select>
+
+            <select id="medals">
+                <option value="">N° DE MEDALLAS</option>
+                <option value="max">MAXIMO</option>
+                <option value="min">MINIMO</option>
+            </select>
+
+            <!--Aqui-->
+            <div id="cuerpo"></div>
         </section>
     </main>
     <footer>
