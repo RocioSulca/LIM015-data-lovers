@@ -26,14 +26,37 @@ document.getElementById("athletes").addEventListener("click", () => {
     document.getElementById("thirdScreen").style.display = "none";
 });
 
-
+let allCountry = document.getElementById("cuerpo");
 
 document.getElementById("countries").addEventListener("click", () => {
     document.getElementById("firstScreen").style.display = "none";
     document.getElementById("secondScreen").style.display = "none";
     document.getElementById("thirdScreen").style.display = "block";
 
-    
+// creando lista de paises dentro de select
+
+    let fillByCountry = athletesData.map(function (country) {
+        return country.team;
+    })
+
+    function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+    }
+    let unique = fillByCountry.filter(onlyUnique);
+
+    let selectCountry = document.getElementById("country");
+
+    (function () {
+        const countriesInOrder = unique.sort();
+        countriesInOrder.forEach((pais) => {
+            const option = document.createElement('option');
+            option.textContent = pais;
+            option.setAttribute('value', pais);
+            option.setAttribute('class', 'options');
+            selectCountry.appendChild(option);
+        });
+    })();
+
 
 });
 
