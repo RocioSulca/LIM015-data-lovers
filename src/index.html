@@ -27,8 +27,7 @@
             <nav class="navigation">
                 <ul class="nav-menu">
                     <li><a id="athletes">ATLETAS</a></li>
-                    <li><a id="countries">PAISES</a></li>
-                    <li><a id="suscribe">SUSCRIBETE</a></li>
+                    <li><a id="statistics">ESTADISTICAS</a></li>
                 </ul>
             </nav>
         </div>
@@ -77,34 +76,36 @@
                 <input type="checkbox" id="check-male">
                 <label class="filter__select-group__label">Male
                 </label>
-            </div>
-
+            </div>      
 
             <select id="sport">
                 <option value="">DISCIPLINA</option>
             </select>
-
-            <div id="allAthletes" class="allAthletes"></div>
-            <div id="modal-athlete" class="modal-athlete hide"></div>
-        </section>
-
-
-        <section id="thirdScreen" style="display:none;">
 
             <select id="country">
                 <option value="" class="options" disabled selected>PAISES</option>
             </select>
 
             <select id="medals">
-                <option value="">N° DE MEDALLAS</option>
-                <option value="max">MAXIMO</option>
-                <option value="min">MINIMO</option>
+                <option value="">MEDALLAS</option>
             </select>
 
-            <!--Aqui-->
-            <div id="cuerpo"></div>
+            <button id="ordenar">ordenar alfabeticamente A-Z</button>
+            <button id="desordenar">ordenar alfabeticamente Z-A</button>
+
+            <div id="allAthletes" class="allAthletes"></div>
+            <div id="modal-athlete" class="modal-athlete hide"></div>
+
+        </section>
+
+
+        <section id="thirdScreen" style="display:none;">
+
+
+            <div id="">ESTADISTICAS AQUI</div>
         </section>
     </main>
+
     <footer>
         <div class="container-column">
             <div class="column">

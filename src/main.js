@@ -1,5 +1,5 @@
 
-import { mapByKey, filterByKey, filterMale, filterFemale } from './data.js';
+import { mapByKey, filterByKey, filterMale, filterFemale, sortByNameAZ, sortByNameZA, filterByCountry } from './data.js';
 import data from './data/athletes/athletes.js';
 
 const navToggle = document.querySelector(".nav-toggle");
@@ -14,7 +14,7 @@ navToggle.addEventListener("click", () => {
         navToggle.setAttribute("aria-label", "Abrir menú");
     }
 });
-import data from './data/athletes/athletes.js';
+
 const athletesData = data.athletes
 
 document.getElementById("athletes").addEventListener("click", () => {
@@ -26,38 +26,10 @@ document.getElementById("athletes").addEventListener("click", () => {
     showAthletes(athletesData);
 });
 
-let allCountry = document.getElementById("cuerpo");
-
-document.getElementById("countries").addEventListener("click", () => {
+document.getElementById("statistics").addEventListener("click", () => {
     document.getElementById("firstScreen").style.display = "none";
     document.getElementById("secondScreen").style.display = "none";
-    document.getElementById("thirdScreen").style.display = "block";
-
-// creando lista de paises dentro de select
-
-    let fillByCountry = athletesData.map(function (country) {
-        return country.team;
-    })
-
-    function onlyUnique(value, index, self) {
-        return self.indexOf(value) === index;
-    }
-    let unique = fillByCountry.filter(onlyUnique);
-
-    let selectCountry = document.getElementById("country");
-
-    (function () {
-        const countriesInOrder = unique.sort();
-        countriesInOrder.forEach((pais) => {
-            const option = document.createElement('option');
-            option.textContent = pais;
-            option.setAttribute('value', pais);
-            option.setAttribute('class', 'options');
-            selectCountry.appendChild(option);
-        });
-    })();
-
-
+    document.getElementById("thirdScreen").style.display = "block"
 });
 
 document.getElementById("home").addEventListener("click", () => {
@@ -66,8 +38,6 @@ document.getElementById("home").addEventListener("click", () => {
     document.getElementById("firstScreen").style.display = "block";
 });
 
-
-const athletesData = data.athletes;
 const allAthletes = document.getElementById('allAthletes');
 const athletesBySports = mapByKey(athletesData, "sport");
 let sports = [...new Set(athletesBySports)];
@@ -86,7 +56,7 @@ const showAthletes = (data) => {
         if (counter <= 48) {
             const div = document.createElement('div');
             div.classList.add("box");
-            info = `<img src = ${athletes.gender==='F' ? './img/avatarFem.png' : './img/avatarMal.png'} class="avatar">
+            info = `<img src = ${athletes.gender === 'F' ? './img/avatarFem.png' : './img/avatarMal.png'} class="avatar">
            <li class=name>${athletes.name}</li>
             <li class=info>${athletes.sport}</li>
             <li class=info>${athletes.event}</li>
@@ -134,12 +104,9 @@ const showAthletes = (data) => {
 
         }
 
-
     });
     return showAthletes;
 };
-
-
 
 // Crear listas de opciones (teams y sports)
 function listOfOptions(selectCategory, list) {
@@ -173,4 +140,94 @@ function includingAllFilters() {
 selectSport.addEventListener("change", includingAllFilters);
 selectFemale.addEventListener("change", includingAllFilters);
 selectMale.addEventListener("change", includingAllFilters);
+
+
+
+// creando lista de paises dentro de select
+
+const fillByCountry = athletesData.map(function (country) {
+    return country.team;
+})
+
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+}
+const unique = fillByCountry.filter(onlyUnique);
+
+let selectCountry = document.getElementById("country");
+
+(function () {
+    const countriesInOrder = unique.sort();
+    countriesInOrder.forEach((pais) => {
+        const option = document.createElement('option');
+        option.textContent = pais;
+        option.setAttribute('value', pais);
+        option.setAttribute('class', 'options');
+        selectCountry.appendChild(option);
+    });
+})();
+
+// Filtrando por pais
+
+selectCountry.addEventListener("change", () => {
+    const countryValue = selectCountry.value;
+    const filtrandoPorPaises = filterByCountry(athletesData, countryValue);
+    showAthletes(filtrandoPorPaises);
+
+});
+
+// creando lista de medallas dentro de select
+
+const fillByMedal = athletesData.map(function (medalla) {
+    return medalla.medal;
+})
+
+function onlyUniqueM(value, index, self) {
+    return self.indexOf(value) === index;
+}
+const uniqueM = fillByMedal.filter(onlyUniqueM);
+
+let selectMedal = document.getElementById("medals");
+
+(function () {
+    const medalsInOrder = uniqueM.sort();
+    medalsInOrder.forEach((medal) => {
+        const optionM = document.createElement('option');
+        optionM.textContent = medal;
+        optionM.setAttribute('value', medal);
+        optionM.setAttribute('class', 'options');
+        selectMedal.appendChild(optionM);
+    });
+})();
+
+// Filtrando por medallas
+
+selectMedal.addEventListener("change", () => {
+
+    let filtrandoPorMedallas = athletesData.filter(function (fill) {
+        return fill.medal === selectMedal.value;
+
+    })
+    showAthletes(filtrandoPorMedallas);
+});
+
+// ordenar alfabeticamente A-Z
+
+let ordenarAZ = document.getElementById("ordenar");
+
+ordenarAZ.addEventListener("click", () => {
+    const sortingByName = sortByNameAZ(athletesData);
+
+    showAthletes(sortingByName);
+})
+
+// ordenar alfabeticamente Z-A
+
+let ordenarZA = document.getElementById("desordenar");
+
+ordenarZA.addEventListener("click", () => {
+    const sortingByName = sortByNameZA(sortByNameAZ(athletesData));
+
+    showAthletes(sortingByName);
+})
 
