@@ -41,8 +41,8 @@ body {
 main {
     padding-top: 12rem;
     min-height: calc(100% - 4rem);
-    margin-left: 4%;
     margin-right: 4%;
+    margin-left: 4%;
 }
 
 footer {
@@ -160,6 +160,7 @@ footer {
     grid-column: content-start/content-end;
     grid-template: [row] 1fr/repeat(24, [col] minmax(0, 103.33333px));
     grid-gap: 1rem 20px;
+    padding: 0;
 }
 
 .firstScreen .partners-item {
@@ -189,7 +190,7 @@ footer {
     background-color: #36a021;
     border-radius: 10%;
     margin: 1rem 1rem 1rem 1rem;
-    padding: .2rem;
+    padding: 2rem;
     box-sizing: border-box;
 }
 
@@ -236,6 +237,7 @@ footer {
     z-index: 1;
     box-sizing: border-box;
     position: fixed;
+    margin-left: -4%;
 }
 
 .avatar2 {
@@ -244,12 +246,12 @@ footer {
 }
 
 .athlete {
-    background-color: rgb(42, 150, 150);
+    background-color: #36a021;
     width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0% 0% 2% 0%;
+    padding: 1rem;;
     border-radius: 5%;
     margin: auto;
 }
@@ -257,20 +259,21 @@ footer {
 .close {
     text-align: center;
     color: black;
-    font-size: 2rem;
+    font-size: 1rem;
     cursor: pointer;
     align-self: flex-end;
-    margin: 3% 3% 0% 0%;
+    margin: 3%;
     background-color: #fdfdfd;
     border-radius: 15%;
     width: 9%;
+    padding: 2%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: 'Open Sans', sans-serif;
 }
 
 .name-modal {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
     color: white;
@@ -285,16 +288,17 @@ footer {
 
 table {
     border-collapse: collapse;
-    margin: 0.5%;
+    margin: 0.3%;
 }
 
 td {
     border: 1px solid white;
     align-items: center;
     justify-content: center;
-    padding: .4%;
+    padding: .2%;
     box-sizing: border-box;
 }
+
 
 @media only screen and (max-width:1024px) {
     .logo {
@@ -310,7 +314,10 @@ td {
     }
     .navigation {
         width: 100%;
-        margin-right: -55%;
+        margin-right: -80%;
+    }
+    .box {
+        width: 25%;
     }
 }
 
@@ -328,7 +335,13 @@ td {
     }
     .navigation {
         width: 100%;
-        margin-right: -55%;
+        margin-right: -65%;
+    }
+    .box {
+        width: 25%;
+    }
+    .athlete{
+        width: 40%
     }
 }
 
@@ -387,6 +400,12 @@ td {
         width: 90%;
         height: 90%;
     }
+    .box {
+        width: 100%;
+    }
+    .athlete{
+        width: 50%
+    }
 }
 
 @media only screen and (min-width:280px) and (max-width:479px) {
@@ -437,12 +456,12 @@ td {
         border-radius: 5px;
         line-height: 70px;
     }
-    
-}
-.card {
-    background-color: aqua;
+
+    .box {
+        width: 100%;
+    }
+    .athlete{
+        width: 50%
+    }
 }
 
-.filter {
-    display: none;
-}
