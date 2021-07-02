@@ -22,14 +22,14 @@ describe('Make a new array of every team', () => {
   it('is a function', () => {
     expect(typeof mapByKey).toBe('function');
   });
-  it('returns an array of every event', () => {
+  it('returns an array of every team', () => {
     const data = [{
-      name: 'Carla',
-      event: 'Volleyball Womens Volleyball'
+      name: 'Nicola Virginia Adams',
+      team: 'Great Britain'
     },
     {
-      name: 'Carlos',
-      event: 'Badminton Mixed Doubles'
+      name: 'Cecil Sebastian Afrika',
+      team: 'South Africa'
     }];
     const result = ['Great Britain', 'South Africa'];
     expect(mapByKey(data, 'team')).toEqual(result);
@@ -40,7 +40,7 @@ describe('Make a new array of every event', () => {
   it('is a function', () => {
     expect(typeof mapByKey).toBe('function');
   });
-  it('returns an array of every team', () => {
+  it('returns an array of every event', () => {
     const data = [{
       name: 'Carla',
       event: 'Volleyball Womens Volleyball'
@@ -53,7 +53,6 @@ describe('Make a new array of every event', () => {
     expect(mapByKey(data, 'event')).toEqual(result);
   });
 });
-
 
 describe('Filter by event', () => {
   it('is a function', () => {
