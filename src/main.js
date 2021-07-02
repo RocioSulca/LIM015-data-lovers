@@ -115,6 +115,7 @@ selectCountry.addEventListener("change", () => {
 // creando lista de medallas dentro de select
 let selectMedal = document.getElementById("medals");
 listOfOptions(selectMedal, medals);
+
 // Filtrando por medallas
 selectMedal.addEventListener("change", () => {
     const medalValue = selectMedal.value;
@@ -125,6 +126,7 @@ selectMedal.addEventListener("change", () => {
 // creando lista de eventos dentro de select
 let selectEvent = document.getElementById("event");
 listOfOptions(selectEvent, events);
+
 // Filtrando por eventos
 selectEvent.addEventListener("change", () => {
     const eventValue = selectEvent.value;
@@ -154,7 +156,8 @@ searcher.addEventListener("input", () => {
         allAthletes.innerHTML = "";
         showAthletes(filteredNames);
     }
-})
+});
+
 navToggle.addEventListener("click", () => {
     navMenu.classList.toggle("nav-menu_visible");
     if (navMenu.classList.contains("nav-menu_visible")) {

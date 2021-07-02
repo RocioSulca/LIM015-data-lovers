@@ -7,7 +7,7 @@ describe('Make a new array of every sport', () => {
   it('returns an array of every sport', () => {
     const data = [{
       name: 'Luis',
-      sport: 'Basketball'
+      sport:'Basketball'
     },
   {
     name: 'Mariana',
@@ -18,11 +18,29 @@ describe('Make a new array of every sport', () => {
   });
 });
 
-describe('Make a new array of every event', () => {
+describe('Make a new array of every team', () => {
   it('is a function', () => {
     expect(typeof mapByKey).toBe('function');
   });
   it('returns an array of every event', () => {
+    const data = [{
+      name: 'Carla',
+      event: 'Volleyball Womens Volleyball'
+    },
+    {
+      name: 'Carlos',
+      event: 'Badminton Mixed Doubles'
+    }];
+    const result = ['Great Britain', 'South Africa'];
+    expect(mapByKey(data, 'team')).toEqual(result);
+  });
+});
+
+describe('Make a new array of every event', () => {
+  it('is a function', () => {
+    expect(typeof mapByKey).toBe('function');
+  });
+  it('returns an array of every team', () => {
     const data = [{
       name: 'Carla',
       event: 'Volleyball Womens Volleyball'
@@ -36,23 +54,6 @@ describe('Make a new array of every event', () => {
   });
 });
 
-describe('Make a new array of every team', () => {
-  it('is a function', () => {
-    expect(typeof mapByKey).toBe('function');
-  });
-  it('returns an array of every team', () => {
-    const data = [{
-      name: 'Nicola Virginia Adams',
-      team: 'Great Britain'
-    },
-    {
-      name: 'Cecil Sebastian Afrika',
-      team: 'South Africa'
-    }];
-    const result = ['Great Britain', 'South Africa'];
-    expect(mapByKey(data, 'team')).toEqual(result);
-  });
-});
 
 describe('Filter by event', () => {
   it('is a function', () => {
@@ -128,7 +129,7 @@ describe('Sorted by name asc', () => {
   },
   {
     name: 'ana'
-  }];
+  }]
   const result = [{name: 'ana'}, {name: 'luis'}, {name: 'mariana'}]
     expect(sortByName(data)).toEqual(result);
   });
@@ -140,15 +141,15 @@ describe('Sorted by name asc', () => {
   });
   it('returns sorted data', () => {
     const data = [{
-      name: 'Chantal Achterberg'
+      name: 'chantal achterberg'
     },
   {
-    name: 'Nicola Virginia Adams'
+    name: 'nicola virginia adams'
   },
   {
-    name: 'Chantal Achterberg'
-  }];
-  const result = [{name: 'Chantal Achterberg'}, {name: 'Chantal Achterberg'}, {name: 'Nicola Virginia Adams'}]
+    name: 'chantal achterberg'
+  }]
+  const result = [{name: 'chantal achterberg'}, {name: 'chantal achterberg'}, {name: 'nicola virginia adams'}]
     expect(sortByName(data)).toEqual(result);
   });
 });
