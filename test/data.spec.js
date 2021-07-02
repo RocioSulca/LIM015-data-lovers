@@ -1,4 +1,5 @@
 import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByName } from '../src/data.js';
+
 describe('Make a new array of every sport', () => {
   it('is a function', () => {
     expect(typeof mapByKey).toBe('function');
@@ -6,6 +7,7 @@ describe('Make a new array of every sport', () => {
   it('returns an array of every sport', () => {
     const data = [{
       name: 'Luis',
+      sport:'Basketball'
     },
   {
     name: 'Mariana',
@@ -15,6 +17,7 @@ describe('Make a new array of every sport', () => {
     expect(mapByKey(data, 'sport')).toEqual(result);
   });
 });
+
 describe('Make a new array of every team', () => {
   it('is a function', () => {
     expect(typeof mapByKey).toBe('function');
@@ -28,27 +31,30 @@ describe('Make a new array of every team', () => {
       name: 'Cecil Sebastian Afrika',
       team: 'South Africa'
     }];
-    const result = ['Great Britain', 'ColombSouth Africaia'];
+    const result = ['Great Britain', 'South Africa'];
     expect(mapByKey(data, 'team')).toEqual(result);
   });
 });
+
 describe('Make a new array of every event', () => {
   it('is a function', () => {
     expect(typeof mapByKey).toBe('function');
   });
   it('returns an array of every event', () => {
     const data = [{
-      name: 'GabClarisse Agbegnenouriel',
-      event: "Judo Women's Half-Middleweight"
+      name: 'Carla',
+      event: 'Volleyball Womens Volleyball'
     },
     {
-      name: 'Christian Ahlmann',
-      event: "Equestrianism Mixed Jumping, Team"
+      name: 'Carlos',
+      event: 'Badminton Mixed Doubles'
     }];
-    const result = ["Judo Women's Half-Middleweight", "Equestrianism Mixed Jumping, Team"];
+    const result = ['Badminton Mixed Doubles', 'Volleyball Womens Volleyball'];
     expect(mapByKey(data, 'event')).toEqual(result);
   });
 });
+
+
 describe('Filter by event', () => {
   it('is a function', () => {
     expect(typeof filterByKey).toBe('function');
@@ -69,6 +75,7 @@ describe('Filter by event', () => {
     expect(filterByKey(data, 'Rowing Womens Quadruple Sculls', 'event')).toEqual(result);
   });
 });
+
 describe('Filter by male', () => {
   it('is a function', () => {
     expect(typeof filterMale).toBe('function');
@@ -86,6 +93,7 @@ describe('Filter by male', () => {
     expect(filterMale(data)).toEqual(result);
   });
 });
+
 describe('Filter by female', () => {
   it('is a function', () => {
     expect(typeof filterFemale).toBe('function');
@@ -107,42 +115,45 @@ describe('Filter by female', () => {
     expect(filterFemale(data)).toEqual(result);
   });
 });
+
 describe('Sorted by name asc', () => {
   it('is a function', () => {
     expect(typeof sortByName).toBe('function');
   });
   it('returns sorted data', () => {
     const data = [{
-      name: 'Luis'
+      name: 'luis'
     },
   {
-    name: 'Mariana'
+    name: 'mariana'
   },
   {
-    name: 'Ana'
+    name: 'ana'
   }]
-  const result = [{name: 'Ana'}, {name: 'Luis'}, {name: 'Mariana'}]
+  const result = [{name: 'ana'}, {name: 'luis'}, {name: 'mariana'}]
     expect(sortByName(data)).toEqual(result);
   });
 });
+
 describe('Sorted by name asc', () => {
   it('is a function', () => {
     expect(typeof sortByName).toBe('function');
   });
   it('returns sorted data', () => {
     const data = [{
-      name: 'Chantal Achterberg'
+      name: 'chantal achterberg'
     },
   {
-    name: 'Nicola Virginia Adams'
+    name: 'nicola virginia adams'
   },
   {
-    name: 'Chantal Achterberg'
+    name: 'chantal achterberg'
   }]
-  const result = [{name: 'Chantal Achterberg'}, {name: 'Chantal Achterberg'}, {name: 'Nicola Virginia Adams'}]
+  const result = [{name: 'chantal achterberg'}, {name: 'chantal achterberg'}, {name: 'nicola virginia adams'}]
     expect(sortByName(data)).toEqual(result);
   });
 });
+
 describe('Filter by name', () => {
   it('is a function', () => {
     expect(typeof filterByName).toBe('function');

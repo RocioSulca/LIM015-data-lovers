@@ -1,5 +1,6 @@
 import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByName } from './data.js';
 import data from './data/athletes/athletes.js';
+
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
 const athletesData = data.athletes;
@@ -99,9 +100,11 @@ function includingAllFilters() {
 selectSport.addEventListener("change", includingAllFilters);
 selectFemale.addEventListener("change", includingAllFilters);
 selectMale.addEventListener("change", includingAllFilters);
+
 // creando lista de paises dentro de select
 let selectCountry = document.getElementById("country");
 listOfOptions(selectCountry, countries);
+
 // Filtrando por pais
 selectCountry.addEventListener("change", () => {
     const countryValue = selectCountry.value;
@@ -111,21 +114,25 @@ selectCountry.addEventListener("change", () => {
 // creando lista de medallas dentro de select
 let selectMedal = document.getElementById("medals");
 listOfOptions(selectMedal, medals);
+
 // Filtrando por medallas
 selectMedal.addEventListener("change", () => {
     const medalValue = selectMedal.value;
     const filtrandoPorMedallas = filterByKey(athletesData, medalValue, "medal");
     showAthletes(filtrandoPorMedallas);
 });
+
 // creando lista de eventos dentro de select
 let selectEvent = document.getElementById("event");
 listOfOptions(selectEvent, events);
+
 // Filtrando por eventos
 selectEvent.addEventListener("change", () => {
     const eventValue = selectEvent.value;
     const filtrandoPorEventos = filterByKey(athletesData, eventValue, "event");
     showAthletes(filtrandoPorEventos);
 });
+
 //Ordenar por alfabeticamente A-Z
 selectOrderAZ.addEventListener("click", () => {
     const sortingByName = sortByName(athletesData);
@@ -147,7 +154,8 @@ searcher.addEventListener("input", () => {
         allAthletes.innerHTML = "";
         showAthletes(filteredNames);
     }
-})
+});
+
 navToggle.addEventListener("click", () => {
     navMenu.classList.toggle("nav-menu_visible");
     if (navMenu.classList.contains("nav-menu_visible")) {
