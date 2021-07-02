@@ -16,3 +16,23 @@ export const filterFemale = (data) => {
 export const filterMale = (data) => {
     return data.filter(athletes => athletes.gender.includes('M'));
 };
+
+// funcion para ordenar Z-A
+export const sortByName = (data) => {
+    let final = '';
+    final = data.sort(function(a, b) {
+        if (a.name > b.name) {
+            return 1;
+        }
+        if (a.name < b.name) {
+            return -1;
+        }
+        // a es igual que b
+        return 0;
+    })
+    return final
+}
+
+export const filterByName = (data, condition) => {
+    return data.filter(athletes => athletes.name.toLowerCase().includes(condition));
+}

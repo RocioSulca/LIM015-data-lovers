@@ -1,38 +1,9 @@
-import { mapByKey, filterByKey, filterMale, filterFemale } from './data.js';
+import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByName } from './data.js';
 import data from './data/athletes/athletes.js';
 
 
 const navToggle = document.querySelector(".nav-toggle");
 const navMenu = document.querySelector(".nav-menu");
-
-navToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("nav-menu_visible");
-
-    if (navMenu.classList.contains("nav-menu_visible")) {
-        navToggle.setAttribute("aria-label", "Cerrar menú");
-    } else {
-        navToggle.setAttribute("aria-label", "Abrir menú");
-    }
-});
-
-document.getElementById("athletes").addEventListener("click", () => {
-    document.getElementById("firstScreen").style.display = "none";
-    document.getElementById("secondScreen").style.display = "block";
-    document.getElementById("thirdScreen").style.display = "none";
-
-    allAthletes.innerHTML = ''
-    showAthletes(athletesData);
-});
-document.getElementById("countries").addEventListener("click", () => {
-    document.getElementById("firstScreen").style.display = "none";
-    document.getElementById("secondScreen").style.display = "none";
-    document.getElementById("thirdScreen").style.display = "block";
-});
-document.getElementById("home").addEventListener("click", () => {
-    document.getElementById("secondScreen").style.display = "none";
-    document.getElementById("thirdScreen").style.display = "none";
-    document.getElementById("firstScreen").style.display = "block";
-});
 
 
 const athletesData = data.athletes;
@@ -43,6 +14,8 @@ const selectSport = document.getElementById("sport");
 
 const selectFemale = document.getElementById("check-female");
 const selectMale = document.getElementById("check-male");
+const selectOrderAZ = document.getElementById("a-z");
+const selectOrderZA = document.getElementById("z-a");
 
 
 const showAthletes = (data) => {
@@ -69,7 +42,7 @@ const showAthletes = (data) => {
                 boxModal.setAttribute('id', 'box-modal');
                 boxModal.setAttribute('class', 'box-modal');
                 infoAthlete = `<div class="athlete">
-        <span class="close" id="close">X</span>
+        <span class="close" id="close">x</span>
         <img src = ${athletes.genero === 'F' ? './img/avatarFem.png' : './img/avatarMal.png'} class="avatar2">
         <p class="name-modal">${athletes.name}</p>
         <table>
@@ -127,11 +100,11 @@ function includingAllFilters() {
     const filteredSports = filterByKey(athletesData, sportOption, 'sport');
     let filteredData = filterByKey(filteredSports, sportOption, 'sport');
 
-    if (selectMale.checked && !selectFemale.checked) {
-        filteredData = filterMale(filteredData);
-    }
     if (selectFemale.checked && !selectMale.checked) {
         filteredData = filterFemale(filteredData);
+    }
+    if (selectMale.checked && !selectFemale.checked) {
+        filteredData = filterMale(filteredData);
     }
 
     showAthletes(filteredData);
@@ -141,3 +114,60 @@ function includingAllFilters() {
 selectSport.addEventListener("change", includingAllFilters);
 selectFemale.addEventListener("change", includingAllFilters);
 selectMale.addEventListener("change", includingAllFilters);
+
+//Ordenar por alfabeticamente
+selectOrderAZ.addEventListener("click", () => {
+    const sortingByName = sortByName(athletesData);
+    showAthletes(sortingByName);
+});
+
+selectOrderZA.addEventListener("click", () => {
+    const sortingByName = sortByName(athletesData).reverse();
+    showAthletes(sortingByName);
+});
+
+const searcher = document.querySelector("#search");
+searcher.addEventListener("input", () => {
+    const searchString = searcher.value.toLowerCase(); //
+    const filteredNames = filterByName(athletesData, searchString);
+    if (filteredNames.length == 0) {
+        allAthletes.textContent = "No se encontraron coincidencias. Inténtelo nuevamente.";
+    } else {
+        allAthletes.innerHTML = "";
+        showAthletes(filteredNames);
+    }
+})
+
+navToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("nav-menu_visible");
+
+    if (navMenu.classList.contains("nav-menu_visible")) {
+        navToggle.setAttribute("aria-label", "Cerrar menú");
+    } else {
+        navToggle.setAttribute("aria-label", "Abrir menú");
+    }
+});
+
+document.getElementById("athletes").addEventListener("click", () => {
+    document.getElementById("firstScreen").style.display = "none";
+    document.getElementById("secondScreen").style.display = "block";
+    document.getElementById("thirdScreen").style.display = "none";
+
+    allAthletes.innerHTML = ''
+    showAthletes(athletesData);
+});
+
+
+document.getElementById("countries").addEventListener("click", () => {
+    document.getElementById("firstScreen").style.display = "none";
+    document.getElementById("secondScreen").style.display = "none";
+    document.getElementById("thirdScreen").style.display = "block";
+
+
+});
+
+document.getElementById("home").addEventListener("click", () => {
+    document.getElementById("secondScreen").style.display = "none";
+    document.getElementById("thirdScreen").style.display = "none";
+    document.getElementById("firstScreen").style.display = "block";
+});
