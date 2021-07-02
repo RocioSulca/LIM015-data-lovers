@@ -31,16 +31,17 @@ export const sortByNameAZ = (data) => {
         // a must be equal to b
         return 0;
     });
-    return final
+    return final;
 };
 
 // Funcion para ordenar de la z-a
 export const sortByNameZA = (data) => {
     const final = data.reverse();
-    return final
+    return final;
 };
 
-export const filterByCountry = (data, country) => {
-    const filterCountry = data.filter(fill => fill.team === country);
-    return filterCountry
+// Funcion para buscar
+export const searchByName = (data, value) => {
+    return  data.filter(athletes => athletes.name.toLowerCase().includes(value));
+    
 };

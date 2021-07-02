@@ -1,5 +1,5 @@
 
-import { mapByKey, filterByKey, filterMale, filterFemale, sortByNameAZ, sortByNameZA, filterByCountry } from './data.js';
+import { mapByKey, filterByKey, filterMale, filterFemale, sortByNameAZ, sortByNameZA, searchByName } from './data.js';
 import data from './data/athletes/athletes.js';
 
 const navToggle = document.querySelector(".nav-toggle");
@@ -39,13 +39,23 @@ document.getElementById("home").addEventListener("click", () => {
 });
 
 const allAthletes = document.getElementById('allAthletes');
+
 const athletesBySports = mapByKey(athletesData, "sport");
 let sports = [...new Set(athletesBySports)];
-const selectSport = document.getElementById("sport");
 
+const athletesByEvents = mapByKey(athletesData, "event");
+let events = [...new Set(athletesByEvents)];
+
+const athletesByCountries = mapByKey(athletesData, "team");
+let countries = [...new Set(athletesByCountries)];
+
+const athletesByMedals = mapByKey(athletesData, "medal");
+let medals = [...new Set(athletesByMedals)];
+
+
+const selectSport = document.getElementById("sport");
 const selectFemale = document.getElementById("check-female");
 const selectMale = document.getElementById("check-male");
-
 
 const showAthletes = (data) => {
     allAthletes.innerHTML = '';
@@ -141,73 +151,29 @@ selectSport.addEventListener("change", includingAllFilters);
 selectFemale.addEventListener("change", includingAllFilters);
 selectMale.addEventListener("change", includingAllFilters);
 
-
-
 // creando lista de paises dentro de select
 
-const fillByCountry = athletesData.map(function (country) {
-    return country.team;
-})
-
-function onlyUnique(value, index, self) {
-    return self.indexOf(value) === index;
-}
-const unique = fillByCountry.filter(onlyUnique);
-
 let selectCountry = document.getElementById("country");
-
-(function () {
-    const countriesInOrder = unique.sort();
-    countriesInOrder.forEach((pais) => {
-        const option = document.createElement('option');
-        option.textContent = pais;
-        option.setAttribute('value', pais);
-        option.setAttribute('class', 'options');
-        selectCountry.appendChild(option);
-    });
-})();
+listOfOptions(selectCountry, countries);
 
 // Filtrando por pais
 
 selectCountry.addEventListener("change", () => {
     const countryValue = selectCountry.value;
-    const filtrandoPorPaises = filterByCountry(athletesData, countryValue);
+    const filtrandoPorPaises = filterByKey(athletesData, countryValue, "team");
     showAthletes(filtrandoPorPaises);
-
 });
 
 // creando lista de medallas dentro de select
 
-const fillByMedal = athletesData.map(function (medalla) {
-    return medalla.medal;
-})
-
-function onlyUniqueM(value, index, self) {
-    return self.indexOf(value) === index;
-}
-const uniqueM = fillByMedal.filter(onlyUniqueM);
-
 let selectMedal = document.getElementById("medals");
-
-(function () {
-    const medalsInOrder = uniqueM.sort();
-    medalsInOrder.forEach((medal) => {
-        const optionM = document.createElement('option');
-        optionM.textContent = medal;
-        optionM.setAttribute('value', medal);
-        optionM.setAttribute('class', 'options');
-        selectMedal.appendChild(optionM);
-    });
-})();
+listOfOptions(selectMedal, medals);
 
 // Filtrando por medallas
 
 selectMedal.addEventListener("change", () => {
-
-    let filtrandoPorMedallas = athletesData.filter(function (fill) {
-        return fill.medal === selectMedal.value;
-
-    })
+    const medalValue = selectMedal.value;
+    const filtrandoPorMedallas = filterByKey(athletesData, medalValue, "medal");
     showAthletes(filtrandoPorMedallas);
 });
 
@@ -219,7 +185,7 @@ ordenarAZ.addEventListener("click", () => {
     const sortingByName = sortByNameAZ(athletesData);
 
     showAthletes(sortingByName);
-})
+});
 
 // ordenar alfabeticamente Z-A
 
@@ -229,5 +195,32 @@ ordenarZA.addEventListener("click", () => {
     const sortingByName = sortByNameZA(sortByNameAZ(athletesData));
 
     showAthletes(sortingByName);
-})
+});
 
+// creando lista de eventos dentro de select
+
+let selectEvent = document.getElementById("event");
+listOfOptions(selectEvent, events);
+
+// Filtrando por eventos
+
+selectEvent.addEventListener("change", () => {
+    const eventValue = selectEvent.value;
+    const filtrandoPorEventos = filterByKey(athletesData, eventValue, "event");
+    showAthletes(filtrandoPorEventos);
+});
+
+// Filtro de busqueda
+
+let search = document.getElementById("search");
+
+search.addEventListener("keyup", () => {
+    const searching = search.value.toLowerCase(); 
+    const filteredNames = searchByName(athletesData, searching);
+    if (filteredNames.length == 0) {
+        allAthletes.textContent = "No se encontraron resultados";
+    } else {
+        allAthletes.innerHTML = "";
+        showAthletes(filteredNames);
+    }
+});
