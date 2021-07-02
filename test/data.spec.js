@@ -1,6 +1,5 @@
 import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByName } from '../src/data.js';
 
-
 describe('Make a new array of every sport', () => {
   it('is a function', () => {
     expect(typeof mapByKey).toBe('function');
@@ -9,7 +8,6 @@ describe('Make a new array of every sport', () => {
   it('returns an array of every sport', () => {
     const data = [{
       name: 'Luis',
-      sport: 'Basketball'
     },
   {
     name: 'Mariana',
