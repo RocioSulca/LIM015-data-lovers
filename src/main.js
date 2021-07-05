@@ -2,6 +2,7 @@ import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByNa
 import data from './data/athletes/athletes.js';
 
 const navToggle = document.querySelector(".nav-toggle");
+const navToggleCross = document.querySelector(".nav-toggle-cross");
 const navMenu = document.querySelector(".nav-menu");
 const athletesData = data.athletes;
 const allAthletes = document.getElementById('allAthletes');
@@ -28,7 +29,7 @@ const showAthletes = (data) => {
             const div = document.createElement('div');
             div.classList.add("box");
             info = `<img src = ${athletes.gender === 'F' ? './img/avatarFem.png' : './img/avatarMal.png'} class="avatar">
-           <li class=name>${athletes.name}</li>
+           <li class=name>${athletes.name}</li><br>
             <li class=info>${athletes.sport}</li>
             <li class=info>${athletes.event}</li>
             <li class=info>${athletes.team}</li>`;
@@ -42,7 +43,7 @@ const showAthletes = (data) => {
                 boxModal.setAttribute('class', 'box-modal');
                 infoAthlete = `<div class="athlete">
         <span class="close" id="close">x</span>
-        <img src = ${athletes.genero === 'F' ? './img/avatarFem.png' : './img/avatarMal.png'} class="avatar2">
+        <img src = ${athletes.gender === 'F' ? './img/avatarFem.png' : './img/avatarMal.png'} class="avatar2">
         <p class="name-modal">${athletes.name}</p>
         <table>
         <tr><td><p class="info-modal">Género: </p></td><td><p class="info-modal">${athletes.gender}</p></td></tr>
@@ -145,7 +146,7 @@ selectOrderZA.addEventListener("click", () => {
 });
 //Buscar por nombre
 const searcher = document.querySelector("#search");
-searcher.addEventListener("input", () => {
+searcher.addEventListener("keyup", () => {
     const searchString = searcher.value.toLowerCase(); //
     const filteredNames = filterByName(athletesData, searchString);
     if (filteredNames.length == 0) {
@@ -157,6 +158,15 @@ searcher.addEventListener("input", () => {
 });
 
 navToggle.addEventListener("click", () => {
+    navToggle.style.display = "none"
+
+
+    if(navToggle.style.display=== "block"){
+        navToggleCross.style.display = "none"
+    }else{  
+        navToggleCross.style.display= "block"
+    }
+
     navMenu.classList.toggle("nav-menu_visible");
     if (navMenu.classList.contains("nav-menu_visible")) {
         navToggle.setAttribute("aria-label", "Cerrar menú");
@@ -164,6 +174,15 @@ navToggle.addEventListener("click", () => {
         navToggle.setAttribute("aria-label", "Abrir menú");
     }
 });
+
+navToggleCross.addEventListener("click", () => {
+    navToggle.style.display = "block"
+    navToggleCross.style.display = "none"
+    navMenu.classList.toggle("nav-menu_visible");
+
+});
+
+
 document.getElementById("athletes").addEventListener("click", () => {
     document.getElementById("firstScreen").style.display = "none";
     document.getElementById("secondScreen").style.display = "block";
@@ -171,7 +190,7 @@ document.getElementById("athletes").addEventListener("click", () => {
     allAthletes.innerHTML = ''
     showAthletes(athletesData);
 });
-document.getElementById("countries").addEventListener("click", () => {
+document.getElementById("statistics").addEventListener("click", () => {
     document.getElementById("firstScreen").style.display = "none";
     document.getElementById("secondScreen").style.display = "none";
     document.getElementById("thirdScreen").style.display = "block";
