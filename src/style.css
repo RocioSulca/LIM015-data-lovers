@@ -365,7 +365,7 @@ td {
 .filter-area {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   margin: 30px;
   flex: 2;
 }
@@ -405,7 +405,7 @@ td {
     font-size: 18px;
     border-radius: 15px;
     color: #444;
-    border: 3px solid #fdc500;
+    border: 3px solid #f7610b;
     background: #fff url(img/search-icon.png) no-repeat 9px center;
     width: 60px;
     transition: all .5s; 
@@ -413,7 +413,7 @@ td {
 .search:hover {
     width: 180px;
     background-color: #fff;
-    border-color: #007f5f;
+    border-color: #2909e0;
     box-shadow: 0 0 5px #6dcff680;
 }
 

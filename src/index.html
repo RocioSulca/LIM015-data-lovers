@@ -66,79 +66,64 @@
             </ul>
         </section>
         <section id="secondScreen" style="display:none;">
-     <div class="filter-area">
+
             <div class="input-search">
                 <input id="search" class="search" type="text" placeholder="Buscar por nombre">
             </div>
+            <div class="filter-area">
+                
 
-            <div class="filter-checkbox">
-                <label class="filter__label">GENERO:</label>
-                <div class="filter__select-group__input-group">
-                    <input type="checkbox" id="check-female">
-                    <label class="filter__select-group__label">Femenino</label>
+                <div class="filter">
+                    <label class="filter__label">GENERO:</label>
+                    <div class="filter__select-group__input-group">
+                        <input type="checkbox" id="check-female">
+                        <label class="filter__select-group__label">Femenino</label>
+                    </div>
+                    <div class="filter__select-group__input-group">
+                        <input type="checkbox" id="check-male">
+                        <label class="filter__select-group__label">Masculino</label>
+                    </div>
                 </div>
-                <div class="filter__select-group__input-group">
-                    <input type="checkbox" id="check-male">
-                    <label class="filter__select-group__label">Masculino</label>
+                <div class="filter">
+                    <label class="filter__label"><strong>DEPORTE: </strong></label>
+                    <select id="sport">
+                        <option value="">All</option>
+                    </select>
                 </div>
-            </div>  
-           <div class="filter">
-            <label class="filter__label"><strong>Deporte: </strong></label>
-            <select id="sport">
-                <option value="">All</option>
-            </select>
-            </div>
-            <div class="filter">
-                <label class="filter__label"><strong>Disciplina: </strong></label>
-                <select id="event">
-                    <option value="">All</option>
-                </select>
+                <div class="filter">
+                    <label class="filter__label"><strong>DISCIPLINA: </strong></label>
+                    <select id="event">
+                        <option value="">All</option>
+                    </select>
                 </div>
-  
-  
-            <div class="order">
-                <input type="button" value="a-z" id="a-z" class="order">
-                <button id="z-a" class="order"><i class="fas fa-sort-alpha-down-alt"></i></button>
 
-            </div>
-          
-            <select id="sport" class="filter">
-                <option value="">DEPORTE</option>
-            </select>
-            <div>
-                <select id="event">
-                    <option value="">DISCIPLINA</option>
-                </select>
-            </div>
-            <br>
+                <div class="filter">
+                    <label class="filter__label">PAISES:</label>
+                    <select id="country" class="filter-select-option">
+                        <option value="" class="options" disabled selected>PAISES</option>
+                    </select>
+                </div> <br>
+                <div class="filter">
+                    <label class="filter__label">MEDALLAS:</label>
+                    <select id="medals" class="filter-select-option">
+                        <option value="" class="options">MEDALLAS</option>
+                    </select>
+                </div>
 
-            <div class="filter-select">
-                <label class="filter__label">PAISES:</label>
-                <select id="country" class="filter-select-option">
-                    <option value="" class="options" disabled selected>PAISES</option>
-                </select>
-            </div> <br>
-            <div class="filter-select">
-                <label class="filter__label">MEDALLAS:</label>
-                <select id="medals" class="filter-select-option">
-                    <option value="" class="options">MEDALLAS</option>
-                </select>
+                <div class="order">
+                    
+                    <button type="button" value="a-z" id="a-z" class="order">
+                        <i class="fas fa-sort-alpha-down"></i>
+                    </button>
+                    <button id="z-a" value="z-a" class="order">
+                        <i class="fas fa-sort-alpha-down-alt"></i>
+                    </button>
+                </div>
             </div>
-          
-           <div class="order filter">
-                <label class="filter__label"><strong>Ordenar por: </strong></label>
-                <button type="button" value="a-z" id="a-z" class="order">
-                    <i class="fas fa-sort-alpha-down"></i>
-                </button>
-                <button id="z-a" class="order">
-                  <i class="fas fa-sort-alpha-down-alt"></i>
-              </button>
-            </div>
-        </div>
 
             <div id="allAthletes" class="allAthletes"></div>
             <div id="modal-athlete" class="modal-athlete hide"></div>
-        
+
         </section>
 
         <section id="thirdScreen" style="display:none;">

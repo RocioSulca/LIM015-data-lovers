@@ -121,15 +121,15 @@ describe('Sorted by name asc', () => {
   });
   it('returns sorted data', () => {
     const data = [{
-      name: 'luis'
+      name: 'Luis'
     },
   {
     name: 'mariana'
   },
   {
-    name: 'ana'
+    name: 'Ana'
   }]
-  const result = [{name: 'ana'}, {name: 'luis'}, {name: 'mariana'}]
+  const result = [{name: 'Ana'}, {name: 'Luis'}, {name: 'mariana'}]
     expect(sortByName(data)).toEqual(result);
   });
 });
