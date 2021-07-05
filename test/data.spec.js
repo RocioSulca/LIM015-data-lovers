@@ -54,7 +54,6 @@ describe('Make a new array of every event', () => {
   });
 });
 
-
 describe('Filter by event', () => {
   it('is a function', () => {
     expect(typeof filterByKey).toBe('function');

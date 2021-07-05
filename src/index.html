@@ -24,11 +24,9 @@
             <button class="nav-toggle" aria-label="Abrir menú">
                 <i class="fas fa-bars"></i>
             </button>
-
             <button class="nav-toggle-cross" aria-label="Cerrar menú">
                 <i class="fas fa-times"></i>
             </button>
-
             <nav class="navigation">
                 <ul class="nav-menu">
                     <li><a id="athletes">ATLETAS</a></li>
@@ -68,7 +66,7 @@
             </ul>
         </section>
         <section id="secondScreen" style="display:none;">
-
+     <div class="filter-area">
             <div class="input-search">
                 <input id="search" class="search" type="text" placeholder="Buscar por nombre">
             </div>
@@ -83,12 +81,27 @@
                     <input type="checkbox" id="check-male">
                     <label class="filter__select-group__label">Masculino</label>
                 </div>
+            </div>  
+           <div class="filter">
+            <label class="filter__label"><strong>Deporte: </strong></label>
+            <select id="sport">
+                <option value="">All</option>
+            </select>
             </div>
+            <div class="filter">
+                <label class="filter__label"><strong>Disciplina: </strong></label>
+                <select id="event">
+                    <option value="">All</option>
+                </select>
+                </div>
+  
+  
             <div class="order">
                 <input type="button" value="a-z" id="a-z" class="order">
                 <button id="z-a" class="order"><i class="fas fa-sort-alpha-down-alt"></i></button>
 
             </div>
+          
             <select id="sport" class="filter">
                 <option value="">DEPORTE</option>
             </select>
@@ -111,10 +124,23 @@
                     <option value="" class="options">MEDALLAS</option>
                 </select>
             </div>
+          
+           <div class="order filter">
+                <label class="filter__label"><strong>Ordenar por: </strong></label>
+                <button type="button" value="a-z" id="a-z" class="order">
+                    <i class="fas fa-sort-alpha-down"></i>
+                </button>
+                <button id="z-a" class="order">
+                  <i class="fas fa-sort-alpha-down-alt"></i>
+              </button>
+            </div>
+        </div>
 
             <div id="allAthletes" class="allAthletes"></div>
             <div id="modal-athlete" class="modal-athlete hide"></div>
+        
         </section>
+
         <section id="thirdScreen" style="display:none;">
             <div id="">ESTADISTICAS AQUI</div>
         </section>
