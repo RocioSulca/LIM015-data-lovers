@@ -130,6 +130,20 @@ footer {
   margin-right: -10%;
 }
 
+.nav-toggle-cross {
+    color: white;
+    background: none;
+    border: none;
+    font-size: 40px;
+    padding: 0 20px;
+    line-height: 60px;
+    cursor: pointer;
+    display: none;
+    float: right;
+    padding: 5%;
+    margin-right: -10%;
+}
+
 .header a {
   text-decoration: none;
 }
@@ -204,7 +218,7 @@ footer {
   border-radius: 10%;
   margin: 1rem 1rem 1rem 1rem;
   padding: 2rem;
-  box-sizing: border-box;
+  box-sizing: border-box;    
 }
 
 .avatar {
@@ -217,15 +231,48 @@ footer {
   text-align: center;
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
-  font-weight: lighter;
+  font-weight: bold;
   color: black;
 }
 
 .info {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-family: "Open Sans", sans-serif;
   color: black;
   text-align: center;
+}
+
+.filter-checkbox {
+background-color: rgb(66, 180, 114);
+width: 300px;
+height: 30px;
+border-radius: 20px;
+padding-top: 10px;
+display: flex;
+justify-content: center;
+}
+
+.filter-select {
+background-color: rgb(66, 180, 114);
+width: 270px;
+height: 30px;
+border-radius: 20px;
+display: flex;
+align-items: center;
+padding-left: 10px;
+}
+
+.filter__select-group__input-group {
+    display: flex;
+}
+
+.filter__label {
+    font-weight: 900;
+    font-size: 110%;
+    width: 120px;
+}
+.filter-select-option {
+    width: 10em;
 }
 
 /* modal */
@@ -350,6 +397,24 @@ td {
   justify-self: center;
   font-size: 15px;
   width: 200px;
+}
+/* Boton busqueda */
+.search {
+    padding: 9px 10px 9px 32px;
+    outline: none;
+    font-size: 18px;
+    border-radius: 15px;
+    color: #444;
+    border: 3px solid #fdc500;
+    background: #fff url(img/search-icon.png) no-repeat 9px center;
+    width: 60px;
+    transition: all .5s; 
+}
+.search:hover {
+    width: 180px;
+    background-color: #fff;
+    border-color: #007f5f;
+    box-shadow: 0 0 5px #6dcff680;
 }
 
 @media only screen and (max-width: 1024px) {

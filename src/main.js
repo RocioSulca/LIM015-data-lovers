@@ -9,10 +9,9 @@ import {
 import data from "./data/athletes/athletes.js";
 
 const navToggle = document.querySelector(".nav-toggle");
-const navClose = document.querySelector(".nav-close");
+const navToggleCross = document.querySelector(".nav-toggle-cross");
 const navMenu = document.querySelector(".nav-menu");
 const athletesData = data.athletes;
-
 const allAthletes = document.getElementById("allAthletes");
 const athletesBySports = mapByKey(athletesData, "sport");
 let sports = [...new Set(athletesBySports)];
@@ -28,36 +27,32 @@ const selectMale = document.getElementById("check-male");
 const selectOrderAZ = document.getElementById("a-z");
 const selectOrderZA = document.getElementById("z-a");
 const showAthletes = (data) => {
-  allAthletes.innerHTML = "";
-  let info = "";
-  let counter = 0;
-  data.forEach((athletes) => {
-    counter++;
-    if (counter <= 48) {
-      const div = document.createElement("div");
-      div.classList.add("box");
-      info = `<img src = ${
-        athletes.gender === "F" ? "./img/avatarFem.png" : "./img/avatarMal.png"
-      } class="avatar">
-           <li class=name>${athletes.name}</li>
+
+ allAthletes.innerHTML = '';
+    let info = '';
+    let counter = 0;
+    data.forEach((athletes) => {
+        counter++;
+        if (counter <= 48) {
+            const div = document.createElement('div');
+            div.classList.add("box");
+            info = `<img src = ${athletes.gender === 'F' ? './img/avatarFem.png' : './img/avatarMal.png'} class="avatar">
+           <li class=name>${athletes.name}</li><br>
             <li class=info>${athletes.sport}</li>
             <li class=info>${athletes.event}</li>
             <li class=info>${athletes.team}</li>`;
-      allAthletes.appendChild(div);
-      div.innerHTML = info;
-      // informacion de atleta en un modal
-      const showAthleteModal = () => {
-        let infoAthlete = "";
-        const boxModal = document.createElement("div");
-        boxModal.setAttribute("id", "box-modal");
-        boxModal.setAttribute("class", "box-modal");
-        infoAthlete = `<div class="athlete">
-        <span class="close" id="close"><i class="fas fa-times"></i></span>
-        <img src = ${
-          athletes.genero === "F"
-            ? "./img/avatarFem.png"
-            : "./img/avatarMal.png"
-        } class="avatar2">
+            allAthletes.appendChild(div);
+            div.innerHTML = info;
+            // informacion de atleta en un modal
+            const showAthleteModal = () => {
+                let infoAthlete = '';
+                const boxModal = document.createElement('div');
+                boxModal.setAttribute('id', 'box-modal');
+                boxModal.setAttribute('class', 'box-modal');
+                infoAthlete = `<div class="athlete">
+        <span class="close" id="close">x</span>
+        <img src = ${athletes.gender === 'F' ? './img/avatarFem.png' : './img/avatarMal.png'} class="avatar2">
+
         <p class="name-modal">${athletes.name}</p>
         <table>
         <tr><td><p class="info-modal">Género: </p></td><td><p class="info-modal">${
@@ -177,37 +172,41 @@ selectOrderZA.addEventListener("click", () => {
 
 //Buscar por nombre
 const searcher = document.querySelector("#search");
-searcher.addEventListener("input", () => {
-  const searchString = searcher.value.toLowerCase(); //
-  const filteredNames = filterByName(athletesData, searchString);
-  if (filteredNames.length == 0) {
-    allAthletes.textContent =
-      "No se encontraron coincidencias. Inténtelo nuevamente.";
-  } else {
-    allAthletes.innerHTML = "";
-    showAthletes(filteredNames);
-  }
+
+searcher.addEventListener("keyup", () => {
+    const searchString = searcher.value.toLowerCase(); //
+    const filteredNames = filterByName(athletesData, searchString);
+    if (filteredNames.length == 0) {
+        allAthletes.textContent = "No se encontraron coincidencias. Inténtelo nuevamente.";
+    } else {
+        allAthletes.innerHTML = "";
+        showAthletes(filteredNames);
+    }
 });
 
 navToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("nav-menu_visible");
-  if (navMenu.classList.contains("nav-menu_visible")) {
-    navToggle.setAttribute("aria-label", "Cerrar menú");
-  } else {
-    navToggle.setAttribute("aria-label", "Abrir menú");
-  }
+    navToggle.style.display = "none"
+
+
+    if(navToggle.style.display=== "block"){
+        navToggleCross.style.display = "none"
+    }else{  
+        navToggleCross.style.display= "block"
+    }
+
+    navMenu.classList.toggle("nav-menu_visible");
+    if (navMenu.classList.contains("nav-menu_visible")) {
+        navToggle.setAttribute("aria-label", "Cerrar menú");
+    } else {
+        navToggle.setAttribute("aria-label", "Abrir menú");
+    }
 });
 
-navClose.addEventListener("click", () => {
-  navMenu.classList.toggle("nav-menu_visible");
-  if (navMenu.classList.contains("nav-menu_visible")) {
-    navClose.setAttribute("aria-label", "Cerrar menú");
-    navClose.style.display = "block";
-    navToggle.style.display = "none";
-  } else {
-    navClose.style.display = "none";
-    navToggle.style.display = "block";
-  }
+navToggleCross.addEventListener("click", () => {
+    navToggle.style.display = "block"
+    navToggleCross.style.display = "none"
+    navMenu.classList.toggle("nav-menu_visible");
+
 });
 
 document.getElementById("athletes").addEventListener("click", () => {
@@ -221,6 +220,7 @@ document.getElementById("statistics").addEventListener("click", () => {
   document.getElementById("firstScreen").style.display = "none";
   document.getElementById("secondScreen").style.display = "none";
   document.getElementById("thirdScreen").style.display = "block";
+
 });
 document.getElementById("home").addEventListener("click", () => {
   document.getElementById("secondScreen").style.display = "none";
