@@ -1,4 +1,5 @@
-import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByName, medalsByGender } from '../src/data.js';
+import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByName, countryByMedals, medalsByGender } from '../src/data.js';
+
 
 describe('Make a new array of every sport', () => {
   it('is a function', () => {
@@ -172,6 +173,35 @@ describe('Filter by name', () => {
 });
 
 // test de medalla por genero
+describe('Filter medals by team', () => {
+  it('is a function', () => {
+    expect(typeof countryByMedals).toBe('function');
+  });
+  it('returns filtered medals by team', () => {
+    const data = [{
+      team: 'Italy',
+      medal: 'Gold'
+    },
+    {
+      team: 'Spain',
+      medal: 'Bronze'
+    },
+    {
+      team: 'Argentina',
+      medal: 'Gold'
+    },
+    {
+      team: 'Argentina',
+      medal: 'Silver'
+    },
+    {
+      team: 'Italy',
+      medal: 'Gold'
+    }];
+    const result = 2;
+    expect(countryByMedals(data, 'Italy', 'Gold')).toEqual(result);
+  });
+});
 describe('Filter medals by gender', () => {
   it('is a function', () => {
     expect(typeof medalsByGender).toBe('function');

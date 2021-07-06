@@ -24,7 +24,6 @@
             <button class="nav-toggle" aria-label="Abrir menú">
                 <i class="fas fa-bars"></i>
             </button>
-
             <nav class="navigation">
                 <ul class="nav-menu">
                     <button class="nav-toggle-cross" aria-label="Cerrar menú">
@@ -76,23 +75,23 @@
 
                 <div class="filter">
                     <label class="filter__label">GENERO:</label>
-                    <div class="filter__select-group__input-group">
+                    <div class="filter-group">
                         <input type="checkbox" id="check-female">
-                        <label class="filter__select-group__label">Femenino</label>
+                        <label class="filter-group-label">Femenino</label>
                     </div>
-                    <div class="filter__select-group__input-group">
+                    <div class="filter-group">
                         <input type="checkbox" id="check-male">
-                        <label class="filter__select-group__label">Masculino</label>
+                        <label class="filter-group-label">Masculino</label>
                     </div>
                 </div>
                 <div class="filter">
-                    <label class="filter__label">DEPORTE:</label>
+                    <label class="filter__label">DEPORTE: </label>
                     <select id="sport">
                         <option value="">All</option>
                     </select>
                 </div>
                 <div class="filter">
-                    <label class="filter__label">DISCIPLINA:</label>
+                    <label class="filter__label">DISCIPLINA: </label>
                     <select id="event">
                         <option value="">All</option>
                     </select>
@@ -128,19 +127,38 @@
         </section>
 
         <section id="thirdScreen" style="display:none;">
-            
+            <div class="tableContainer">
             <table class="container-table">
                 <thead>
                     <tr>
-                        <th>GENERO</th>
-                        <th>TOTAL DE JUGADORES</th>
-                        <th>MEDALLAS DE ORO</th>
-                        <th>MEDALLAS DE PLATA</th>
-                        <th>MEDALLAS DE BRONCE</th>
+                        <th><strong>Género</strong></th>
+                        <th><strong>Total de jugadores</strong></th>
+                        <th><strong>Medallas de oro</strong></th>
+                        <th><strong>Medallas de plata</strong></th>
+                        <th><strong>Medallas de bronce</strong></th>
                     </tr>
                 </thead>
                 <tbody id="medalsGender"></tbody>
             </table>
+        </div>
+        <br>
+            <div class="tableContainer">
+                <table class="container-table">
+                    <thead>
+                        <tr>
+                            <th><strong>Team</strong></th>
+                            <th><strong>Gold</strong></th>
+                            <th><strong>Silver</strong></th>
+                            <th><strong>Bronze</strong></th>
+                            <th><strong>Total</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody id="bodytable">
+    
+                    </tbody>
+    
+                </table>
+            </div> 
         </section>
     </main>
     <footer>
