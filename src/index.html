@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <div class="container logo-nav-container">
@@ -22,11 +24,11 @@
             <button class="nav-toggle" aria-label="Abrir menú">
                 <i class="fas fa-bars"></i>
             </button>
-            <button class="nav-close" aria-label="Cerrar menú">
-                <i class="fas fa-times"></i>
-            </button>
             <nav class="navigation">
                 <ul class="nav-menu">
+                    <button class="nav-toggle-cross" aria-label="Cerrar menú">
+                        <i class="fas fa-times"></i>
+                    </button>
                     <li><a id="athletes">ATLETAS</a></li>
                     <li><a id="statistics">ESTADISTICAS</a></li>
                 </ul>
@@ -64,56 +66,85 @@
             </ul>
         </section>
         <section id="secondScreen" style="display:none;">
-            <div class="filter_area">
-            <input id="search" class="search" type="text" placeholder="Buscar por nombre">
-            <div class="filter__select-group__input-group">
-                <input type="checkbox" id="check-female">
-                <label class="filter__select-group__label">Femenino
-                </label>
-            </div>
 
-            <div class="filter__select-group__input-group">
-                <input type="checkbox" id="check-male">
-                <label class="filter__select-group__label">Masculino
-                </label>
+            <div class="input-search">
+                <input id="search" class="search" type="text" placeholder="Buscar por nombre">
             </div>
+            <div class="filter-area">
+                
 
-            <div class="filter">
-            <label class="filter__label"><strong>Deporte: </strong></label>
-            <select id="sport">
-                <option value="">All</option>
-            </select>
-            </div>
-
-            <div class="filter">
-                <label class="filter__label"><strong>Disciplina: </strong></label>
-                <select id="event">
-                    <option value="">All</option>
-                </select>
+                <div class="filter">
+                    <label class="filter__label">GENERO:</label>
+                    <div class="filter__select-group__input-group">
+                        <input type="checkbox" id="check-female">
+                        <label class="filter__select-group__label">Femenino</label>
+                    </div>
+                    <div class="filter__select-group__input-group">
+                        <input type="checkbox" id="check-male">
+                        <label class="filter__select-group__label">Masculino</label>
+                    </div>
+                </div>
+                <div class="filter">
+                    <label class="filter__label">DEPORTE: </label>
+                    <select id="sport">
+                        <option value="">All</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label class="filter__label">DISCIPLINA: </label>
+                    <select id="event">
+                        <option value="">All</option>
+                    </select>
                 </div>
 
-            <select id="country">
-                <option value="" class="options" disabled selected>PAISES</option>
-            </select>
-            <select id="medals">
-                <option value="">MEDALLAS</option>
-            </select>
+                <div class="filter">
+                    <label class="filter__label">PAISES:</label>
+                    <select id="country" class="filter-select-option">
+                        <option value="" class="options" disabled selected>PAISES</option>
+                    </select>
+                </div>
+                <div class="filter">
+                    <label class="filter__label">MEDALLAS:</label>
+                    <select id="medals" class="filter-select-option">
+                        <option value="" class="options">MEDALLAS</option>
+                    </select>
+                </div>
 
-            <div class="order filter">
-                <label class="filter__label"><strong>Ordenar por: </strong></label>
-                <button type="button" value="a-z" id="a-z" class="order">
-                    <i class="fas fa-sort-alpha-down"></i>
-                </button>
-                <input type="button" value="z-a" id="z-a" class="order">
+                <div class="order">
+                    
+                    <button type="button" value="a-z" id="a-z" class="order">
+                        <i class="fas fa-sort-alpha-down"></i>
+                    </button>
+                    <button id="z-a" value="z-a" class="order">
+                        <i class="fas fa-sort-alpha-down-alt"></i>
+                    </button>
+                </div>
             </div>
-        </div>
+
             <div id="allAthletes" class="allAthletes"></div>
             <div id="modal-athlete" class="modal-athlete hide"></div>
-        
+
         </section>
 
         <section id="thirdScreen" style="display:none;">
-            <div id="">ESTADISTICAS AQUI</div>
+            
+            <div class="tableContainer">
+                <table class="container-table">
+                    <thead>
+                        <tr>
+                            <td><strong>Team</strong></td>
+                            <td><strong>Gold</strong></td>
+                            <td><strong>Silver</strong></td>
+                            <td><strong>Bronze</strong></td>
+                            <td><strong>Total</strong></td>
+                        </tr>
+                    </thead>
+                    <tbody id="bodytable">
+    
+                    </tbody>
+    
+                </table>
+            </div> 
         </section>
     </main>
     <footer>
@@ -142,4 +173,5 @@
     <script src="main.js" type="module"></script>
     <script src="https://kit.fontawesome.com/7e5b2d153f.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

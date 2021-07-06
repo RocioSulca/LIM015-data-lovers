@@ -1,4 +1,4 @@
-import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByName } from '../src/data.js';
+import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByName, countryByMedals } from '../src/data.js';
 
 describe('Make a new array of every sport', () => {
   it('is a function', () => {
@@ -121,15 +121,15 @@ describe('Sorted by name asc', () => {
   });
   it('returns sorted data', () => {
     const data = [{
-      name: 'luis'
+      name: 'Luis'
     },
   {
     name: 'mariana'
   },
   {
-    name: 'ana'
+    name: 'Ana'
   }]
-  const result = [{name: 'ana'}, {name: 'luis'}, {name: 'mariana'}]
+  const result = [{name: 'Ana'}, {name: 'Luis'}, {name: 'mariana'}]
     expect(sortByName(data)).toEqual(result);
   });
 });
@@ -168,5 +168,36 @@ describe('Filter by name', () => {
     name: 'ana'
 }];
     expect(filterByName(data, 'ana')).toEqual(result);
+  });
+});
+
+// test de medalla por genero
+describe('Filter medals by team', () => {
+  it('is a function', () => {
+    expect(typeof countryByMedals).toBe('function');
+  });
+  it('returns filtered medals by team', () => {
+    const data = [{
+      team: 'Italy',
+      medal: 'Gold'
+    },
+    {
+      team: 'Spain',
+      medal: 'Bronze'
+    },
+    {
+      team: 'Argentina',
+      medal: 'Gold'
+    },
+    {
+      team: 'Argentina',
+      medal: 'Silver'
+    },
+    {
+      team: 'Italy',
+      medal: 'Gold'
+    }];
+    const result = 2;
+    expect(countryByMedals(data, 'Italy', 'Gold')).toEqual(result);
   });
 });
