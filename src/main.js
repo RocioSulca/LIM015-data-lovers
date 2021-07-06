@@ -206,15 +206,15 @@ genderFM.forEach((gender) => {
 });
 
 counter.forEach((obj) => {
-    let x = ""
+    let finalResult = ""
     const boxi = document.createElement("tr");
-    x = `<td> ${obj.Genero}</td>
+    finalResult = `<td> ${obj.Genero}</td>
     <td> ${obj.Total}</td>
     <td> ${obj.Oro}</td>
     <td>${obj.Plata}</td>
     <td>${obj.Bronce}</td>`
     medalsGender.appendChild(boxi);
-    boxi.innerHTML = x;
+    boxi.innerHTML = finalResult;
 });
 
 
