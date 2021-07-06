@@ -71,17 +71,17 @@
                 <input id="search" class="search" type="text" placeholder="Buscar por nombre">
             </div>
             <div class="filter-area">
-                
+
 
                 <div class="filter">
                     <label class="filter__label">GENERO:</label>
-                    <div class="filter__select-group__input-group">
+                    <div class="filter-group">
                         <input type="checkbox" id="check-female">
-                        <label class="filter__select-group__label">Femenino</label>
+                        <label class="filter-group-label">Femenino</label>
                     </div>
-                    <div class="filter__select-group__input-group">
+                    <div class="filter-group">
                         <input type="checkbox" id="check-male">
-                        <label class="filter__select-group__label">Masculino</label>
+                        <label class="filter-group-label">Masculino</label>
                     </div>
                 </div>
                 <div class="filter">
@@ -100,18 +100,18 @@
                 <div class="filter">
                     <label class="filter__label">PAISES:</label>
                     <select id="country" class="filter-select-option">
-                        <option value="" class="options" disabled selected>PAISES</option>
+                        <option value="" class="options" disabled selected>All</option>
                     </select>
                 </div>
                 <div class="filter">
                     <label class="filter__label">MEDALLAS:</label>
                     <select id="medals" class="filter-select-option">
-                        <option value="" class="options">MEDALLAS</option>
+                        <option value="" class="options">All</option>
                     </select>
                 </div>
 
                 <div class="order">
-                    
+
                     <button type="button" value="a-z" id="a-z" class="order">
                         <i class="fas fa-sort-alpha-down"></i>
                     </button>
@@ -127,16 +127,30 @@
         </section>
 
         <section id="thirdScreen" style="display:none;">
-            
+            <div class="tableContainer">
+            <table class="container-table">
+                <thead>
+                    <tr>
+                        <th><strong>Género</strong></th>
+                        <th><strong>Total de jugadores</strong></th>
+                        <th><strong>Medallas de oro</strong></th>
+                        <th><strong>Medallas de plata</strong></th>
+                        <th><strong>Medallas de bronce</strong></th>
+                    </tr>
+                </thead>
+                <tbody id="medalsGender"></tbody>
+            </table>
+        </div>
+        <br>
             <div class="tableContainer">
                 <table class="container-table">
                     <thead>
                         <tr>
-                            <td><strong>Team</strong></td>
-                            <td><strong>Gold</strong></td>
-                            <td><strong>Silver</strong></td>
-                            <td><strong>Bronze</strong></td>
-                            <td><strong>Total</strong></td>
+                            <th><strong>Team</strong></th>
+                            <th><strong>Gold</strong></th>
+                            <th><strong>Silver</strong></th>
+                            <th><strong>Bronze</strong></th>
+                            <th><strong>Total</strong></th>
                         </tr>
                     </thead>
                     <tbody id="bodytable">

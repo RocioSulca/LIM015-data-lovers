@@ -1,231 +1,244 @@
-  
 header {
-    background-color: #ffd200;
-    padding: 1% 2%;
-    left: 0;
-    top: 0;
-    width: 100%;
-    display: flex;
-  }
-  
-  .logo {
-    padding-left: 3%;
-    width: 30%;
-    margin: 0%;
-    align-items: center;
-  }
-  
-  .img-logo {
-    height: 20%;
-    width: 40%;
-    float: right;
-    padding-left: 2%;
-    margin-top: -5%;
-  }
-  
-  #home {
-    font-size: 40px;
-    color: white;
-    font-family: "Bebas Neue", cursive;
-    display: inline-block;
-    position: absolute;
-    cursor: pointer;
-  }
-  
-  html,
-  body {
-    margin: 0;
-    height: 100%;
-  }
-  
-  main {
-    padding-top: 3rem;
-    min-height: calc(100% - 4rem);
-    margin-right: 4%;
-    margin-left: 4%;
-  }
-  
-  footer {
-    color: black;
-    background-color: black;
-    padding: 2rem 0;
-    padding-bottom: 0;
-    width: 100%;
-    font-family: "Open Sans", sans-serif;
-    display: block;
-  }
-  
-  .navigation {
-    margin-right: -40%;
-  }
-  
-  .logo-nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  
-  .menu-icon {
-    display: none;
-  }
-  
-  .navigation ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .navigation ul li {
-    display: flex;
-  }
-  
-  .navigation ul li a {
-    display: block;
-    padding: 1rem 2rem;
-    transition: all 0.4s linear;
-    border-radius: 5px;
-    font-family: "Open Sans", sans-serif;
-  }
-  
-  .navigation ul li a:hover {
-    background-color: white;
-    cursor: pointer;
-  }
-  
-  .nav-menu {
-    display: flex;
-    margin-top: 20px;
-    margin-right: 40px;
-    list-style: none;
-  }
-  
-  /* TOGGLE */
-  
-  .nav-toggle {
-    color: white;
-    background: none;
-    border: none;
-    font-size: 40px;
-    padding: 0 20px;
-    line-height: 60px;
-    cursor: pointer;
-    display: none;
-    float: right;
-    padding: 5%;
-    margin-right: -10%;
-  }
-  
-  .nav-toggle-cross {
-      color: #ffd200;
-      background: none;
-      border: none;
-      font-size: 40px;
-      cursor: pointer;
-      display: none;
-      padding: 2%;
-      transform: translate(-350%, -25%);
-  }
-  
-  .header a {
-    text-decoration: none;
-  }
-  
-  .container {
-    width: 85%;
-    max-width: 850px;
-  }
-  
-  .container-column {
-    width: 100%;
-    align-content: center;
-    display: flex;
-  }
-  
-  .column {
-    width: 100%;
-    float: left;
-    margin-left: 5%;
-    margin-right: 5%;
-    color: #ffffff;
-    padding-bottom: 5%;
-  }
-  
-  .containerFooter {
-    background-color: yellow;
-    color: black;
-    text-align: center;
-    padding: 0.5rem 0;
-    font-size: 15px;
-  }
-  
-  .partners {
-    text-align: center;
-    font-family: "Bebas Neue", cursive;
-    font-size: 35px;
-  }
-  
-  .list-partners {
-    display: grid;
-    grid-column: content-start/content-end;
-    grid-template: [row] 1fr / repeat(24, [col] minmax(0, 103.33333px));
-    grid-gap: 1rem 20px;
-    padding: 0;
-  }
-  
-  .firstScreen .partners-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 1rem 1.5rem;
-    border-radius: 4px;
-    border: 1px solid #e5e5e5;
-    grid-column: span 6;
-  }
-  
-  #allAthletes {
-    width: 100%;
-    display: flex;
-    padding: 1rem;
-    flex-flow: wrap;
-    justify-content: space-around;
-    box-sizing: border-box;
-    list-style: none;
-    font-family: "Open Sans", sans-serif;
-  }
-  
-  .box {
-    width: 20%;
-    background-color: #36a021;
-    border-radius: 10%;
-    margin: 1rem 1rem 1rem 1rem;
-    padding: 2rem;
-    box-sizing: border-box;    
-  }
-  
-  .avatar {
-    width: 80%;
-    margin-left: 10%;
-    position: center;
-  }
-  
-  .name {
-    text-align: center;
-    font-size: 1rem;
-    font-family: "Open Sans", sans-serif;
-    font-weight: bold;
-    color: black;
-  }
-  
-  .info {
-    font-size: 0.8rem;
-    font-family: "Open Sans", sans-serif;
-    color: black;
-    text-align: center;
-  }
-  
-  .filter-checkbox {
+  background-color: #ffd200;
+  padding: 1% 2%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: flex;
+}
+
+.logo {
+  padding-left: 3%;
+  width: 30%;
+  margin: 0%;
+  align-items: center;
+}
+
+.img-logo {
+  height: 20%;
+  width: 40%;
+  float: right;
+  padding-left: 2%;
+  margin-top: -5%;
+}
+
+#home {
+  font-size: 40px;
+  color: white;
+  font-family: "Bebas Neue", cursive;
+  display: inline-block;
+  position: absolute;
+  cursor: pointer;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+main {
+  padding-top: 12rem;
+  min-height: calc(100% - 4rem);
+  margin-right: 4%;
+  margin-left: 4%;
+}
+
+footer {
+  color: black;
+  background-color: black;
+  padding: 2rem 0;
+  padding-bottom: 0;
+  width: 100%;
+  font-family: "Open Sans", sans-serif;
+  display: block;
+}
+
+.navigation {
+  margin-right: -40%;
+}
+
+.logo-nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.menu-icon {
+  display: none;
+}
+
+.navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navigation ul li {
+  display: flex;
+}
+
+.navigation ul li a {
+  display: block;
+  padding: 1rem 2rem;
+  transition: all 0.4s linear;
+  border-radius: 5px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.navigation ul li a:hover {
+  background-color: white;
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: flex;
+  margin-top: 20px;
+  margin-right: 40px;
+  list-style: none;
+}
+
+/* TOGGLE */
+
+.nav-toggle {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 40px;
+  padding: 0 20px;
+  line-height: 60px;
+  cursor: pointer;
+  display: none;
+  float: right;
+  padding: 5%;
+  margin-right: -10%;
+}
+
+.nav-close {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 40px;
+  padding: 0 20px;
+  line-height: 60px;
+  cursor: pointer;
+  display: none;
+  float: right;
+  padding: 5%;
+  margin-right: -10%;
+}
+
+.nav-toggle-cross {
+  color: #ffd200;
+  background: none;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+  display: none;
+  padding: 2%;
+  transform: translate(-350%, -25%);
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.container {
+  width: 85%;
+  max-width: 850px;
+}
+
+.container-column {
+  width: 100%;
+  align-content: center;
+  display: flex;
+}
+
+.column {
+  width: 100%;
+  float: left;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: #ffffff;
+  padding-bottom: 5%;
+}
+
+.containerFooter {
+  background-color: yellow;
+  color: black;
+  text-align: center;
+  padding: 0.5rem 0;
+  font-size: 15px;
+}
+
+.partners {
+  text-align: center;
+  font-family: "Bebas Neue", cursive;
+  font-size: 35px;
+}
+
+.list-partners {
+  display: grid;
+  grid-column: content-start/content-end;
+  grid-template: [row] 1fr / repeat(24, [col] minmax(0, 103.33333px));
+  grid-gap: 1rem 20px;
+  padding: 0;
+}
+
+.firstScreen .partners-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  border: 1px solid #e5e5e5;
+  grid-column: span 6;
+}
+
+#allAthletes {
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  flex-flow: wrap;
+  justify-content: space-around;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Open Sans", sans-serif;
+}
+
+.box {
+  width: 20%;
+  background-color: #36a021;
+  border-radius: 10%;
+  margin: 1rem 1rem 1rem 1rem;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.avatar {
+  width: 80%;
+  margin-left: 10%;
+  position: center;
+}
+
+.name {
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  color: black;
+}
+
+.info {
+  font-size: 0.8rem;
+  font-family: "Open Sans", sans-serif;
+  color: black;
+  text-align: center;
+}
+
+.filter-checkbox {
   background-color: rgb(66, 180, 114);
   width: 300px;
   height: 30px;
@@ -234,196 +247,187 @@ header {
   display: flex;
   justify-content: center;
   font-family: "Open Sans", sans-serif;
-  }
-  
-  .filter-select {
-  background-color: rgb(66, 180, 114);
-  width: 270px;
-  height: 30px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  font-family: "Open Sans", sans-serif;
-  }
-  
-  .filter__select-group__input-group {
-      display: flex;
-  }
-  
-  .filter__label {
-      font-weight: 900;
-      font-size: 110%;
-      width: 120px;
-      color: #14213D;
-      font-family: "Open Sans", sans-serif;
-  }
-  .filter-select-option {
-      width: 10em;
-      font-family: "Open Sans", sans-serif;
-  }
-  .filter__select-group__label{
-    font-family: "Open Sans", sans-serif;
-  }
-  
-  /* modal */
-  
-  .hide {
-    display: none;
-  }
-  
-  .modal-athlete {
-    padding-bottom: 2%;
-    position: absolute;
-  }
-  
-  .box-modal {
-    background-color: rgba(142, 150, 142, 0.7);
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    z-index: 1;
-    box-sizing: border-box;
-    position: fixed;
-    margin-left: -4%;
-  }
-  
-  .avatar2 {
-    width: 35%;
-    margin: 0% 0% 2% 0%;
-  }
-  
-  .athlete {
-    background-color: #36a021;
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    border-radius: 5%;
-    margin: auto;
-  }
-  
-  .close {
-    text-align: center;
-    color: black;
-    font-size: 1rem;
-    cursor: pointer;
-    align-self: flex-end;
-    margin: 3%;
-    background-color: #fdfdfd;
-    border-radius: 15%;
-    width: 9%;
-    padding: 2%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    font-family: "Open Sans", sans-serif;
-  }
-  
-  .name-modal {
-    text-align: center;
-    font-size: 1rem;
-    font-family: "Open Sans", sans-serif;
-    font-weight: lighter;
-    color: white;
-  }
-  
-  .info-modal {
-    font-size: 0.6rem;
-    font-family: "Open Sans", sans-serif;
-    color: white;
-    text-align: center;
-  }
-  
-  table {
-    border-collapse: collapse;
-    margin: 0.3%;
-  }
-  
-  td {
-    border: 1px solid white;
-    align-items: center;
-    justify-content: center;
-    padding: 0.2%;
-    box-sizing: border-box;
-  }
-  
-  .order {
-    float: right;
-    gap: 5px;
-  }
-  .filter-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 30px;
-    flex: 2;
-  }
-  
-  .filter-area input {
-    border: white;
-    border-radius: 50px;
-    font-size: 20px;
-    justify-self: center;
-  }
-  
-  .filter {
-    border-radius: 50px;
-    background-color: #ebebeb;
-    font-size: 15px;
-    padding: 20px;
-    margin: 10px 10px;
-    display: flex;
-    width: 300px;
-    justify-content: center;
-  }
-  
-  .filter__label {
-    margin-right: 10px;
-  }
-  .filter select {
-    border: white;
-    border-radius: 50px;
-    justify-self: center;
-    font-size: 15px;
-    width: 200px;
-  }
-  /* Boton busqueda */
-  .search {
-      padding: 9px 10px 9px 32px;
-      outline: none;
-      font-size: 18px;
-      border-radius: 15px;
-      color: #444;
-      border: 3px solid #f7610b;
-      background: #fff url(img/search-icon.png) no-repeat 9px center;
-      width: 60px;
-      transition: all .5s; 
-  }
-  .search:hover {
-      width: 180px;
-      background-color: #fff;
-      border-color: #2909e0;
-      box-shadow: 0 0 5px #6dcff680;
-  }
+}
 
-/* tabla de estadistica medalla por genero */
+.filter-group {
+  display: flex;
+}
+
+.filter-group-label {
+  font-family: "Open Sans", sans-serif;
+}
+
+.filter__label {
+  font-weight: 900;
+  font-size: 110%;
+  width: 99px;
+  margin-right: 10px;
+  color: #14213d;
+  font-family: "Open Sans", sans-serif;
+}
+.filter-select-option {
+  width: 10em;
+}
+
+/* modal */
+
+.hide {
+  display: none;
+}
+
+.modal-athlete {
+  padding-bottom: 2%;
+  position: absolute;
+}
+
+.box-modal {
+  background-color: rgba(142, 150, 142, 0.7);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  position: fixed;
+  margin-left: -4%;
+}
+
+.avatar2 {
+  width: 35%;
+  margin: 0% 0% 2% 0%;
+}
+
+.athlete {
+  background-color: #36a021;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 5%;
+  margin: auto;
+}
+
+.close {
+  text-align: center;
+  color: black;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: flex-end;
+  margin: 3%;
+  background-color: #fdfdfd;
+  border-radius: 15%;
+  width: 9%;
+  padding: 2%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Open Sans", sans-serif;
+}
+
+.name-modal {
+  text-align: center;
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: lighter;
+  color: white;
+}
+
+.info-modal {
+  font-size: 0.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0.3%;
+}
+
+td {
+  border: 1px solid white;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2%;
+  box-sizing: border-box;
+}
+
+.order {
+  float: right;
+  gap: 5px;
+}
+.filter-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+  flex: 2;
+}
+
+.filter-area input {
+  border: white;
+  border-radius: 50px;
+  font-size: 20px;
+  justify-self: center;
+}
+
+.filter {
+  border-radius: 50px;
+  background-color: #e5e5e5;
+  font-size: 15px;
+  padding: 20px;
+  margin: 10px 10px;
+  display: flex;
+  width: 300px;
+  justify-content: center;
+}
+
+.filter select {
+  border: white;
+  border-radius: 50px;
+  justify-self: center;
+  font-size: 15px;
+  width: 200px;
+}
+/* Boton busqueda */
+.search {
+  padding: 9px 10px 9px 32px;
+  outline: none;
+  font-size: 18px;
+  border-radius: 15px;
+  color: #444;
+  border: 3px solid #f7610b;
+  background: #fff url(img/search-icon.png) no-repeat 9px center;
+  width: 60px;
+  transition: all 0.5s;
+}
+.search:hover {
+  width: 180px;
+  background-color: #fff;
+  border-color: #2909e0;
+  box-shadow: 0 0 5px #6dcff680;
+}
+
+/*tabla de estadistica medalla por genero*/
 .container-table th {
   font-weight: bold;
   font-size: 1em;
   text-align: center;
   color: #185875;
   width: 150px;
+  font-family: "Open Sans", sans-serif;
 }
+
 .container-table td {
   text-align: center;
   font-weight: normal;
   font-size: 1em;
-   -webkit-box-shadow: 0 2px 2px -2px #0E1119;
-     -moz-box-shadow: 0 2px 2px -2px #0E1119;
-          box-shadow: 0 2px 2px -2px #0E1119;
+  font-family: "Open Sans", sans-serif;
+  -webkit-box-shadow: 0 2px 2px -2px #0e1119;
+  -moz-box-shadow: 0 2px 2px -2px #0e1119;
+  box-shadow: 0 2px 2px -2px #0e1119;
 }
+
 .container-table {
   text-align: left;
   overflow: hidden;
@@ -432,17 +436,21 @@ header {
   display: table;
   padding: 0 0 8em 0;
 }
+
 .container-table tr:hover {
-  background-color: #F8EDEB;
-   -webkit-box-shadow: 0 6px 6px -6px #E63946;
-     -moz-box-shadow: 0 6px 6px -6px #E63946;
-          box-shadow: 0 6px 6px -6px #E63946;
+  background-color: #f8edeb;
+  -webkit-box-shadow: 0 6px 6px -6px #e63946;
+  -moz-box-shadow: 0 6px 6px -6px #e63946;
+  box-shadow: 0 6px 6px -6px #e63946;
 }
+
 .container-table td:hover {
-  background-color: #FFF842;
-  color: #403E10;
+  background-color: #fff842;
+  color: #403e10;
   font-weight: bold;
-  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+
+  box-shadow: #7f7c21 -1px 1px, #7f7c21 -2px 2px, #7f7c21 -3px 3px,
+    #7f7c21 -4px 4px, #7f7c21 -5px 5px, #7f7c21 -6px 6px;
   transform: translate3d(6px, -6px, 0);
   transition-delay: 0s;
   transition-duration: 0.4s;
@@ -486,7 +494,7 @@ header {
   --square-size: 2rem;
   -webkit-box-align: center;
   align-items: center;
-  background-color: rgb(192,192,192);
+  background-color: rgb(192, 192, 192);
   border-radius: 100%;
   display: flex;
   font-size: 1rem;
@@ -524,167 +532,167 @@ header {
   padding-top: 0px;
   text-transform: capitalize;
 }
-  
-  @media only screen and (max-width: 1024px) {
-    .logo {
-      padding: 3%;
-      width: 35%;
-      margin: 0%;
-    }
-    .img-logo {
-      padding-left: 2%;
-      padding-right: 5px;
-      margin-left: 8%;
-      margin-top: -5%;
-    }
-    .navigation {
-      width: 100%;
-      margin-right: -80%;
-    }
-    .box {
-      width: 25%;
-    }
+
+@media only screen and (max-width: 1024px) {
+  .logo {
+    padding: 3%;
+    width: 35%;
+    margin: 0%;
   }
-  
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    .logo {
-      padding: 3%;
-      width: 35%;
-      margin: 0%;
-    }
-    .img-logo {
-      padding-left: 2%;
-      padding-right: 5px;
-      margin-left: 8%;
-      margin-top: -5%;
-    }
-    .navigation {
-      width: 100%;
-      margin-right: -65%;
-    }
-    .box {
-      width: 25%;
-    }
-    .athlete {
-      width: 40%;
-    }
+  .img-logo {
+    padding-left: 2%;
+    padding-right: 5px;
+    margin-left: 8%;
+    margin-top: -5%;
   }
-  
-  @media only screen and (max-width: 767px) {
-    .logo {
-      padding: 3%;
-      width: 50%;
-      margin: 0%;
-    }
-    .img-logo {
-      padding-left: 2%;
-      padding-right: 5px;
-      margin-left: 8%;
-      margin-top: -5%;
-    }
-    #home {
-      font-size: 45px;
-    }
-    .navigation {
-      width: 100%;
-    }
-    .nav-menu {
-      flex-direction: column;
-      align-items: center;
-      margin: 0;
-      background-color: white;
-      position: fixed;
-      top: 7rem;
-      width: 100%;
-      padding: 80px 0;
-      height: calc(100% - 60px);
-      overflow-y: auto;
-      left: 100%;
-      transition: left 0.3s;
-    }
-    .nav-toggle {
-      display: block;
-    }
-    .nav-menu_visible {
-      left: 0;
-    }
-    .nav-toggle:focus:not(:focus-visible) {
-      outline: none;
-    }
-    .navigation ul li a {
-      display: block;
-      padding: 0.5rem 0;
-      transition: all 0.4s linear;
-      border-radius: 5px;
-      line-height: 70px;
-    }
-    .list-partners {
-      grid-template: [row] 1fr / repeat(12, [col] minmax(0, 103.33333px));
-    }
-    .img-partner {
-      width: 90%;
-      height: 90%;
-    }
-    .box {
-      width: 100%;
-    }
-    .athlete {
-      width: 50%;
-    }
+  .navigation {
+    width: 100%;
+    margin-right: -80%;
   }
-  
-  @media only screen and (min-width: 280px) and (max-width: 479px) {
-    .logo {
-      padding: 3%;
-      width: 65%;
-      margin: 0%;
-    }
-    .img-logo {
-      padding-left: 2%;
-      padding-right: 5px;
-      margin-left: 8%;
-      margin-top: -5%;
-    }
-    #home {
-      font-size: 28px;
-    }
-    .navigation {
-      width: 100%;
-    }
-    .nav-menu {
-      flex-direction: column;
-      align-items: center;
-      margin: 0;
-      background-color: white;
-      position: fixed;
-      top: 7rem;
-      width: 100%;
-      padding: 80px 0;
-      height: calc(100% - 60px);
-      overflow-y: auto;
-      left: 100%;
-      transition: left 0.3s;
-    }
-    .nav-toggle {
-      display: block;
-    }
-    .nav-menu_visible {
-      left: 0;
-    }
-    .nav-toggle:focus:not(:focus-visible) {
-      outline: none;
-    }
-    .navigation ul li a {
-      display: block;
-      padding: 0.5rem 0;
-      transition: all 0.4s linear;
-      border-radius: 5px;
-      line-height: 70px;
-    }
-    .box {
-      width: 100%;
-    }
-    .athlete {
-      width: 50%;
-    }
+  .box {
+    width: 25%;
   }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .logo {
+    padding: 3%;
+    width: 35%;
+    margin: 0%;
+  }
+  .img-logo {
+    padding-left: 2%;
+    padding-right: 5px;
+    margin-left: 8%;
+    margin-top: -5%;
+  }
+  .navigation {
+    width: 100%;
+    margin-right: -65%;
+  }
+  .box {
+    width: 25%;
+  }
+  .athlete {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .logo {
+    padding: 3%;
+    width: 50%;
+    margin: 0%;
+  }
+  .img-logo {
+    padding-left: 2%;
+    padding-right: 5px;
+    margin-left: 8%;
+    margin-top: -5%;
+  }
+  #home {
+    font-size: 45px;
+  }
+  .navigation {
+    width: 100%;
+  }
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background-color: white;
+    position: fixed;
+    top: 7rem;
+    width: 100%;
+    padding: 80px 0;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    left: 100%;
+    transition: left 0.3s;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .nav-menu_visible {
+    left: 0;
+  }
+  .nav-toggle:focus:not(:focus-visible) {
+    outline: none;
+  }
+  .navigation ul li a {
+    display: block;
+    padding: 0.5rem 0;
+    transition: all 0.4s linear;
+    border-radius: 5px;
+    line-height: 70px;
+  }
+  .list-partners {
+    grid-template: [row] 1fr / repeat(12, [col] minmax(0, 103.33333px));
+  }
+  .img-partner {
+    width: 90%;
+    height: 90%;
+  }
+  .box {
+    width: 100%;
+  }
+  .athlete {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 280px) and (max-width: 479px) {
+  .logo {
+    padding: 3%;
+    width: 65%;
+    margin: 0%;
+  }
+  .img-logo {
+    padding-left: 2%;
+    padding-right: 5px;
+    margin-left: 8%;
+    margin-top: -5%;
+  }
+  #home {
+    font-size: 28px;
+  }
+  .navigation {
+    width: 100%;
+  }
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background-color: white;
+    position: fixed;
+    top: 7rem;
+    width: 100%;
+    padding: 80px 0;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+    left: 100%;
+    transition: left 0.3s;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .nav-menu_visible {
+    left: 0;
+  }
+  .nav-toggle:focus:not(:focus-visible) {
+    outline: none;
+  }
+  .navigation ul li a {
+    display: block;
+    padding: 0.5rem 0;
+    transition: all 0.4s linear;
+    border-radius: 5px;
+    line-height: 70px;
+  }
+  .box {
+    width: 100%;
+  }
+  .athlete {
+    width: 50%;
+  }
+}

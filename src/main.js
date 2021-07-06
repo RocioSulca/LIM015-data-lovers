@@ -6,7 +6,8 @@ import {
   sortByName,
   filterByName,
   countryByMedals,
-  sortByTotal
+  sortByTotal,
+  medalsByGender,
 } from "./data.js";
 import data from "./data/athletes/athletes.js";
 
@@ -15,14 +16,22 @@ const navToggleCross = document.querySelector(".nav-toggle-cross");
 const navMenu = document.querySelector(".nav-menu");
 const athletesData = data.athletes;
 const allAthletes = document.getElementById("allAthletes");
+const medalsGender = document.getElementById("medalsGender");
+
 const athletesBySports = mapByKey(athletesData, "sport");
 let sports = [...new Set(athletesBySports)];
+
 const athletesByEvents = mapByKey(athletesData, "event");
 let events = [...new Set(athletesByEvents)];
+
 const athletesByCountries = mapByKey(athletesData, "team");
 let countries = [...new Set(athletesByCountries)];
+
 const athletesByMedals = mapByKey(athletesData, "medal");
 let medals = [...new Set(athletesByMedals)];
+
+const athletesByGender = mapByKey(athletesData, "gender");
+let genderFM = [...new Set(athletesByGender)];
 
 const selectSport = document.getElementById("sport");
 let selectEvent = document.getElementById("event");
@@ -34,33 +43,38 @@ const selectOrderAZ = document.getElementById("a-z");
 const selectOrderZA = document.getElementById("z-a");
 
 const showAthletes = (data) => {
-
- allAthletes.innerHTML = '';
-    let info = '';
-    let counter = 0;
-    data.forEach((athletes) => {
-        counter++;
-        if (counter <= 48) {
-            const div = document.createElement('div');
-            div.classList.add("box");
-            info = `<img src = ${athletes.gender === 'F' ? './img/avatarFem.png' : './img/avatarMal.png'} class="avatar">
+  allAthletes.innerHTML = "";
+  let info = "";
+  let counter = 0;
+  data.forEach((athletes) => {
+    counter++;
+    if (counter <= 48) {
+      const div = document.createElement("div");
+      div.classList.add("box");
+      info = `<img src = ${
+        athletes.gender === "F" ? "./img/avatarFem.png" : "./img/avatarMal.png"
+      } class="avatar">
            <li class=name>${athletes.name}</li><br>
             <li class=info>${athletes.sport}</li>
             <li class=info>${athletes.event}</li>
             <li class=info>${athletes.team}</li>`;
-            allAthletes.appendChild(div);
-            div.innerHTML = info;
-            // informacion de atleta en un modal
-            const showAthleteModal = () => {
-                let infoAthlete = '';
-                const boxModal = document.createElement('div');
-                boxModal.setAttribute('id', 'box-modal');
-                boxModal.setAttribute('class', 'box-modal');
-                infoAthlete = `<div class="athlete">
-        <span class="close" id="close">x</span>
-        <img src = ${athletes.gender === 'F' ? './img/avatarFem.png' : './img/avatarMal.png'} class="avatar2">
+      allAthletes.appendChild(div);
+      div.innerHTML = info;
+      // informacion de atleta en un modal
+      const showAthleteModal = () => {
+        let infoAthlete = "";
+        const boxModal = document.createElement("div");
+        boxModal.setAttribute("id", "box-modal");
+        boxModal.setAttribute("class", "box-modal");
+        infoAthlete = `<div class="athlete">
+         <span class="close" id="close">x</span>
+         <img src = ${
+           athletes.gender === "F"
+             ? "./img/avatarFem.png"
+             : "./img/avatarMal.png"
+         } class="avatar2">
 
-        <p class="name-modal">${athletes.name}</p>
+         <p class="name-modal">${athletes.name}</p>
         <table>
         <tr><td><p class="info-modal">Género: </p></td><td><p class="info-modal">${
           athletes.gender
@@ -128,7 +142,6 @@ function includingAllFilters() {
   const eventOption = selectEvent.value;
   const medalOption = selectMedal.value;
 
-  
   const filteredSports = filterByKey(athletesData, sportOption, "sport");
   const filteredCountry = filterByKey(filteredSports, countryOption, "team");
   const filteredMedals = filterByKey(filteredCountry, medalOption, "medal");
@@ -150,7 +163,6 @@ selectEvent.addEventListener("change", includingAllFilters);
 selectFemale.addEventListener("change", includingAllFilters);
 selectMale.addEventListener("change", includingAllFilters);
 
-
 /*
 // creando lista de paises dentro de select
 let selectCountry = document.getElementById("country");
@@ -158,9 +170,9 @@ listOfOptions(selectCountry, countries);
 
 // Filtrando por pais
 selectCountry.addEventListener("change", () => {
-  const countryValue = selectCountry.value;
-  const filtrandoPorPaises = filterByKey(athletesData, countryValue, "team");
-  showAthletes(filtrandoPorPaises);
+    const countryValue = selectCountry.value;
+    const filtrandoPorPaises = filterByKey(athletesData, countryValue, "team");
+    showAthletes(filtrandoPorPaises);
 });
 // creando lista de medallas dentro de select
 let selectMedal = document.getElementById("medals");
@@ -168,9 +180,9 @@ listOfOptions(selectMedal, medals);
 
 // Filtrando por medallas
 selectMedal.addEventListener("change", () => {
-  const medalValue = selectMedal.value;
-  const filtrandoPorMedallas = filterByKey(athletesData, medalValue, "medal");
-  showAthletes(filtrandoPorMedallas);
+    const medalValue = selectMedal.value;
+    const filtrandoPorMedallas = filterByKey(athletesData, medalValue, "medal");
+    showAthletes(filtrandoPorMedallas);
 });
 
 // creando lista de eventos dentro de select
@@ -179,9 +191,9 @@ listOfOptions(selectEvent, events);
 
 // Filtrando por eventos
 selectEvent.addEventListener("change", () => {
-  const eventValue = selectEvent.value;
-  const filtrandoPorEventos = filterByKey(athletesData, eventValue, "event");
-  showAthletes(filtrandoPorEventos);
+    const eventValue = selectEvent.value;
+    const filtrandoPorEventos = filterByKey(athletesData, eventValue, "event");
+    showAthletes(filtrandoPorEventos);
 });
 */
 
@@ -200,104 +212,99 @@ selectOrderZA.addEventListener("click", () => {
 const searcher = document.querySelector("#search");
 
 searcher.addEventListener("keyup", () => {
-    const searchString = searcher.value.toLowerCase(); //
-    const filteredNames = filterByName(athletesData, searchString);
-    if (filteredNames.length == 0) {
-        allAthletes.textContent = "No se encontraron coincidencias. Inténtelo nuevamente.";
-    } else {
-        allAthletes.innerHTML = "";
-        showAthletes(filteredNames);
-    }
+  const searchString = searcher.value.toLowerCase(); //
+  const filteredNames = filterByName(athletesData, searchString);
+  if (filteredNames.length == 0) {
+    allAthletes.textContent =
+      "No se encontraron coincidencias. Inténtelo nuevamente.";
+  } else {
+    allAthletes.innerHTML = "";
+    showAthletes(filteredNames);
+  }
 });
 
-/*
 // Medallas por genero medalsByGender
-filterByMedals.innerHTML = "";
+medalsGender.innerHTML = "";
 let counter = [];
 genderFM.forEach((gender) => {
-    let gold = filterByMedals(athletesData, gender, "Gold");
-    let silver = filterByMedals(athletesData, gender, "Silver");
-    let bronze = filterByMedals(athletesData, gender, "Bronze");
-    let total = gold + silver + bronze;
-    counter.push({
-        Genero: gender,
-        Total: total,
-        Oro: gold,
-        Plata: silver,
-        Bronce: bronze
-    })
+  let gold = medalsByGender(athletesData, gender, "Gold");
+  let silver = medalsByGender(athletesData, gender, "Silver");
+  let bronze = medalsByGender(athletesData, gender, "Bronze");
+  let total = gold + silver + bronze;
+
+  counter.push({
+    Genero: gender,
+    Total: total,
+    Oro: gold,
+    Plata: silver,
+    Bronce: bronze,
+  });
 });
 counter.forEach((obj) => {
-    let x = ""
-    const boxi = document.createElement("tr");
-    x = `<td> ${obj.Genero}</td>
+  let resultFinal = "";
+  const boxi = document.createElement("tr");
+  resultFinal = `<td> ${obj.Genero}</td>
     <td> ${obj.Total}</td>
     <td> ${obj.Oro}</td>
     <td>${obj.Plata}</td>
-    <td>${obj.Bronce}</td>`
-    filterByMedals.appendChild(boxi);
-    boxi.innerHTML = x;
+    <td>${obj.Bronce}</td>`;
+  medalsGender.appendChild(boxi);
+  boxi.innerHTML = resultFinal;
 });
-*/
 
 // Medallas
 /*El forEach llena el objeto vacío que es object medals y se crean los keywords*/
 let medalsStatistics = [];
 countries.forEach((team) => {
-    let goldenMedals = countryByMedals(athletesData, team, "Gold")
-    let silverMedals = countryByMedals(athletesData, team, "Silver")
-    let bronzeMedals = countryByMedals(athletesData, team, "Bronze")
-    let total = goldenMedals + silverMedals + bronzeMedals;
+  let goldenMedals = countryByMedals(athletesData, team, "Gold");
+  let silverMedals = countryByMedals(athletesData, team, "Silver");
+  let bronzeMedals = countryByMedals(athletesData, team, "Bronze");
+  let total = goldenMedals + silverMedals + bronzeMedals;
 
-    medalsStatistics.push({
-        country: team,
-        golden: goldenMedals,
-        silver: silverMedals,
-        bronze: bronzeMedals,
-        total: total
-    })
+  medalsStatistics.push({
+    country: team,
+    golden: goldenMedals,
+    silver: silverMedals,
+    bronze: bronzeMedals,
+    total: total,
+  });
 });
 
 /*El forEach pinta la tabla con los objetos ya creados*/
-let medalsOrdered = sortByTotal(medalsStatistics, 'dsc');
+let medalsOrdered = sortByTotal(medalsStatistics, "dsc");
 
 medalsOrdered.forEach((obj) => {
-  const container = document.createElement('tr');
+  const container = document.createElement("tr");
   const table = document.getElementById("bodytable");
-  table.appendChild(container).innerHTML =
-      `<tr> 
+  table.appendChild(container).innerHTML = `<tr> 
     <td> <strong>${obj.country}</strong> 
     <td><div class="golden"><span class="styles-golden">${obj.golden}</span></div></td>
     <td><div class="silver"><span class="styles-silver">${obj.silver}</span></div></td>
     <td><div class="bronze"><span class="styles-bronze">${obj.bronze}</span></div></td>
     <td>${obj.total}</td>
-    </tr>`
-
+    </tr>`;
 });
 
 navToggle.addEventListener("click", () => {
-    navToggle.style.display = "none"
+  navToggle.style.display = "none";
+  if (navToggle.style.display === "block") {
+    navToggleCross.style.display = "none";
+  } else {
+    navToggleCross.style.display = "block";
+  }
 
-
-    if(navToggle.style.display=== "block"){
-        navToggleCross.style.display = "none"
-    }else{  
-        navToggleCross.style.display= "block"
-    }
-
-    navMenu.classList.toggle("nav-menu_visible");
-    if (navMenu.classList.contains("nav-menu_visible")) {
-        navToggle.setAttribute("aria-label", "Cerrar menú");
-    } else {
-        navToggle.setAttribute("aria-label", "Abrir menú");
-    }
+  navMenu.classList.toggle("nav-menu_visible");
+  if (navMenu.classList.contains("nav-menu_visible")) {
+    navToggle.setAttribute("aria-label", "Cerrar menú");
+  } else {
+    navToggle.setAttribute("aria-label", "Abrir menú");
+  }
 });
 
 navToggleCross.addEventListener("click", () => {
-    navToggle.style.display = "block"
-    navToggleCross.style.display = "none"
-    navMenu.classList.toggle("nav-menu_visible");
-
+  navToggle.style.display = "block";
+  //navToggleCross.style.display = "none"
+  navMenu.classList.toggle("nav-menu_visible");
 });
 
 document.getElementById("athletes").addEventListener("click", () => {
@@ -311,7 +318,6 @@ document.getElementById("statistics").addEventListener("click", () => {
   document.getElementById("firstScreen").style.display = "none";
   document.getElementById("secondScreen").style.display = "none";
   document.getElementById("thirdScreen").style.display = "block";
-
 });
 document.getElementById("home").addEventListener("click", () => {
   document.getElementById("secondScreen").style.display = "none";
