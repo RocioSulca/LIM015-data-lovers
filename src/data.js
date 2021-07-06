@@ -15,21 +15,28 @@ export const filterMale = (data) => {
 // funcion para ordenar A-Z
 export const sortByName = (data) => {
     let final = '';
-    final = data.sort(function(a, b) {
-        //const namea = a.name.toLowerCase();
-        //const nameb = b.name.toLowerCase();
-        if (a.name > b.name) {
+    final = data.sort(function (a, b) {
+        const namea = a.name.toLowerCase();
+        const nameb = b.name.toLowerCase();
+        if (namea > nameb) {
             return 1;
         }
-        if (a.name < b.name) {
+        if (namea < nameb) {
             return -1;
         }
         // a es igual que b
         return 0;
     })
-    return final
+    return final;
 };
 
 export const filterByName = (data, value) => {
     return data.filter(athletes => athletes.name.toLowerCase().includes(value));
+};
+
+// Funcion de filtrar medalla por 
+export const medalsByGender = (data, gender, medal) => {
+    let medalsG = data.filter(athletes => athletes.gender.includes(gender));
+    let genderM = medalsG.filter(medals => medals.medal.includes(medal)).length;
+    return genderM;
 };

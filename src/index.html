@@ -24,11 +24,12 @@
             <button class="nav-toggle" aria-label="Abrir menú">
                 <i class="fas fa-bars"></i>
             </button>
-            <button class="nav-toggle-cross" aria-label="Cerrar menú">
-                <i class="fas fa-times"></i>
-            </button>
+
             <nav class="navigation">
                 <ul class="nav-menu">
+                    <button class="nav-toggle-cross" aria-label="Cerrar menú">
+                        <i class="fas fa-times"></i>
+                    </button>
                     <li><a id="athletes">ATLETAS</a></li>
                     <li><a id="statistics">ESTADISTICAS</a></li>
                 </ul>
@@ -71,7 +72,7 @@
                 <input id="search" class="search" type="text" placeholder="Buscar por nombre">
             </div>
             <div class="filter-area">
-                
+
 
                 <div class="filter">
                     <label class="filter__label">GENERO:</label>
@@ -85,13 +86,13 @@
                     </div>
                 </div>
                 <div class="filter">
-                    <label class="filter__label"><strong>DEPORTE: </strong></label>
+                    <label class="filter__label">DEPORTE:</label>
                     <select id="sport">
                         <option value="">All</option>
                     </select>
                 </div>
                 <div class="filter">
-                    <label class="filter__label"><strong>DISCIPLINA: </strong></label>
+                    <label class="filter__label">DISCIPLINA:</label>
                     <select id="event">
                         <option value="">All</option>
                     </select>
@@ -100,18 +101,18 @@
                 <div class="filter">
                     <label class="filter__label">PAISES:</label>
                     <select id="country" class="filter-select-option">
-                        <option value="" class="options" disabled selected>PAISES</option>
+                        <option value="" class="options" disabled selected>All</option>
                     </select>
-                </div> <br>
+                </div>
                 <div class="filter">
                     <label class="filter__label">MEDALLAS:</label>
                     <select id="medals" class="filter-select-option">
-                        <option value="" class="options">MEDALLAS</option>
+                        <option value="" class="options">All</option>
                     </select>
                 </div>
 
                 <div class="order">
-                    
+
                     <button type="button" value="a-z" id="a-z" class="order">
                         <i class="fas fa-sort-alpha-down"></i>
                     </button>
@@ -127,7 +128,19 @@
         </section>
 
         <section id="thirdScreen" style="display:none;">
-            <div id="">ESTADISTICAS AQUI</div>
+            
+            <table class="container-table">
+                <thead>
+                    <tr>
+                        <th>GENERO</th>
+                        <th>TOTAL DE JUGADORES</th>
+                        <th>MEDALLAS DE ORO</th>
+                        <th>MEDALLAS DE PLATA</th>
+                        <th>MEDALLAS DE BRONCE</th>
+                    </tr>
+                </thead>
+                <tbody id="medalsGender"></tbody>
+            </table>
         </section>
     </main>
     <footer>

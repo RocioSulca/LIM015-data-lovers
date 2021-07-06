@@ -1,4 +1,4 @@
-import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByName } from '../src/data.js';
+import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByName, medalsByGender } from '../src/data.js';
 
 describe('Make a new array of every sport', () => {
   it('is a function', () => {
@@ -7,13 +7,13 @@ describe('Make a new array of every sport', () => {
   it('returns an array of every sport', () => {
     const data = [{
       name: 'Luis',
-      sport:'Basketball'
+      sport: 'Basketball'
     },
-  {
-    name: 'Mariana',
-    sport: 'Taekwondo'
-  }]
-  const result = ['Basketball','Taekwondo']
+    {
+      name: 'Mariana',
+      sport: 'Taekwondo'
+    }]
+    const result = ['Basketball', 'Taekwondo']
     expect(mapByKey(data, 'sport')).toEqual(result);
   });
 });
@@ -63,14 +63,14 @@ describe('Filter by event', () => {
       name: 'Jose',
       event: 'Basketball Mens Basketball'
     },
-  {
-    name: 'Carla',
-    event: 'Rowing Womens Quadruple Sculls'
-  }];
-  const result = [{
-    name: 'Carla',
-    event: 'Rowing Womens Quadruple Sculls'
-  }];
+    {
+      name: 'Carla',
+      event: 'Rowing Womens Quadruple Sculls'
+    }];
+    const result = [{
+      name: 'Carla',
+      event: 'Rowing Womens Quadruple Sculls'
+    }];
     expect(filterByKey(data, 'Rowing Womens Quadruple Sculls', 'event')).toEqual(result);
   });
 });
@@ -84,11 +84,11 @@ describe('Filter by male', () => {
       name: 'Luis',
       gender: 'M'
     },
-  {
-    name: 'Mariana',
-    gender: 'F'
-  }]
-  const result = [{name: 'Luis', gender: 'M'}]
+    {
+      name: 'Mariana',
+      gender: 'F'
+    }]
+    const result = [{ name: 'Luis', gender: 'M' }]
     expect(filterMale(data)).toEqual(result);
   });
 });
@@ -102,15 +102,15 @@ describe('Filter by female', () => {
       name: 'Andrea',
       gender: 'F'
     },
-  {
-    name: 'Luis',
-    gender: 'M'
-  },
-  {
-    name: 'Aurora',
-    gender: 'F'
-  }];
-  const result = [{name: 'Andrea', gender: 'F'},{name: 'Aurora', gender: 'F'}]
+    {
+      name: 'Luis',
+      gender: 'M'
+    },
+    {
+      name: 'Aurora',
+      gender: 'F'
+    }];
+    const result = [{ name: 'Andrea', gender: 'F' }, { name: 'Aurora', gender: 'F' }]
     expect(filterFemale(data)).toEqual(result);
   });
 });
@@ -123,13 +123,13 @@ describe('Sorted by name asc', () => {
     const data = [{
       name: 'Luis'
     },
-  {
-    name: 'mariana'
-  },
-  {
-    name: 'Ana'
-  }]
-  const result = [{name: 'Ana'}, {name: 'Luis'}, {name: 'mariana'}]
+    {
+      name: 'mariana'
+    },
+    {
+      name: 'Ana'
+    }]
+    const result = [{ name: 'Ana' }, { name: 'Luis' }, { name: 'mariana' }]
     expect(sortByName(data)).toEqual(result);
   });
 });
@@ -142,13 +142,13 @@ describe('Sorted by name asc', () => {
     const data = [{
       name: 'chantal achterberg'
     },
-  {
-    name: 'nicola virginia adams'
-  },
-  {
-    name: 'chantal achterberg'
-  }]
-  const result = [{name: 'chantal achterberg'}, {name: 'chantal achterberg'}, {name: 'nicola virginia adams'}]
+    {
+      name: 'nicola virginia adams'
+    },
+    {
+      name: 'chantal achterberg'
+    }]
+    const result = [{ name: 'chantal achterberg' }, { name: 'chantal achterberg' }, { name: 'nicola virginia adams' }]
     expect(sortByName(data)).toEqual(result);
   });
 });
@@ -161,12 +161,44 @@ describe('Filter by name', () => {
     const data = [{
       name: 'luis'
     },
-  {
-    name: 'ana'
-  }];
-  const result = [{
-    name: 'ana'
-}];
+    {
+      name: 'ana'
+    }];
+    const result = [{
+      name: 'ana'
+    }];
     expect(filterByName(data, 'ana')).toEqual(result);
+  });
+});
+
+// test de medalla por genero
+describe('Filter medals by gender', () => {
+  it('is a function', () => {
+    expect(typeof medalsByGender).toBe('function');
+  });
+  it('returns filtered medals by gender', () => {
+    const data = [{
+      gender: 'F',
+      medal: 'Gold'
+    },
+    {
+      gender: 'M',
+      medal: 'Bronze'
+    },
+    {
+      gender: 'F',
+      medal: 'Gold'
+    },
+    {
+      gender: 'F',
+      medal: 'Silver'
+    },
+    {
+      gender: 'M',
+      medal: 'Silver'
+    }];
+    const result = 2;
+    
+    expect(medalsByGender(data, 'F', 'Gold')).toEqual(result);
   });
 });

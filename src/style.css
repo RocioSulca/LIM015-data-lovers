@@ -1,7 +1,6 @@
 header {
   background-color: #ffd200;
   padding: 1% 2%;
-  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -32,8 +31,7 @@ header {
   cursor: pointer;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   height: 100%;
 }
@@ -131,17 +129,14 @@ footer {
 }
 
 .nav-toggle-cross {
-    color: white;
-    background: none;
-    border: none;
-    font-size: 40px;
-    padding: 0 20px;
-    line-height: 60px;
-    cursor: pointer;
-    display: none;
-    float: right;
-    padding: 5%;
-    margin-right: -10%;
+  color: #ffd200;
+  background: none;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
+  display: none;
+  padding: 2%;
+  transform: translate(-350%, -25%);
 }
 
 .header a {
@@ -243,36 +238,38 @@ footer {
 }
 
 .filter-checkbox {
-background-color: rgb(66, 180, 114);
-width: 300px;
-height: 30px;
-border-radius: 20px;
-padding-top: 10px;
-display: flex;
-justify-content: center;
+  background-color: rgb(66, 180, 114);
+  width: 300px;
+  height: 30px;
+  border-radius: 20px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .filter-select {
-background-color: rgb(66, 180, 114);
-width: 270px;
-height: 30px;
-border-radius: 20px;
-display: flex;
-align-items: center;
-padding-left: 10px;
+  background-color: rgb(66, 180, 114);
+  width: 270px;
+  height: 30px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
 }
 
 .filter__select-group__input-group {
-    display: flex;
+  display: flex;
 }
 
 .filter__label {
-    font-weight: 900;
-    font-size: 110%;
-    width: 120px;
+  font-weight: 900;
+  font-size: 110%;
+  width: 99px;
+  margin-right: 10px;
+  color: #14213D;
 }
 .filter-select-option {
-    width: 10em;
+  width: 10em;
 }
 
 /* modal */
@@ -379,7 +376,7 @@ td {
 
 .filter {
   border-radius: 50px;
-  background-color: #ebebeb;
+  background-color: #E5E5E5;
   font-size: 15px;
   padding: 20px;
   margin: 10px 10px;
@@ -388,9 +385,6 @@ td {
   justify-content: center;
 }
 
-.filter__label {
-  margin-right: 10px;
-}
 .filter select {
   border: white;
   border-radius: 50px;
@@ -400,21 +394,68 @@ td {
 }
 /* Boton busqueda */
 .search {
-    padding: 9px 10px 9px 32px;
-    outline: none;
-    font-size: 18px;
-    border-radius: 15px;
-    color: #444;
-    border: 3px solid #f7610b;
-    background: #fff url(img/search-icon.png) no-repeat 9px center;
-    width: 60px;
-    transition: all .5s; 
+  padding: 9px 10px 9px 32px;
+  outline: none;
+  font-size: 18px;
+  border-radius: 15px;
+  color: #444;
+  border: 3px solid #f7610b;
+  background: #fff url(img/search-icon.png) no-repeat 9px center;
+  width: 60px;
+  transition: all .5s; 
 }
 .search:hover {
-    width: 180px;
-    background-color: #fff;
-    border-color: #2909e0;
-    box-shadow: 0 0 5px #6dcff680;
+  width: 180px;
+  background-color: #fff;
+  border-color: #2909e0;
+  box-shadow: 0 0 5px #6dcff680;
+}
+
+/*tabla de estadistica medalla por genero*/
+.container-table th {
+  font-weight: bold;
+	font-size: 1em;
+  text-align: center;
+  color: #185875;
+  width: 150px;
+}
+
+.container-table td {
+  text-align: center;
+  font-weight: normal;
+	font-size: 1em;
+   -webkit-box-shadow: 0 2px 2px -2px #0E1119;
+	   -moz-box-shadow: 0 2px 2px -2px #0E1119;
+	        box-shadow: 0 2px 2px -2px #0E1119;
+}
+
+.container-table {
+  text-align: left;
+	overflow: hidden;
+	width: 80%;
+	margin: 0 auto;
+  display: table;
+  padding: 0 0 8em 0;
+}
+
+.container-table tr:hover {
+  background-color: #f8edeb;
+   -webkit-box-shadow: 0 6px 6px -6px #e63946;
+	   -moz-box-shadow: 0 6px 6px -6px #e63946;
+	        box-shadow: 0 6px 6px -6px #e63946;
+}
+
+.container-table td:hover {
+  background-color: #FFF842;
+  color: #403E10;
+  font-weight: bold;
+  
+  box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+  transform: translate3d(6px, -6px, 0);
+  transition-delay: 0s;
+	transition-duration: 0.4s;
+	transition-property: all;
+  transition-timing-function: line;
 }
 
 @media only screen and (max-width: 1024px) {
