@@ -210,11 +210,17 @@ footer {
 
 .box {
   width: 20%;
-  background-color: #36a021;
+  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
   border-radius: 10%;
   margin: 1rem 1rem 1rem 1rem;
   padding: 2rem;
   box-sizing: border-box;
+  cursor: pointer;
+}
+
+.box:hover {
+  box-shadow: 0 0.5em 0.5em -0.4em;
+  transform: translateY(-0.5em);
 }
 
 .avatar {
@@ -352,10 +358,7 @@ td {
   box-sizing: border-box;
 }
 
-.order {
-  float: right;
-  gap: 5px;
-}
+
 .filter-area {
   display: flex;
   flex-direction: column;
@@ -379,6 +382,7 @@ td {
   margin: 10px 10px;
   display: flex;
   width: 300px;
+  height: 17px;
   justify-content: center;
 }
 
@@ -398,11 +402,10 @@ td {
   color: #444;
   border: 3px solid #f7610b;
   background: #fff url(img/search-icon.png) no-repeat 9px center;
-  width: 60px;
+  width: 180px;
   transition: all 0.5s;
 }
 .search:hover {
-  width: 180px;
   background-color: #fff;
   border-color: #2909e0;
   box-shadow: 0 0 5px #6dcff680;
@@ -414,7 +417,7 @@ td {
   font-size: 1em;
   text-align: center;
   color: #185875;
-  width: 150px;
+  width: 20%;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -429,7 +432,7 @@ td {
 }
 
 .container-table {
-  text-align: left;
+  text-align: center;
   overflow: hidden;
   width: 80%;
   margin: 0 auto;
@@ -533,6 +536,104 @@ td {
   text-transform: capitalize;
 }
 
+/*Modal de medalla por genero*/
+
+.modal-container {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 40%;
+  height: 60%;
+  background: #fff;
+  text-align: center;
+  position: relative;
+  transition: transform 1s;
+  transform: translateY(0%);
+  border-radius: 10px;
+}
+
+.modal-close {
+  transform: translateY(-200%);
+}
+
+.cerrar {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: crimson;
+  color: #e5e5e5;
+  line-height: 25px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.modal > .mychart {
+  height: 70% !important;
+  width: 70% !important;
+  transform: translate(20%, 20%);
+  
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+/*BOTONES */
+.order {
+  background: none;
+  border: 2px solid;
+  border-color: #ffa260;
+  border-radius: 20px;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.order:hover {
+  border-color: #e4cb58;
+  box-shadow: 0 0.5em 0.5em -0.4em;
+  transform: translateY(-0.25em);
+}
+
+/*Alineando barras de filtros*/
+
+.input-search {
+  display: flex;
+  justify-content: center;
+  padding-top: 0px;
+  margin-top: -120px;
+}
+
+.firstFilter {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: -15px;
+}
+
+.secondFilter {
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  margin-top: -10px;
+}
+
 @media only screen and (max-width: 1024px) {
   .logo {
     padding: 3%;
@@ -576,6 +677,11 @@ td {
   .athlete {
     width: 40%;
   }
+  .modal > .mychart {
+    height: 200px !important;
+    width: 200px !important;
+  }
+
 }
 
 @media only screen and (max-width: 767px) {
