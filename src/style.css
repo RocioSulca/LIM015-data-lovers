@@ -461,7 +461,7 @@ td {
 .golden {
   display: flex;
   grid-area: gold / gold / gold / gold;
-  transform: translate(10px, 1px);
+  transform: translate(25px, 1px);
   padding: 10%;
 }
 
@@ -486,7 +486,7 @@ td {
 .silver {
   display: flex;
   grid-area: silver / silver / silver / silver;
-  transform: translate(12px, 1px);
+  transform: translate(25px, 1px);
   padding: 10%;
 }
 
@@ -511,7 +511,7 @@ td {
 .bronze {
   display: flex;
   grid-area: bronze / bronze / bronze / bronze;
-  transform: translate(20px, 1px);
+  transform: translate(25px, 1px);
   padding: 10%;
 }
 

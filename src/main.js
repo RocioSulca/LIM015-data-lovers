@@ -285,6 +285,78 @@ medalsOrdered.forEach((obj) => {
     </tr>`;
 });
 
+// chart uno
+function totalCasesChart(ctx) {
+  const chart = new Chart(ctx, {
+      type: "bar",
+      data: {
+          labels: counter.map(item => item.Genero),
+          datasets: [
+              {
+                  label: "gold",
+                  backgroundColor: "yellow",
+                  data: counter.map(item => item.Oro),
+              },
+              {
+                  label: "silver",
+                  backgroundColor: "grey",
+                  data: counter.map(item => item.Plata),
+              },
+              {
+                  label: "bronce",
+                  backgroundColor: "brown",
+                  data: counter.map(item => item.Bronce),
+              },
+          ]
+      }
+  });
+  return totalCasesChart;
+}
+
+function renderCharts() {
+  const ctx = document.getElementById("myChart").getContext("2d");
+  totalCasesChart(ctx);
+}
+renderCharts();
+
+
+let medalsFirst = [];
+medalsOrdered.forEach((team) => {
+  if(team.total >= 113){
+    let country = team.country;
+    let total = team.total;
+
+    medalsFirst.push({
+      country: country,
+      total: total
+    })
+    }
+  });
+  console.log(medalsFirst)
+
+function medalsByCountries(ctx) {
+  const chart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: medalsFirst.map(item => item.country),
+    datasets: [
+        {
+            label: "total",
+            backgroundColor: "yellow",
+            data: medalsFirst.map(item => item.total),
+        },
+    ]
+}
+});
+  return medalsByCountries;
+}
+
+function showCharts() {
+  const ctx = document.getElementById("myBarChart").getContext("2d");
+  medalsByCountries(ctx);
+}
+showCharts();
+
 navToggle.addEventListener("click", () => {
   navToggle.style.display = "none";
   if (navToggle.style.display === "block") {
