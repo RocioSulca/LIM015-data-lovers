@@ -210,7 +210,7 @@ footer {
 
 .box {
   width: 20%;
-  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+  background-image: radial-gradient(circle at 19.03% 24.01%, #ffe2c9 0, #ffe4c7 5%, #ffe5c5 10%, #ffe7c3 15%, #fce9c3 20%, #f7eac3 25%, #f1ecc3 30%, #eceec5 35%, #e6efc7 40%, #e0f1ca 45%, #daf2cd 50%, #d4f3d1 55%, #cff4d5 60%, #c9f5da 65%, #c4f6df 70%, #c0f6e4 75%, #bcf6e9 80%, #b9f7ef 85%, #b7f7f4 90%, #b6f6f9 95%, #b5f6fe 100%);
   border-radius: 10%;
   margin: 1rem 1rem 1rem 1rem;
   padding: 2rem;
@@ -305,7 +305,7 @@ footer {
 }
 
 .athlete {
-  background-color: #36a021;
+  background-image: radial-gradient(circle at 43.84% -20.44%, #ffffff 0, #b5c9f2 50%, #4e8ad9 100%);
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -334,14 +334,14 @@ footer {
   text-align: center;
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
-  font-weight: lighter;
-  color: white;
+  font-weight: bold;
+  color: rgb(12, 12, 12);
 }
 
 .info-modal {
   font-size: 0.6rem;
   font-family: "Open Sans", sans-serif;
-  color: white;
+  color: rgb(19, 18, 18);
   text-align: center;
 }
 
@@ -397,7 +397,7 @@ td {
 .search {
   padding: 9px 10px 9px 32px;
   outline: none;
-  font-size: 18px;
+  font-size: 110%;
   border-radius: 15px;
   color: #444;
   border: 3px solid #f7610b;
@@ -412,6 +412,17 @@ td {
 }
 
 /*tabla de estadistica medalla por genero*/
+.open {
+  width: 20%;
+}
+.open:hover {
+  background-color: #ffa260;
+}
+
+.open1 {
+  margin-top: 40px;
+}
+
 .container-table th {
   font-weight: bold;
   font-size: 1em;
@@ -466,6 +477,7 @@ td {
   grid-area: gold / gold / gold / gold;
   transform: translate(10px, 1px);
   padding: 10%;
+  justify-content: center;
 }
 
 .styles-golden {
@@ -491,6 +503,7 @@ td {
   grid-area: silver / silver / silver / silver;
   transform: translate(12px, 1px);
   padding: 10%;
+  justify-content: center;
 }
 
 .styles-silver {
@@ -516,6 +529,7 @@ td {
   grid-area: bronze / bronze / bronze / bronze;
   transform: translate(20px, 1px);
   padding: 10%;
+  justify-content: center;
 }
 
 .styles-bronze {
@@ -592,7 +606,7 @@ td {
   align-items: center !important;
 }
 /*BOTONES */
-.order {
+.order, .open {
   background: none;
   border: 2px solid;
   border-color: #ffa260;
@@ -602,7 +616,7 @@ td {
   margin: 0.5em;
   padding: 1em 2em;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 110%;
 }
 
 .order:hover {
@@ -632,6 +646,22 @@ td {
   justify-content: space-between;
   width: 65%;
   margin-top: -10px;
+}
+
+/*Arreglando titulo y boton de la tercera pantalla*/
+
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: -120px;
+  margin-bottom: 50px;
+}
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -682,6 +712,24 @@ td {
     width: 200px !important;
   }
 
+  .filter-area {
+    display:flex;
+    align-items: flex-start;
+    margin: 30px;
+    flex: 2;
+  }
+  .open {
+    width: 40%;
+  }
+  .modal {
+    width: 80%;
+    height: 60%;
+  }
+  .modal > .mychart {
+    height: 70% !important;
+    width: 70% !important;
+    transform: translate(25%, 25%);
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -745,6 +793,50 @@ td {
   .athlete {
     width: 50%;
   }
+
+
+  .firstFilter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: -15px;
+    justify-content: center;
+  }
+  .order-button {
+    display:flex;
+    justify-content: center;
+  }
+  .secondFilter {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    margin-top: -10px;
+    justify-content: center;
+  }
+  .filter-area {
+    display:flex;
+    align-items: flex-start;
+    margin: 30px;
+    flex: 2;
+  }
+  .open {
+  background: none;
+  border: 2px solid;
+  border-color: #ffa260;
+  border-radius: 20px;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  cursor: pointer;
+  font-size: 90%;
+  justify-content: center;
+  width: 40%;
+  }
+  .modal {
+    width: 80%;
+    height: 60%;
+  }
 }
 
 @media only screen and (min-width: 280px) and (max-width: 479px) {
@@ -800,5 +892,76 @@ td {
   }
   .athlete {
     width: 50%;
+  }
+
+
+  .input-search {
+    display: flex;
+    justify-content: center;
+    padding-top: 0px;
+    margin-top: -120px;
+  }
+  .firstFilter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: -15px;
+    justify-content: center;
+  }
+  
+  .secondFilter {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    margin-top: -10px;
+    justify-content: center;
+  }
+  .order-button {
+    display:flex;
+    justify-content: center;
+  }
+  .filter {
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    margin-left: -15px;
+  }
+  .filter-area {
+    display:flex;
+    align-items: flex-start;
+    margin: 30px;
+    flex: 2;
+  }
+  .filter__label {
+    font-weight: 900;
+    font-size: 80%;
+    width: 99px;
+    margin-right: 10px;
+    color: #14213d;
+    font-family: "Open Sans", sans-serif;
+  }
+  .filter select {
+    border: white;
+    border-radius: 50px;
+    justify-self: center;
+    font-size: 15px;
+    width: 100%;
+  }
+  .filter-group {
+    display: flex;
+    align-items: flex-start;
+    margin-left: -10px;
+  }
+  .open {
+    justify-content: center;
+    width: 40%;
+  }
+  .modal {
+    width: 95%;
+    height: 60%;
+  }
+  h1{
+    font-size: 120%;
   }
 }

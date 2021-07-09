@@ -319,7 +319,7 @@ function renderCharts() {
 renderCharts();
 
 let close = document.querySelector(".cerrar");
-let open = document.querySelector(".abrir");
+let open = document.querySelector(".open");
 let modal = document.querySelector(".modal");
 let modalC = document.querySelector(".modal-container");
 
