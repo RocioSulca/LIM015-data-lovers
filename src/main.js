@@ -70,7 +70,7 @@ const showAthletes = (data) => {
                 boxModal.setAttribute("id", "box-modal");
                 boxModal.setAttribute("class", "box-modal");
                 infoAthlete = `<div class="athlete">
-         <span class="close" id="close">x</span>
+         <span class="close" id="close"><i class="fas fa-times"></i></span>
          <img src = ${athletes.gender === "F"
                         ? "./img/avatarFem.png"
                         : "./img/avatarMal.png"
@@ -281,67 +281,127 @@ medalsOrdered.forEach((obj) => {
     </tr>`;
 });
 
-
 // Chart de medallas por genero
 
 function totalCasesChart(ctx) {
-    new Chart(ctx, {
-        type: "bar",
-        height: 50,
-        data: {
-            labels: counter.map(item => item.Genero),
-            datasets: [
-                {
-                    label: "gold",
-                    backgroundColor: "yellow",
-                    data: counter.map(item => item.Oro),
-                },
-                {
-                    label: "silver",
-                    backgroundColor: "grey",
-                    data: counter.map(item => item.Plata),
-                },
-                {
-                    label: "bronce",
-                    backgroundColor: "brown",
-                    data: counter.map(item => item.Bronce),
-                },
-            ]
-        }
-    });
-    return totalCasesChart;
-};
+  new Chart(ctx, {
+      type: "bar",
+      height: 50,
+      data: {
+          labels: counter.map(item => item.Genero),
+          datasets: [
+              {
+                  label: "gold",
+                  backgroundColor: "yellow",
+                  data: counter.map(item => item.Oro),
+              },
+              {
+                  label: "silver",
+                  backgroundColor: "grey",
+                  data: counter.map(item => item.Plata),
+              },
+              {
+                  label: "bronce",
+                  backgroundColor: "brown",
+                  data: counter.map(item => item.Bronce),
+              },
+          ]
+      }
+  });
+  return totalCasesChart;
+}
 
 function renderCharts() {
-    const ctx = document.getElementById("myChart").getContext("2d");
-    totalCasesChart(ctx);
+  const ctx = document.getElementById("myChart").getContext("2d");
+  totalCasesChart(ctx);
 }
 renderCharts();
 
-let close = document.querySelector(".cerrar");
-let open = document.querySelector(".open");
+let close = document.querySelector(".close-estatistics");
+let open = document.querySelector(".open2");
 let modal = document.querySelector(".modal");
 let modalC = document.querySelector(".modal-container");
 
 //Abriendo modal
 
 open.addEventListener("click", () => {
-    modalC.style.opacity = "1";
-    modalC.style.visibility = "visible";
-    modal.classList.toggle("modal-close");
+  modalC.style.opacity = "1";
+  modalC.style.visibility = "visible";
+  modal.classList.toggle("modal-close");
 });
 // Cerrando el modal
 close.addEventListener("click", () => {
-    modal.classList.toggle("modal-close");
+  modal.classList.toggle("modal-close");
 
-    setTimeout(function () {
-        modalC.style.opacity = "0";
-        modalC.style.visibility = "hidden";
-    }, 600);
+  setTimeout(function () {
+      modalC.style.opacity = "0";
+      modalC.style.visibility = "hidden";
+  }, 600);
 
 });
 
 // Cambiar de pantallas
+
+
+let medalsFirst = [];
+medalsOrdered.forEach((team) => {
+  if(team.total >= 113){
+    let country = team.country;
+    let total = team.total;
+
+    medalsFirst.push({
+      country: country,
+      total: total
+    })
+    }
+  });
+
+function medalsByCountries(ctx) {
+  const chart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: medalsFirst.map(item => item.country),
+    datasets: [
+        {
+            label: "total",
+            backgroundColor: "yellow",
+            data: medalsFirst.map(item => item.total),
+        },
+    ]
+}
+});
+  return medalsByCountries;
+}
+
+function showCharts() {
+  const ctx = document.getElementById("myBarChart").getContext("2d");
+  medalsByCountries(ctx);
+}
+showCharts();
+
+let closeM = document.querySelector(".close-medals");
+let openM = document.querySelector(".open");
+let modalM = document.querySelector(".modal-medals");
+let modalCM = document.querySelector(".modal-container-medals");
+
+//Abriendo modal
+
+openM.addEventListener("click", () => {
+  modalCM.style.opacity = "1";
+  modalCM.style.visibility = "visible";
+  modalM.classList.toggle("modal-close-medals");
+});
+// Cerrando el modal
+closeM.addEventListener("click", () => {
+  modalM.classList.toggle("modal-close-medals");
+
+  setTimeout(function () {
+      modalCM.style.opacity = "0";
+      modalCM.style.visibility = "hidden";
+  }, 600);
+
+});
+
 
 navToggle.addEventListener("click", () => {
     navToggle.style.display = "none";

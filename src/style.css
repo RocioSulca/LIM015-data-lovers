@@ -1,21 +1,18 @@
 header {
   background-color: #ffd200;
-  padding: 1% 2%;
-  left: 0;
-  top: 0;
   width: 100%;
   display: flex;
+  position: fixed;
 }
 
 .logo {
-  padding-left: 3%;
-  width: 30%;
+  padding:1%;
+  width: 20%;
   margin: 0%;
   align-items: center;
 }
 
 .img-logo {
-  height: 20%;
   width: 40%;
   float: right;
   padding-left: 2%;
@@ -35,10 +32,11 @@ html,
 body {
   margin: 0;
   height: 100%;
+  width: 100%;
 }
 
 main {
-  padding-top: 12rem;
+  padding-top: 4rem;
   min-height: calc(100% - 4rem);
   margin-right: 4%;
   margin-left: 4%;
@@ -55,14 +53,13 @@ footer {
 }
 
 .navigation {
-  margin-right: -40%;
+  justify-content: flex-end;
 }
 
 .logo-nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .menu-icon {
@@ -73,6 +70,7 @@ footer {
   margin: 0;
   padding: 0;
   list-style: none;
+  width: 100%;
 }
 
 .navigation ul li {
@@ -94,9 +92,7 @@ footer {
 
 .nav-menu {
   display: flex;
-  margin-top: 20px;
-  margin-right: 40px;
-  list-style: none;
+  float: right;
 }
 
 /* TOGGLE */
@@ -136,6 +132,7 @@ footer {
   font-size: 40px;
   cursor: pointer;
   display: none;
+  margin-top: 4%;
   padding: 2%;
   transform: translate(-350%, -25%);
 }
@@ -145,8 +142,8 @@ footer {
 }
 
 .container {
-  width: 85%;
-  max-width: 850px;
+  width: 100%;
+  max-width: 95%;
 }
 
 .container-column {
@@ -210,7 +207,7 @@ footer {
 
 .box {
   width: 20%;
-  background-image: radial-gradient(circle at 19.03% 24.01%, #ffe2c9 0, #ffe4c7 5%, #ffe5c5 10%, #ffe7c3 15%, #fce9c3 20%, #f7eac3 25%, #f1ecc3 30%, #eceec5 35%, #e6efc7 40%, #e0f1ca 45%, #daf2cd 50%, #d4f3d1 55%, #cff4d5 60%, #c9f5da 65%, #c4f6df 70%, #c0f6e4 75%, #bcf6e9 80%, #b9f7ef 85%, #b7f7f4 90%, #b6f6f9 95%, #b5f6fe 100%);
+  background: linear-gradient(45deg, rgba(237,227,21,1) 6%, rgba(42,175,26,1) 94%);
   border-radius: 10%;
   margin: 1rem 1rem 1rem 1rem;
   padding: 2rem;
@@ -305,7 +302,7 @@ footer {
 }
 
 .athlete {
-  background-image: radial-gradient(circle at 43.84% -20.44%, #ffffff 0, #b5c9f2 50%, #4e8ad9 100%);
+  background: linear-gradient(45deg, rgba(237,227,21,1) 6%, rgba(42,175,26,1) 94%);
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -335,13 +332,13 @@ footer {
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
   font-weight: bold;
-  color: rgb(12, 12, 12);
+  color: black;
 }
 
 .info-modal {
   font-size: 0.6rem;
   font-family: "Open Sans", sans-serif;
-  color: rgb(19, 18, 18);
+  color: black;
   text-align: center;
 }
 
@@ -351,7 +348,7 @@ table {
 }
 
 td {
-  border: 1px solid white;
+  border: 1px solid black;
   align-items: center;
   justify-content: center;
   padding: 0.2%;
@@ -412,10 +409,16 @@ td {
 }
 
 /*tabla de estadistica medalla por genero*/
-.open {
+.table-title{
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  padding-top: 5%;
+}
+
+.open, .open2 {
   width: 20%;
 }
-.open:hover {
+.open:hover, .open2:hover {
   background-color: #ffa260;
 }
 
@@ -473,9 +476,8 @@ td {
 }
 
 .golden {
-  display: flex;
+  display: inline-flex;
   grid-area: gold / gold / gold / gold;
-  transform: translate(10px, 1px);
   padding: 10%;
   justify-content: center;
 }
@@ -499,9 +501,8 @@ td {
 }
 
 .silver {
-  display: flex;
+  display: inline-flex;
   grid-area: silver / silver / silver / silver;
-  transform: translate(12px, 1px);
   padding: 10%;
   justify-content: center;
 }
@@ -525,9 +526,8 @@ td {
 }
 
 .bronze {
-  display: flex;
+  display: inline-flex;
   grid-area: bronze / bronze / bronze / bronze;
-  transform: translate(20px, 1px);
   padding: 10%;
   justify-content: center;
 }
@@ -552,7 +552,7 @@ td {
 
 /*Modal de medalla por genero*/
 
-.modal-container {
+.modal-container, .modal-container-medals  {
   opacity: 0;
   visibility: hidden;
   position: fixed;
@@ -567,9 +567,9 @@ td {
   align-items: center;
 }
 
-.modal {
+.modal, .modal-medals {
   width: 40%;
-  height: 60%;
+  height: 80%;
   background: #fff;
   text-align: center;
   position: relative;
@@ -578,11 +578,11 @@ td {
   border-radius: 10px;
 }
 
-.modal-close {
+.modal-close, .modal-close-medals {
   transform: translateY(-200%);
 }
 
-.cerrar {
+.close-estatistics, .close-medals {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -594,9 +594,14 @@ td {
   line-height: 25px;
   cursor: pointer;
   border-radius: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Open Sans", sans-serif;
+  margin: 3%;
+  padding: 2%;
 }
 
-.modal > .mychart {
+
+.modal > .mychart, .modal-medals > .myBarChart {
   height: 70% !important;
   width: 70% !important;
   transform: translate(20%, 20%);
@@ -605,8 +610,15 @@ td {
   justify-content: center !important;
   align-items: center !important;
 }
+
+.modal-title{
+  font-family: "Open Sans", sans-serif;
+  margin: 3%;
+  padding: 2%;
+  color: black;
+}
 /*BOTONES */
-.order, .open {
+.order, .open, .open2 {
   background: none;
   border: 2px solid;
   border-color: #ffa260;
@@ -619,7 +631,7 @@ td {
   font-size: 110%;
 }
 
-.order:hover {
+.order:hover, .abrir:hover, .open:hover {
   border-color: #e4cb58;
   box-shadow: 0 0.5em 0.5em -0.4em;
   transform: translateY(-0.25em);
@@ -630,8 +642,7 @@ td {
 .input-search {
   display: flex;
   justify-content: center;
-  padding-top: 0px;
-  margin-top: -120px;
+  padding-top: 2rem;
 }
 
 .firstFilter {
@@ -650,13 +661,6 @@ td {
 
 /*Arreglando titulo y boton de la tercera pantalla*/
 
-h1 {
-  display: flex;
-  justify-content: center;
-  margin-top: -120px;
-  margin-bottom: 50px;
-}
-
 .tableContainer {
   display: flex;
   flex-direction: column;
@@ -666,22 +670,17 @@ h1 {
 
 @media only screen and (max-width: 1024px) {
   .logo {
-    padding: 3%;
-    width: 35%;
-    margin: 0%;
-  }
-  .img-logo {
-    padding-left: 2%;
-    padding-right: 5px;
-    margin-left: 8%;
-    margin-top: -5%;
+    height: 90%;
   }
   .navigation {
-    width: 100%;
-    margin-right: -80%;
+    width: 70%;
   }
   .box {
     width: 25%;
+  }
+  .modal, .modal-medals {
+    width: 50%;
+    height: 80%;
   }
 }
 
@@ -690,6 +689,7 @@ h1 {
     padding: 3%;
     width: 35%;
     margin: 0%;
+    height: 50%;
   }
   .img-logo {
     padding-left: 2%;
@@ -699,7 +699,6 @@ h1 {
   }
   .navigation {
     width: 100%;
-    margin-right: -65%;
   }
   .box {
     width: 25%;
@@ -711,17 +710,16 @@ h1 {
     height: 200px !important;
     width: 200px !important;
   }
-
   .filter-area {
     display:flex;
     align-items: flex-start;
     margin: 30px;
     flex: 2;
   }
-  .open {
+  .open, .open2 {
     width: 40%;
   }
-  .modal {
+  .modal, .modal-medals {
     width: 80%;
     height: 60%;
   }
@@ -737,6 +735,7 @@ h1 {
     padding: 3%;
     width: 50%;
     margin: 0%;
+    height: 50%;
   }
   .img-logo {
     padding-left: 2%;
@@ -756,10 +755,10 @@ h1 {
     margin: 0;
     background-color: white;
     position: fixed;
-    top: 7rem;
+    top: 3.5rem;
     width: 100%;
     padding: 80px 0;
-    height: calc(100% - 60px);
+    height: 100%;
     overflow-y: auto;
     left: 100%;
     transition: left 0.3s;
@@ -793,8 +792,6 @@ h1 {
   .athlete {
     width: 50%;
   }
-
-
   .firstFilter {
     display: flex;
     flex-direction: column;
@@ -819,7 +816,7 @@ h1 {
     margin: 30px;
     flex: 2;
   }
-  .open {
+  .open, .open2 {
   background: none;
   border: 2px solid;
   border-color: #ffa260;
@@ -833,16 +830,19 @@ h1 {
   justify-content: center;
   width: 40%;
   }
-  .modal {
+  .modal, .modal-medals {
     width: 80%;
     height: 60%;
   }
 }
 
 @media only screen and (min-width: 280px) and (max-width: 479px) {
+  .header{
+    position: fixed;
+  }
   .logo {
     padding: 3%;
-    width: 65%;
+    width: 50%;
     margin: 0%;
   }
   .img-logo {
@@ -863,10 +863,10 @@ h1 {
     margin: 0;
     background-color: white;
     position: fixed;
-    top: 7rem;
+    top: 3.5rem;
     width: 100%;
     padding: 80px 0;
-    height: calc(100% - 60px);
+    height: 100%;
     overflow-y: auto;
     left: 100%;
     transition: left 0.3s;
@@ -893,8 +893,6 @@ h1 {
   .athlete {
     width: 50%;
   }
-
-
   .input-search {
     display: flex;
     justify-content: center;
@@ -953,15 +951,12 @@ h1 {
     align-items: flex-start;
     margin-left: -10px;
   }
-  .open {
+  .open, .open2 {
     justify-content: center;
     width: 40%;
   }
-  .modal {
+  .modal, .modal-medals {
     width: 95%;
     height: 60%;
-  }
-  h1{
-    font-size: 120%;
   }
 }
