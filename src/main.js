@@ -318,7 +318,7 @@ function renderCharts() {
 renderCharts();
 
 let close = document.querySelector(".close-estatistics");
-let open = document.querySelector(".abrir");
+let open = document.querySelector(".open");
 let modal = document.querySelector(".modal");
 let modalC = document.querySelector(".modal-container");
 
@@ -339,8 +339,6 @@ close.addEventListener("click", () => {
   }, 600);
 
 });
-
-// Cambiar de pantallas
 
 
 let medalsFirst = [];
@@ -380,7 +378,7 @@ function showCharts() {
 showCharts();
 
 let closeM = document.querySelector(".close-medals");
-let openM = document.querySelector(".open");
+let openM = document.querySelector(".open2");
 let modalM = document.querySelector(".modal-medals");
 let modalCM = document.querySelector(".modal-container-medals");
 
