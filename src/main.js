@@ -318,7 +318,7 @@ function renderCharts() {
 renderCharts();
 
 let close = document.querySelector(".close-estatistics");
-let open = document.querySelector(".abrir");
+let open = document.querySelector(".open2");
 let modal = document.querySelector(".modal");
 let modalC = document.querySelector(".modal-container");
 

@@ -331,7 +331,7 @@ footer {
   text-align: center;
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
-  font-weight: lighter;
+  font-weight: bold;
   color: black;
 }
 
@@ -394,7 +394,7 @@ td {
 .search {
   padding: 9px 10px 9px 32px;
   outline: none;
-  font-size: 18px;
+  font-size: 110%;
   border-radius: 15px;
   color: #444;
   border: 3px solid #f7610b;
@@ -414,6 +414,18 @@ td {
   text-align: center;
   padding-top: 5%;
 }
+
+.open, .open2 {
+  width: 20%;
+}
+.open:hover, .open2:hover {
+  background-color: #ffa260;
+}
+
+.open1 {
+  margin-top: 40px;
+}
+
 .container-table th {
   font-weight: bold;
   font-size: 1em;
@@ -467,6 +479,7 @@ td {
   display: inline-flex;
   grid-area: gold / gold / gold / gold;
   padding: 10%;
+  justify-content: center;
 }
 
 .styles-golden {
@@ -491,6 +504,7 @@ td {
   display: inline-flex;
   grid-area: silver / silver / silver / silver;
   padding: 10%;
+  justify-content: center;
 }
 
 .styles-silver {
@@ -515,6 +529,7 @@ td {
   display: inline-flex;
   grid-area: bronze / bronze / bronze / bronze;
   padding: 10%;
+  justify-content: center;
 }
 
 .styles-bronze {
@@ -603,7 +618,7 @@ td {
   color: black;
 }
 /*BOTONES */
-.order {
+.order, .open, .open2 {
   background: none;
   border: 2px solid;
   border-color: #ffa260;
@@ -613,7 +628,7 @@ td {
   margin: 0.5em;
   padding: 1em 2em;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 110%;
 }
 
 .order:hover, .abrir:hover, .open:hover {
@@ -644,8 +659,13 @@ td {
   margin-top: -10px;
 }
 
-.abrir, .open{
-  float: right;
+/*Arreglando titulo y boton de la tercera pantalla*/
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -690,9 +710,23 @@ td {
     height: 200px !important;
     width: 200px !important;
   }
+  .filter-area {
+    display:flex;
+    align-items: flex-start;
+    margin: 30px;
+    flex: 2;
+  }
+  .open, .open2 {
+    width: 40%;
+  }
   .modal, .modal-medals {
-    width: 50%;
-    height: 80%;
+    width: 80%;
+    height: 60%;
+  }
+  .modal > .mychart {
+    height: 70% !important;
+    width: 70% !important;
+    transform: translate(25%, 25%);
   }
 }
 
@@ -758,9 +792,47 @@ td {
   .athlete {
     width: 50%;
   }
+  .firstFilter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: -15px;
+    justify-content: center;
+  }
+  .order-button {
+    display:flex;
+    justify-content: center;
+  }
+  .secondFilter {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    margin-top: -10px;
+    justify-content: center;
+  }
+  .filter-area {
+    display:flex;
+    align-items: flex-start;
+    margin: 30px;
+    flex: 2;
+  }
+  .open, .open2 {
+  background: none;
+  border: 2px solid;
+  border-color: #ffa260;
+  border-radius: 20px;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  cursor: pointer;
+  font-size: 90%;
+  justify-content: center;
+  width: 40%;
+  }
   .modal, .modal-medals {
     width: 80%;
-    height: 80%;
+    height: 60%;
   }
 }
 
@@ -821,8 +893,70 @@ td {
   .athlete {
     width: 50%;
   }
+  .input-search {
+    display: flex;
+    justify-content: center;
+    padding-top: 0px;
+    margin-top: -120px;
+  }
+  .firstFilter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: -15px;
+    justify-content: center;
+  }
+  
+  .secondFilter {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    margin-top: -10px;
+    justify-content: center;
+  }
+  .order-button {
+    display:flex;
+    justify-content: center;
+  }
+  .filter {
+    display:flex;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    margin-left: -15px;
+  }
+  .filter-area {
+    display:flex;
+    align-items: flex-start;
+    margin: 30px;
+    flex: 2;
+  }
+  .filter__label {
+    font-weight: 900;
+    font-size: 80%;
+    width: 99px;
+    margin-right: 10px;
+    color: #14213d;
+    font-family: "Open Sans", sans-serif;
+  }
+  .filter select {
+    border: white;
+    border-radius: 50px;
+    justify-self: center;
+    font-size: 15px;
+    width: 100%;
+  }
+  .filter-group {
+    display: flex;
+    align-items: flex-start;
+    margin-left: -10px;
+  }
+  .open, .open2 {
+    justify-content: center;
+    width: 40%;
+  }
   .modal, .modal-medals {
-    width: 80%;
-    height: 80%;
+    width: 95%;
+    height: 60%;
   }
 }
