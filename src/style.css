@@ -1,21 +1,18 @@
 header {
   background-color: #ffd200;
-  padding: 1% 2%;
-  left: 0;
-  top: 0;
   width: 100%;
   display: flex;
+  position: fixed;
 }
 
 .logo {
-  padding-left: 3%;
-  width: 30%;
+  padding:1%;
+  width: 20%;
   margin: 0%;
   align-items: center;
 }
 
 .img-logo {
-  height: 20%;
   width: 40%;
   float: right;
   padding-left: 2%;
@@ -35,10 +32,11 @@ html,
 body {
   margin: 0;
   height: 100%;
+  width: 100%;
 }
 
 main {
-  padding-top: 12rem;
+  padding-top: 4rem;
   min-height: calc(100% - 4rem);
   margin-right: 4%;
   margin-left: 4%;
@@ -55,14 +53,13 @@ footer {
 }
 
 .navigation {
-  margin-right: -40%;
+  justify-content: flex-end;
 }
 
 .logo-nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .menu-icon {
@@ -73,6 +70,7 @@ footer {
   margin: 0;
   padding: 0;
   list-style: none;
+  width: 100%;
 }
 
 .navigation ul li {
@@ -94,9 +92,7 @@ footer {
 
 .nav-menu {
   display: flex;
-  margin-top: 20px;
-  margin-right: 40px;
-  list-style: none;
+  float: right;
 }
 
 /* TOGGLE */
@@ -136,6 +132,7 @@ footer {
   font-size: 40px;
   cursor: pointer;
   display: none;
+  margin-top: 4%;
   padding: 2%;
   transform: translate(-350%, -25%);
 }
@@ -145,8 +142,8 @@ footer {
 }
 
 .container {
-  width: 85%;
-  max-width: 850px;
+  width: 100%;
+  max-width: 95%;
 }
 
 .container-column {
@@ -210,11 +207,17 @@ footer {
 
 .box {
   width: 20%;
-  background-color: #36a021;
+  background: linear-gradient(45deg, rgba(237,227,21,1) 6%, rgba(42,175,26,1) 94%);
   border-radius: 10%;
   margin: 1rem 1rem 1rem 1rem;
   padding: 2rem;
   box-sizing: border-box;
+  cursor: pointer;
+}
+
+.box:hover {
+  box-shadow: 0 0.5em 0.5em -0.4em;
+  transform: translateY(-0.5em);
 }
 
 .avatar {
@@ -299,7 +302,7 @@ footer {
 }
 
 .athlete {
-  background-color: #36a021;
+  background: linear-gradient(45deg, rgba(237,227,21,1) 6%, rgba(42,175,26,1) 94%);
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -329,13 +332,13 @@ footer {
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
-  color: white;
+  color: black;
 }
 
 .info-modal {
   font-size: 0.6rem;
   font-family: "Open Sans", sans-serif;
-  color: white;
+  color: black;
   text-align: center;
 }
 
@@ -345,17 +348,14 @@ table {
 }
 
 td {
-  border: 1px solid white;
+  border: 1px solid black;
   align-items: center;
   justify-content: center;
   padding: 0.2%;
   box-sizing: border-box;
 }
 
-.order {
-  float: right;
-  gap: 5px;
-}
+
 .filter-area {
   display: flex;
   flex-direction: column;
@@ -379,6 +379,7 @@ td {
   margin: 10px 10px;
   display: flex;
   width: 300px;
+  height: 17px;
   justify-content: center;
 }
 
@@ -398,23 +399,27 @@ td {
   color: #444;
   border: 3px solid #f7610b;
   background: #fff url(img/search-icon.png) no-repeat 9px center;
-  width: 60px;
+  width: 180px;
   transition: all 0.5s;
 }
 .search:hover {
-  width: 180px;
   background-color: #fff;
   border-color: #2909e0;
   box-shadow: 0 0 5px #6dcff680;
 }
 
 /*tabla de estadistica medalla por genero*/
+.table-title{
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  padding-top: 5%;
+}
 .container-table th {
   font-weight: bold;
   font-size: 1em;
   text-align: center;
   color: #185875;
-  width: 150px;
+  width: 20%;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -429,7 +434,7 @@ td {
 }
 
 .container-table {
-  text-align: left;
+  text-align: center;
   overflow: hidden;
   width: 80%;
   margin: 0 auto;
@@ -459,9 +464,8 @@ td {
 }
 
 .golden {
-  display: flex;
+  display: inline-flex;
   grid-area: gold / gold / gold / gold;
-  transform: translate(25px, 1px);
   padding: 10%;
 }
 
@@ -484,9 +488,8 @@ td {
 }
 
 .silver {
-  display: flex;
+  display: inline-flex;
   grid-area: silver / silver / silver / silver;
-  transform: translate(25px, 1px);
   padding: 10%;
 }
 
@@ -509,9 +512,8 @@ td {
 }
 
 .bronze {
-  display: flex;
+  display: inline-flex;
   grid-area: bronze / bronze / bronze / bronze;
-  transform: translate(25px, 1px);
   padding: 10%;
 }
 
@@ -533,24 +535,132 @@ td {
   text-transform: capitalize;
 }
 
+/*Modal de medalla por genero*/
+
+.modal-container, .modal-container-medals  {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal, .modal-medals {
+  width: 40%;
+  height: 80%;
+  background: #fff;
+  text-align: center;
+  position: relative;
+  transition: transform 1s;
+  transform: translateY(0%);
+  border-radius: 10px;
+}
+
+.modal-close, .modal-close-medals {
+  transform: translateY(-200%);
+}
+
+.close-estatistics, .close-medals {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: crimson;
+  color: #e5e5e5;
+  line-height: 25px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Open Sans", sans-serif;
+  margin: 3%;
+  padding: 2%;
+}
+
+
+.modal > .mychart, .modal-medals > .myBarChart {
+  height: 70% !important;
+  width: 70% !important;
+  transform: translate(20%, 20%);
+  
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.modal-title{
+  font-family: "Open Sans", sans-serif;
+  margin: 3%;
+  padding: 2%;
+  color: black;
+}
+/*BOTONES */
+.order {
+  background: none;
+  border: 2px solid;
+  border-color: #ffa260;
+  border-radius: 20px;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.order:hover, .abrir:hover, .open:hover {
+  border-color: #e4cb58;
+  box-shadow: 0 0.5em 0.5em -0.4em;
+  transform: translateY(-0.25em);
+}
+
+/*Alineando barras de filtros*/
+
+.input-search {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.firstFilter {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: -15px;
+}
+
+.secondFilter {
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  margin-top: -10px;
+}
+
+.abrir, .open{
+  float: right;
+}
+
 @media only screen and (max-width: 1024px) {
   .logo {
-    padding: 3%;
-    width: 35%;
-    margin: 0%;
-  }
-  .img-logo {
-    padding-left: 2%;
-    padding-right: 5px;
-    margin-left: 8%;
-    margin-top: -5%;
+    height: 90%;
   }
   .navigation {
-    width: 100%;
-    margin-right: -80%;
+    width: 70%;
   }
   .box {
     width: 25%;
+  }
+  .modal, .modal-medals {
+    width: 50%;
+    height: 80%;
   }
 }
 
@@ -559,6 +669,7 @@ td {
     padding: 3%;
     width: 35%;
     margin: 0%;
+    height: 50%;
   }
   .img-logo {
     padding-left: 2%;
@@ -568,13 +679,20 @@ td {
   }
   .navigation {
     width: 100%;
-    margin-right: -65%;
   }
   .box {
     width: 25%;
   }
   .athlete {
     width: 40%;
+  }
+  .modal > .mychart {
+    height: 200px !important;
+    width: 200px !important;
+  }
+  .modal, .modal-medals {
+    width: 50%;
+    height: 80%;
   }
 }
 
@@ -583,6 +701,7 @@ td {
     padding: 3%;
     width: 50%;
     margin: 0%;
+    height: 50%;
   }
   .img-logo {
     padding-left: 2%;
@@ -602,10 +721,10 @@ td {
     margin: 0;
     background-color: white;
     position: fixed;
-    top: 7rem;
+    top: 3.5rem;
     width: 100%;
     padding: 80px 0;
-    height: calc(100% - 60px);
+    height: 100%;
     overflow-y: auto;
     left: 100%;
     transition: left 0.3s;
@@ -639,12 +758,19 @@ td {
   .athlete {
     width: 50%;
   }
+  .modal, .modal-medals {
+    width: 80%;
+    height: 80%;
+  }
 }
 
 @media only screen and (min-width: 280px) and (max-width: 479px) {
+  .header{
+    position: fixed;
+  }
   .logo {
     padding: 3%;
-    width: 65%;
+    width: 50%;
     margin: 0%;
   }
   .img-logo {
@@ -665,10 +791,10 @@ td {
     margin: 0;
     background-color: white;
     position: fixed;
-    top: 7rem;
+    top: 3.5rem;
     width: 100%;
     padding: 80px 0;
-    height: calc(100% - 60px);
+    height: 100%;
     overflow-y: auto;
     left: 100%;
     transition: left 0.3s;
@@ -694,5 +820,9 @@ td {
   }
   .athlete {
     width: 50%;
+  }
+  .modal, .modal-medals {
+    width: 80%;
+    height: 80%;
   }
 }

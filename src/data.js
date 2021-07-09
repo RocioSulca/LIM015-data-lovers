@@ -32,7 +32,7 @@ export const filterByName = (data, value) => {
   return data.filter((athletes) => athletes.name.toLowerCase().includes(value));
 };
 
-// Funcion de filtrar medalla por genero
+// Funcion de filtrar medalla por pais
 export const countryByMedals = (data, conditionTeam, conditionMedal) => {
   let dataCondition = data.filter((athletes) =>
     athletes.team.includes(conditionTeam)
@@ -51,7 +51,7 @@ export const sortByTotal = (data, condition) => {
     return data.sort((a, b) => b.total - a.total);
   }
 };
-// Funcion de filtrar medalla por
+// Funcion de filtrar medalla por genero
 export const medalsByGender = (data, gender, medal) => {
   let medalsG = data.filter((athletes) => athletes.gender.includes(gender));
   let genderM = medalsG.filter((medals) => medals.medal.includes(medal)).length;
