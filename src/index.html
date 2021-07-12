@@ -22,19 +22,19 @@
                 <div><img src="img/logo.png" class="img-logo"></div>
             </div>
             <div class="navi">
-            <button class="nav-toggle" aria-label="Abrir menú">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav class="navigation">
-                <ul class="nav-menu">
-                    <button class="nav-toggle-cross" aria-label="Cerrar menú">
-                        <i class="fas fa-times"></i>
-                    </button>
-                    <li><a id="athletes">ATLETAS</a></li>
-                    <li><a id="statistics">ESTADISTICAS</a></li>
-                </ul>
-            </nav>
-        </div>
+                <button class="nav-toggle" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav class="navigation">
+                    <ul class="nav-menu">
+                        <button class="nav-toggle-cross" aria-label="Cerrar menú">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <li><a id="athletes">ATLETAS</a></li>
+                        <li><a id="statistics">ESTADISTICAS</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
     <main>
@@ -94,8 +94,8 @@
                 </li>
             </ul>
         </section>
-        <section id="secondScreen" style="display:none;">
 
+        <section id="secondScreen" style="display:none;">
             <div class="input-search">
                 <input id="search" class="search" type="text" placeholder="Buscar por nombre">
             </div>
@@ -140,7 +140,7 @@
                     <div class="filter">
                         <label class="filter__label">PAISES:</label>
                         <select id="country" class="filter-select-option">
-                            <option value="" class="options" disabled selected>All</option>
+                            <option value="" class="options">All</option>
                         </select>
                     </div>
                     <div class="filter">
@@ -150,16 +150,13 @@
                         </select>
                     </div>
                 </section>
-
             </div>
-
             <div id="allAthletes" class="allAthletes"></div>
             <div id="modal-athlete" class="modal-athlete hide"></div>
-
         </section>
 
         <section id="thirdScreen" style="display:none;">
-            <h2 class= "table-title">MEDALLAS POR GENERO</h2>   
+            <h2 class="table-title">MEDALLAS POR GENERO</h2>
             <div class="tableContainer">
                 <table class="container-table">
                     <thead>
@@ -186,7 +183,7 @@
                 </div>
             </div>
             <br>
-            <h2 class= "table-title">MEDALLAS POR PAIS</h2>            
+            <h2 class="table-title">MEDALLAS POR PAIS</h2>
             <div class="tableContainer">
                 <table class="container-table">
                     <thead>
@@ -201,9 +198,9 @@
                     <tbody id="bodytable">
                     </tbody>
                 </table>
-              <div class="open1">
-              <button class="open2">VER GRAFICO</button>
-              </div>
+                <div class="open1">
+                    <button class="open2">VER GRAFICO</button>
+                </div>
             </div>
             <div class="modal-container-medals">
                 <div class="modal-medals modal-close-medals">

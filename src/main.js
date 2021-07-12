@@ -8,17 +8,28 @@ import {
     countryByMedals,
     sortByTotal,
     medalsByGender,
+    reduceByTotal
 } from "./data.js";
+
 import data from "./data/athletes/athletes.js";
 
 // Asignando variables
+const athletesData = data.athletes;
 const navToggle = document.querySelector(".nav-toggle");
 const navToggleCross = document.querySelector(".nav-toggle-cross");
 const navMenu = document.querySelector(".nav-menu");
-const athletesData = data.athletes;
 const allAthletes = document.getElementById("allAthletes");
 const medalsGender = document.getElementById("medalsGender");
+const selectSport = document.getElementById("sport");
+const selectEvent = document.getElementById("event");
+const selectCountry = document.getElementById("country");
+const selectMedal = document.getElementById("medals");
+const selectFemale = document.getElementById("check-female");
+const selectMale = document.getElementById("check-male");
+const selectOrderAZ = document.getElementById("a-z");
+const selectOrderZA = document.getElementById("z-a");
 
+// creando array con informacion unica
 const athletesBySports = mapByKey(athletesData, "sport");
 let sports = [...new Set(athletesBySports)];
 
@@ -34,14 +45,6 @@ let medals = [...new Set(athletesByMedals)];
 const athletesByGender = mapByKey(athletesData, "gender");
 let genderFM = [...new Set(athletesByGender)];
 
-const selectSport = document.getElementById("sport");
-const selectEvent = document.getElementById("event");
-const selectCountry = document.getElementById("country");
-const selectMedal = document.getElementById("medals");
-const selectFemale = document.getElementById("check-female");
-const selectMale = document.getElementById("check-male");
-const selectOrderAZ = document.getElementById("a-z");
-const selectOrderZA = document.getElementById("z-a");
 
 // Creando los cuadros de los atletas
 const showAthletes = (data) => {
@@ -55,10 +58,10 @@ const showAthletes = (data) => {
             div.classList.add("box");
             info = `<img src = ${athletes.gender === "F" ? "./img/avatarFem.png" : "./img/avatarMal.png"
                 } class="avatar">
-           <li class=name>${athletes.name}</li><br>
-            <li class=info>${athletes.sport}</li>
-            <li class=info>${athletes.event}</li>
-            <li class=info>${athletes.team}</li>`;
+                <li class=name>${athletes.name}</li><br>
+                <li class=info>${athletes.sport}</li>
+                <li class=info>${athletes.event}</li>
+                <li class=info>${athletes.team}</li>`;
             allAthletes.appendChild(div);
             div.innerHTML = info;
 
@@ -70,34 +73,31 @@ const showAthletes = (data) => {
                 boxModal.setAttribute("id", "box-modal");
                 boxModal.setAttribute("class", "box-modal");
                 infoAthlete = `<div class="athlete">
-         <span class="close" id="close"><i class="fas fa-times"></i></span>
-         <img src = ${athletes.gender === "F"
-                        ? "./img/avatarFem.png"
-                        : "./img/avatarMal.png"
+                      <span class="close" id="close"><i class="fas fa-times"></i></span>
+                      <img src = ${athletes.gender === "F" ? "./img/avatarFem.png" : "./img/avatarMal.png"
                     } class="avatar2">
-
-         <p class="name-modal">${athletes.name}</p>
-        <table>
-        <tr><td><p class="info-modal">Género: </p></td><td><p class="info-modal">${athletes.gender
+                       <p class="name-modal">${athletes.name}</p>
+                     <table>
+                       <tr><td><p class="info-modal">Género: </p></td><td><p class="info-modal">${athletes.gender
                     }</p></td></tr>
-        <tr><td><p class="info-modal">Altura: </p></td><td><p class="info-modal">${athletes.height
+                       <tr><td><p class="info-modal">Altura: </p></td><td><p class="info-modal">${athletes.height
                     } cm</p></td></tr>
-        <tr><td><p class="info-modal">Peso: </p></td><td><p class="info-modal">${athletes.weight
+                       <tr><td><p class="info-modal">Peso: </p></td><td><p class="info-modal">${athletes.weight
                     } kg</p></td></tr>
-        <tr><td><p class="info-modal">Deporte: </p></td><td><p class="info-modal">${athletes.sport
+                       <tr><td><p class="info-modal">Deporte: </p></td><td><p class="info-modal">${athletes.sport
                     }</p></td></tr>
-        <tr><td><p class="info-modal">Disciplina: </p></td><td><p class="info-modal">${athletes.event
+                       <tr><td><p class="info-modal">Disciplina: </p></td><td><p class="info-modal">${athletes.event
                     }</p></td></tr>
-        <tr><td><p class="info-modal">País: </p></td><td><p class="info-modal">${athletes.team
+                       <tr><td><p class="info-modal">País: </p></td><td><p class="info-modal">${athletes.team
                     }</p></td></tr>
-        <tr><td><p class="info-modal">Edad: </p></td><td><p class="info-modal">${athletes.age
+                       <tr><td><p class="info-modal">Edad: </p></td><td><p class="info-modal">${athletes.age
                     }</p></td></tr>
-        <tr><td><p class="info-modal">Año de Participación: </p></td><td><p class="info-modal">2016</p></td></tr>
-        <tr><td><p class="info-modal">Sede Olímpica: </p></td><td><p class="info-modal">Río de Janeiro</p></td></tr>
-        <tr><td><p class="info-modal">Medallas: </p></td><td><p class="info-modal">${athletes.medal
+                       <tr><td><p class="info-modal">Año de Participación: </p></td><td><p class="info-modal">2016</p></td></tr>
+                       <tr><td><p class="info-modal">Sede Olímpica: </p></td><td><p class="info-modal">Río de Janeiro</p></td></tr>
+                       <tr><td><p class="info-modal">Medallas: </p></td><td><p class="info-modal">${athletes.medal
                     }</p></td></tr>
-        </table>
-        </div>`;
+                     </table>
+                    </div>`;
                 document.querySelector("#modal-athlete").appendChild(boxModal);
                 boxModal.innerHTML = infoAthlete;
                 // funcionalidad cerrar modal
@@ -115,8 +115,11 @@ const showAthletes = (data) => {
     });
     return showAthletes;
 };
-// Creando listas de opciones 
+
+
+// Creando funcion para hacer listas de opciones 
 function listOfOptions(selectCategory, list) {
+    
     for (let i = 0; i < list.length; i++) {
         let option = document.createElement("option");
         let txt = document.createTextNode(list[i]);
@@ -124,11 +127,12 @@ function listOfOptions(selectCategory, list) {
         selectCategory.appendChild(option);
     }
 }
-
+// R Aplicando la funcion a los select
 listOfOptions(selectSport, sports);
 listOfOptions(selectCountry, countries);
 listOfOptions(selectEvent, events);
 listOfOptions(selectMedal, medals);
+
 
 function allFilters() {
     const sportValue = selectSport.value;
@@ -136,7 +140,7 @@ function allFilters() {
     const medalValue = selectMedal.value;
     const eventValue = selectEvent.value;
 
-
+  // R Uno jala al otro, un filtro jala al siguiente
     const filteredSports = filterByKey(athletesData, sportValue, "sport");
     const filteredCountry = filterByKey(filteredSports, countryValue, "team");
     const filteredMedals = filterByKey(filteredCountry, medalValue, "medal");
@@ -150,6 +154,8 @@ function allFilters() {
     }
     showAthletes(filteredData);
 }
+
+  // R La funcion se cumplira al cambiar los select
 // Filter selection
 selectCountry.addEventListener("change", allFilters);
 selectSport.addEventListener("change", allFilters);
@@ -157,6 +163,7 @@ selectMedal.addEventListener("change", allFilters);
 selectEvent.addEventListener("change", allFilters);
 selectFemale.addEventListener("change", allFilters);
 selectMale.addEventListener("change", allFilters);
+
 
 //Ordenar por alfabeticamente A-Z
 selectOrderAZ.addEventListener("click", () => {
@@ -173,11 +180,10 @@ selectOrderZA.addEventListener("click", () => {
 const searcher = document.querySelector("#search");
 
 searcher.addEventListener("keyup", () => {
-    const searchString = searcher.value.toLowerCase(); //
+    const searchString = searcher.value.toLowerCase();
     const filteredNames = filterByName(athletesData, searchString);
     if (filteredNames.length == 0) {
-        allAthletes.textContent =
-            "No se encontraron coincidencias. Inténtelo nuevamente.";
+        allAthletes.textContent = "No se encontraron coincidencias. Inténtelo nuevamente.";
     } else {
         showAthletes(filteredNames);
     }
@@ -199,7 +205,7 @@ genderFM.forEach((gender) => {
         Bronce: bronze,
     });
 });
-
+// R creando la tabla de estadisticas de medalla por genero
 counter.forEach((obj) => {
     let resultFinal = "";
     const boxi = document.createElement("tr");
@@ -212,7 +218,7 @@ counter.forEach((obj) => {
     boxi.innerHTML = resultFinal;
 });
 
-// Medallas
+// Medallas por pais
 /*El forEach llena el objeto vacío que es object medals y se crean los keywords*/
 let medalsStatistics = [];
 countries.forEach((team) => {
@@ -277,9 +283,9 @@ function totalCasesChart(ctx) {
 }
 
 function renderCharts() {
-  const ctx = document.getElementById("myChart").getContext("2d");
-  totalCasesChart(ctx);
-}
+    const ctx = document.getElementById("myChart").getContext("2d");
+    totalCasesChart(ctx);
+};
 renderCharts();
 
 let close = document.querySelector(".close-estatistics");
@@ -289,34 +295,34 @@ let modalC = document.querySelector(".modal-container");
 
 //Abriendo modal
 open.addEventListener("click", () => {
-  modalC.style.opacity = "1";
-  modalC.style.visibility = "visible";
-  modal.classList.toggle("modal-close");
+    modalC.style.opacity = "1";
+    modalC.style.visibility = "visible";
+    modal.classList.toggle("modal-close");
 });
 // Cerrando el modal
 close.addEventListener("click", () => {
-  modal.classList.toggle("modal-close");
+    modal.classList.toggle("modal-close");
 
-  setTimeout(function () {
-      modalC.style.opacity = "0";
-      modalC.style.visibility = "hidden";
-  }, 600);
+    setTimeout(function () {
+        modalC.style.opacity = "0";
+        modalC.style.visibility = "hidden";
+    }, 600);
 
 });
 
 
 let medalsFirst = [];
 medalsOrdered.forEach((team) => {
-  if(team.total >= 113){
-    let country = team.country;
-    let total = team.total;
+    if (team.total >= 113) {
+        let country = team.country;
+        let total = team.total;
 
-    medalsFirst.push({
-      country: country,
-      total: total
-    })
+        medalsFirst.push({
+            country: country,
+            total: total
+        })
     }
-  });
+});
 
 function medalsByCountries(ctx) {
     // eslint-disable-next-line
@@ -337,9 +343,9 @@ function medalsByCountries(ctx) {
 }
 
 function showCharts() {
-  const ctx = document.getElementById("myBarChart").getContext("2d");
-  medalsByCountries(ctx);
-}
+    const ctx = document.getElementById("myBarChart").getContext("2d");
+    medalsByCountries(ctx);
+};
 showCharts();
 
 let closeM = document.querySelector(".close-medals");
@@ -350,21 +356,20 @@ let modalCM = document.querySelector(".modal-container-medals");
 //Abriendo modal
 
 openM.addEventListener("click", () => {
-  modalCM.style.opacity = "1";
-  modalCM.style.visibility = "visible";
-  modalM.classList.toggle("modal-close-medals");
+    modalCM.style.opacity = "1";
+    modalCM.style.visibility = "visible";
+    modalM.classList.toggle("modal-close-medals");
 });
 // Cerrando el modal
 closeM.addEventListener("click", () => {
-  modalM.classList.toggle("modal-close-medals");
+    modalM.classList.toggle("modal-close-medals");
 
-  setTimeout(function () {
-      modalCM.style.opacity = "0";
-      modalCM.style.visibility = "hidden";
-  }, 600);
+    setTimeout(function () {
+        modalCM.style.opacity = "0";
+        modalCM.style.visibility = "hidden";
+    }, 600);
 
 });
-
 
 navToggle.addEventListener("click", () => {
     navToggle.style.display = "none";
@@ -387,6 +392,7 @@ navToggleCross.addEventListener("click", () => {
     navMenu.classList.toggle("nav-menu_visible");
 });
 
+//Abrir y cerrar pantallas
 document.getElementById("athletes").addEventListener("click", () => {
     document.getElementById("firstScreen").style.display = "none";
     document.getElementById("secondScreen").style.display = "block";
