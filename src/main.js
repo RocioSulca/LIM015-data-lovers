@@ -121,8 +121,8 @@ const showAthletes = (data) => {
 function listOfOptions(selectCategory, list) {
     
     for (let i = 0; i < list.length; i++) {
-        let option = document.createElement("option")
-        let txt = document.createTextNode(list[i]); 
+        let option = document.createElement("option");
+        let txt = document.createTextNode(list[i]);
         option.appendChild(txt);
         selectCategory.appendChild(option);
     }
@@ -134,13 +134,13 @@ listOfOptions(selectEvent, events);
 listOfOptions(selectMedal, medals);
 
 
-
-function includingAllFilters() {
+function allFilters() {
     const sportValue = selectSport.value;
     const countryValue = selectCountry.value;
     const medalValue = selectMedal.value;
     const eventValue = selectEvent.value;
-    // R Uno jala al otro, un filtro jala al siguiente
+
+  // R Uno jala al otro, un filtro jala al siguiente
     const filteredSports = filterByKey(athletesData, sportValue, "sport");
     const filteredCountry = filterByKey(filteredSports, countryValue, "team");
     const filteredMedals = filterByKey(filteredCountry, medalValue, "medal");
@@ -154,14 +154,15 @@ function includingAllFilters() {
     }
     showAthletes(filteredData);
 }
-// R La funcion se cumplira al cambiar los select
-selectCountry.addEventListener("change", includingAllFilters);
-selectSport.addEventListener("change", includingAllFilters);
-selectMedal.addEventListener("change", includingAllFilters);
-selectEvent.addEventListener("change", includingAllFilters);
-selectFemale.addEventListener("change", includingAllFilters);
-selectMale.addEventListener("change", includingAllFilters);
 
+  // R La funcion se cumplira al cambiar los select
+// Filter selection
+selectCountry.addEventListener("change", allFilters);
+selectSport.addEventListener("change", allFilters);
+selectMedal.addEventListener("change", allFilters);
+selectEvent.addEventListener("change", allFilters);
+selectFemale.addEventListener("change", allFilters);
+selectMale.addEventListener("change", allFilters);
 
 
 //Ordenar por alfabeticamente A-Z
@@ -194,7 +195,7 @@ genderFM.forEach((gender) => {
     let gold = medalsByGender(athletesData, gender, "Gold");
     let silver = medalsByGender(athletesData, gender, "Silver");
     let bronze = medalsByGender(athletesData, gender, "Bronze");
-    let total = reduceByTotal(gold, silver, bronze);
+    let total = [gold, silver, bronze].reduce(function(a, b){ return a + b; });
 
     counter.push({
         Genero: gender,
@@ -224,8 +225,8 @@ countries.forEach((team) => {
     let goldenMedals = countryByMedals(athletesData, team, "Gold");
     let silverMedals = countryByMedals(athletesData, team, "Silver");
     let bronzeMedals = countryByMedals(athletesData, team, "Bronze");
-    let total = [goldenMedals, silverMedals, bronzeMedals];
-let y = reduceByTotal.total;
+    let total = [goldenMedals, silverMedals, bronzeMedals].reduce(function(a, b){ return a + b; });
+
     medalsStatistics.push({
         country: team,
         golden: goldenMedals,
@@ -253,31 +254,33 @@ medalsOrdered.forEach((obj) => {
 // Chart de medallas por genero
 
 function totalCasesChart(ctx) {
-    new Chart(ctx, {
-        type: "bar",
-        data: {
-            labels: counter.map(item => item.Genero),
-            datasets: [
-                {
-                    label: "gold",
-                    backgroundColor: "yellow",
-                    data: counter.map(item => item.Oro),
-                },
-                {
-                    label: "silver",
-                    backgroundColor: "grey",
-                    data: counter.map(item => item.Plata),
-                },
-                {
-                    label: "bronce",
-                    backgroundColor: "brown",
-                    data: counter.map(item => item.Bronce),
-                },
-            ]
-        }
-    });
-    return totalCasesChart;
-};
+    // eslint-disable-next-line
+  new Chart(ctx, {
+      type: "bar",
+      height: 50,
+      data: {
+          labels: counter.map(item => item.Genero),
+          datasets: [
+              {
+                  label: "gold",
+                  backgroundColor: "yellow",
+                  data: counter.map(item => item.Oro),
+              },
+              {
+                  label: "silver",
+                  backgroundColor: "grey",
+                  data: counter.map(item => item.Plata),
+              },
+              {
+                  label: "bronce",
+                  backgroundColor: "brown",
+                  data: counter.map(item => item.Bronce),
+              },
+          ]
+      }
+  });
+  return totalCasesChart;
+}
 
 function renderCharts() {
     const ctx = document.getElementById("myChart").getContext("2d");
@@ -291,7 +294,6 @@ let modal = document.querySelector(".modal");
 let modalC = document.querySelector(".modal-container");
 
 //Abriendo modal
-
 open.addEventListener("click", () => {
     modalC.style.opacity = "1";
     modalC.style.visibility = "visible";
@@ -323,21 +325,22 @@ medalsOrdered.forEach((team) => {
 });
 
 function medalsByCountries(ctx) {
-    const chart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: medalsFirst.map(item => item.country),
-            datasets: [
-                {
-                    label: "total",
-                    backgroundColor: "yellow",
-                    data: medalsFirst.map(item => item.total),
-                },
-            ]
-        }
-    });
-    return medalsByCountries;
-};
+    // eslint-disable-next-line
+  new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: medalsFirst.map(item => item.country),
+    datasets: [
+        {
+            label: "total",
+            backgroundColor: "yellow",
+            data: medalsFirst.map(item => item.total),
+        },
+    ]
+}
+});
+  return medalsByCountries;
+}
 
 function showCharts() {
     const ctx = document.getElementById("myBarChart").getContext("2d");

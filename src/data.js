@@ -47,7 +47,7 @@ export const countryByMedals = (data, conditionTeam, conditionMedal) => {
   return teamM; 
 };
 
-//Orden de tabla de manera descendente (números, por eso no se usa la funció de arriba)
+//Orden de tabla de manera descendente (números, por eso no se usa la función de arriba)
 export const sortByTotal = (data, condition) => {
   if (condition === "asc") {
     return data.sort((a, b) => a.total - b.total);
@@ -63,8 +63,5 @@ export const medalsByGender = (data, conditionGender, conditionMedal) => {
 };
 
 
-export const reduceByTotal = (data,key) => {
-  let x = data.map((key) => key.reduce((a,b)=>(a+b)));
-  return x;
 
-}
+
