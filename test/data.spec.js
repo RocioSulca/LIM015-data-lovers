@@ -1,4 +1,4 @@
-import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByName, countryByMedals, medalsByGender } from '../src/data.js';
+import { mapByKey, filterByKey, filterMale, filterFemale, sortByName, filterByName, countryByMedals, sortByTotal, medalsByGender } from '../src/data.js';
 
 
 describe('Make a new array of every sport', () => {
@@ -202,6 +202,57 @@ describe('Filter medals by team', () => {
     expect(countryByMedals(data, 'Italy', 'Gold')).toEqual(result);
   });
 });
+
+describe('Order medals by asc', () => {
+  it('is a function', () => {
+    expect(typeof sortByTotal).toBe('function');
+  });
+  it('returns ordered medals by asc', () => {
+    const data = [{
+      total: 1
+    },
+    {
+      total: 3
+    },
+    {
+      total: 2
+    },
+    {
+      total: 2
+    },
+    {
+      total: 4
+    }];
+    const result =[{total: 1}, {total: 2},{total: 2}, {total: 3}, {total: 4}];
+    expect(sortByTotal(data, 'asc')).toEqual(result);
+  });
+});
+
+describe('Order medals by dsc', () => {
+  it('is a function', () => {
+    expect(typeof sortByTotal).toBe('function');
+  });
+  it('returns ordered medals by dsc', () => {
+    const data = [{
+      total: 1
+    },
+    {
+      total: 3
+    },
+    {
+      total: 2
+    },
+    {
+      total: 2
+    },
+    {
+      total: 4
+    }];
+    const result =[{total: 4}, {total: 3},{total: 2}, {total: 2}, {total: 1}];
+    expect(sortByTotal(data, 'dsc')).toEqual(result);
+  });
+});
+
 describe('Filter medals by gender', () => {
   it('is a function', () => {
     expect(typeof medalsByGender).toBe('function');

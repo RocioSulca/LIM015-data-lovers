@@ -37,13 +37,13 @@ export const countryByMedals = (data, conditionTeam, conditionMedal) => {
   let dataCondition = data.filter((athletes) =>
     athletes.team.includes(conditionTeam)
   );
-  let genderM = dataCondition.filter((medals) =>
+  let teamM = dataCondition.filter((medals) =>
     medals.medal.includes(conditionMedal)
   ).length;
-  return genderM;
+  return teamM;
 };
 
-//Orden de tabla de manera descendente (números, por eso no se usa la funció de arriba)
+//Orden de tabla de manera descendente (números, por eso no se usa la función de arriba)
 export const sortByTotal = (data, condition) => {
   if (condition === "asc") {
     return data.sort((a, b) => a.total - b.total);
@@ -52,8 +52,8 @@ export const sortByTotal = (data, condition) => {
   }
 };
 // Funcion de filtrar medalla por genero
-export const medalsByGender = (data, gender, medal) => {
-  let medalsG = data.filter((athletes) => athletes.gender.includes(gender));
-  let genderM = medalsG.filter((medals) => medals.medal.includes(medal)).length;
+export const medalsByGender = (data, conditionGender, conditionMedal) => {
+  let medalsG = data.filter((athletes) => athletes.gender.includes(conditionGender));
+  let genderM = medalsG.filter((medals) => medals.medal.includes(conditionMedal)).length;
   return genderM;
 };

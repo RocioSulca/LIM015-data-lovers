@@ -118,8 +118,8 @@ const showAthletes = (data) => {
 // Creando listas de opciones 
 function listOfOptions(selectCategory, list) {
     for (let i = 0; i < list.length; i++) {
-        let option = document.createElement("option"),
-            txt = document.createTextNode(list[i]);
+        let option = document.createElement("option");
+        let txt = document.createTextNode(list[i]);
         option.appendChild(txt);
         selectCategory.appendChild(option);
     }
@@ -130,17 +130,17 @@ listOfOptions(selectCountry, countries);
 listOfOptions(selectEvent, events);
 listOfOptions(selectMedal, medals);
 
-function includingAllFilters() {
-    const sportOption = selectSport.value;
-    const countryOption = selectCountry.value;
-    const medalOption = selectMedal.value;
-    const eventOption = selectEvent.value;
+function allFilters() {
+    const sportValue = selectSport.value;
+    const countryValue = selectCountry.value;
+    const medalValue = selectMedal.value;
+    const eventValue = selectEvent.value;
 
 
-    const filteredSports = filterByKey(athletesData, sportOption, "sport");
-    const filteredCountry = filterByKey(filteredSports, countryOption, "team");
-    const filteredMedals = filterByKey(filteredCountry, medalOption, "medal");
-    let filteredData = filterByKey(filteredMedals, eventOption, "event");
+    const filteredSports = filterByKey(athletesData, sportValue, "sport");
+    const filteredCountry = filterByKey(filteredSports, countryValue, "team");
+    const filteredMedals = filterByKey(filteredCountry, medalValue, "medal");
+    let filteredData = filterByKey(filteredMedals, eventValue, "event");
 
     if (selectFemale.checked && !selectMale.checked) {
         filteredData = filterFemale(filteredData);
@@ -151,46 +151,12 @@ function includingAllFilters() {
     showAthletes(filteredData);
 }
 // Filter selection
-selectCountry.addEventListener("change", includingAllFilters);
-selectSport.addEventListener("change", includingAllFilters);
-selectMedal.addEventListener("change", includingAllFilters);
-selectEvent.addEventListener("change", includingAllFilters);
-selectFemale.addEventListener("change", includingAllFilters);
-selectMale.addEventListener("change", includingAllFilters);
-
-/*
-// creando lista de paises dentro de select
-let selectCountry = document.getElementById("country");
-listOfOptions(selectCountry, countries);
-
-// Filtrando por pais
-selectCountry.addEventListener("change", () => {
-    const countryValue = selectCountry.value;
-    const filtrandoPorPaises = filterByKey(athletesData, countryValue, "team");
-    showAthletes(filtrandoPorPaises);
-});
-// creando lista de medallas dentro de select
-let selectMedal = document.getElementById("medals");
-listOfOptions(selectMedal, medals);
-
-// Filtrando por medallas
-selectMedal.addEventListener("change", () => {
-    const medalValue = selectMedal.value;
-    const filtrandoPorMedallas = filterByKey(athletesData, medalValue, "medal");
-    showAthletes(filtrandoPorMedallas);
-});
-
-// creando lista de eventos dentro de select
-let selectEvent = document.getElementById("event");
-listOfOptions(selectEvent, events);
-
-// Filtrando por eventos
-selectEvent.addEventListener("change", () => {
-    const eventValue = selectEvent.value;
-    const filtrandoPorEventos = filterByKey(athletesData, eventValue, "event");
-    showAthletes(filtrandoPorEventos);
-});
-*/
+selectCountry.addEventListener("change", allFilters);
+selectSport.addEventListener("change", allFilters);
+selectMedal.addEventListener("change", allFilters);
+selectEvent.addEventListener("change", allFilters);
+selectFemale.addEventListener("change", allFilters);
+selectMale.addEventListener("change", allFilters);
 
 //Ordenar por alfabeticamente A-Z
 selectOrderAZ.addEventListener("click", () => {
@@ -213,19 +179,17 @@ searcher.addEventListener("keyup", () => {
         allAthletes.textContent =
             "No se encontraron coincidencias. Inténtelo nuevamente.";
     } else {
-        allAthletes.innerHTML = "";
         showAthletes(filteredNames);
     }
 });
 
 // Medallas por genero medalsByGender
-medalsGender.innerHTML = "";
 let counter = [];
 genderFM.forEach((gender) => {
     let gold = medalsByGender(athletesData, gender, "Gold");
     let silver = medalsByGender(athletesData, gender, "Silver");
     let bronze = medalsByGender(athletesData, gender, "Bronze");
-    let total = gold + silver + bronze;
+    let total = [gold, silver, bronze].reduce(function(a, b){ return a + b; });
 
     counter.push({
         Genero: gender,
@@ -255,7 +219,7 @@ countries.forEach((team) => {
     let goldenMedals = countryByMedals(athletesData, team, "Gold");
     let silverMedals = countryByMedals(athletesData, team, "Silver");
     let bronzeMedals = countryByMedals(athletesData, team, "Bronze");
-    let total = goldenMedals + silverMedals + bronzeMedals;
+    let total = [goldenMedals, silverMedals, bronzeMedals].reduce(function(a, b){ return a + b; });
 
     medalsStatistics.push({
         country: team,
@@ -284,6 +248,7 @@ medalsOrdered.forEach((obj) => {
 // Chart de medallas por genero
 
 function totalCasesChart(ctx) {
+    // eslint-disable-next-line
   new Chart(ctx, {
       type: "bar",
       height: 50,
@@ -323,7 +288,6 @@ let modal = document.querySelector(".modal");
 let modalC = document.querySelector(".modal-container");
 
 //Abriendo modal
-
 open.addEventListener("click", () => {
   modalC.style.opacity = "1";
   modalC.style.visibility = "visible";
@@ -355,7 +319,8 @@ medalsOrdered.forEach((team) => {
   });
 
 function medalsByCountries(ctx) {
-  const chart = new Chart(ctx, {
+    // eslint-disable-next-line
+  new Chart(ctx, {
   type: 'bar',
   data: {
     labels: medalsFirst.map(item => item.country),

@@ -42,6 +42,75 @@ main {
   margin-left: 4%;
 }
 
+
+.container-slider{
+  background-color: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  padding: 30px;
+  margin-top: 6rem;
+}
+
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+ul.slider{
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+ul.slider li {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    transition: opacity .5s;
+    background:#fff;
+}
+
+ul.slider li img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+ul.slider li:first-child {
+    opacity: 1; /*Mostramos el primer <li>*/
+}
+
+ul.slider li:target {
+    opacity: 1; /*Mostramos el <li> del enlace que pulsemos*/
+}
+
+.menu-slider{
+  text-align: center;
+  margin: 20px;
+}
+
+.menu-slider li{
+  display: inline-block;
+  text-align: center;
+}
+
+.menu-slider li a{
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  background-color: grey;
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  border-radius: 100%;
+}
+
 footer {
   color: black;
   background-color: black;
@@ -173,6 +242,7 @@ footer {
   text-align: center;
   font-family: "Bebas Neue", cursive;
   font-size: 35px;
+  padding-top: 4rem;
 }
 
 .list-partners {
@@ -331,7 +401,7 @@ footer {
   text-align: center;
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
-  font-weight: lighter;
+  font-weight: bold;
   color: black;
 }
 
@@ -394,7 +464,7 @@ td {
 .search {
   padding: 9px 10px 9px 32px;
   outline: none;
-  font-size: 18px;
+  font-size: 110%;
   border-radius: 15px;
   color: #444;
   border: 3px solid #f7610b;
@@ -414,6 +484,18 @@ td {
   text-align: center;
   padding-top: 5%;
 }
+
+.open, .open2 {
+  width: 20%;
+}
+.open:hover, .open2:hover {
+  background-color: #ffa260;
+}
+
+.open1 {
+  margin-top: 40px;
+}
+
 .container-table th {
   font-weight: bold;
   font-size: 1em;
@@ -467,6 +549,7 @@ td {
   display: inline-flex;
   grid-area: gold / gold / gold / gold;
   padding: 10%;
+  justify-content: center;
 }
 
 .styles-golden {
@@ -491,6 +574,7 @@ td {
   display: inline-flex;
   grid-area: silver / silver / silver / silver;
   padding: 10%;
+  justify-content: center;
 }
 
 .styles-silver {
@@ -515,6 +599,7 @@ td {
   display: inline-flex;
   grid-area: bronze / bronze / bronze / bronze;
   padding: 10%;
+  justify-content: center;
 }
 
 .styles-bronze {
@@ -603,7 +688,7 @@ td {
   color: black;
 }
 /*BOTONES */
-.order {
+.order, .open, .open2 {
   background: none;
   border: 2px solid;
   border-color: #ffa260;
@@ -613,7 +698,7 @@ td {
   margin: 0.5em;
   padding: 1em 2em;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 110%;
 }
 
 .order:hover, .abrir:hover, .open:hover {
@@ -634,26 +719,35 @@ td {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: -15px;
 }
 
 .secondFilter {
   display: flex;
   justify-content: space-between;
-  width: 65%;
-  margin-top: -10px;
+  width: 80%;
 }
 
-.abrir, .open{
-  float: right;
+/*Arreglando titulo y boton de la tercera pantalla*/
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 @media only screen and (max-width: 1024px) {
   .logo {
-    height: 90%;
+    width: 24%;
+  }
+  .img-logo{
+    margin-top: -3%;
   }
   .navigation {
     width: 70%;
+  }
+  .container-slider{
+    width: 94%;
   }
   .box {
     width: 25%;
@@ -680,6 +774,11 @@ td {
   .navigation {
     width: 100%;
   }
+  .container-slider{
+    width: 91%;
+    padding: 30px;
+    margin-top: 4rem;
+  }
   .box {
     width: 25%;
   }
@@ -690,10 +789,32 @@ td {
     height: 200px !important;
     width: 200px !important;
   }
-  .modal, .modal-medals {
-    width: 50%;
-    height: 80%;
+  .filter-area {
+    display:flex;
+    align-items: flex-start;
+    margin: 30px;
+    flex: 2;
   }
+  .open, .open2 {
+    width: 40%;
+  }
+  .modal, .modal-medals {
+    width: 80%;
+    height: 60%;
+  }
+  .modal > .mychart {
+    height: 70% !important;
+    width: 70% !important;
+    transform: translate(25%, 25%);
+  }
+  .input-search {
+    padding-top: 4rem;
+}
+.filter {
+  font-size: 13px;
+    padding: 15px;
+  width: 280px;
+}
 }
 
 @media only screen and (max-width: 767px) {
@@ -745,6 +866,11 @@ td {
     border-radius: 5px;
     line-height: 70px;
   }
+  .container-slider{
+    width: 82%;
+    padding: 30px;
+    margin-top: 4rem;
+  }
   .list-partners {
     grid-template: [row] 1fr / repeat(12, [col] minmax(0, 103.33333px));
   }
@@ -758,9 +884,45 @@ td {
   .athlete {
     width: 50%;
   }
+  .firstFilter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: -15px;
+    justify-content: center;
+  }
+  .order-button {
+    display:flex;
+    justify-content: center;
+  }
+  .filter-area {
+    display:flex;
+    align-items: flex-start;
+    margin: 30px;
+    flex: 2;
+  }
+  .container-slider{
+    width: 82%;
+    padding: 30px;
+    margin-top: 4rem;
+  }
+  .open, .open2 {
+  background: none;
+  border: 2px solid;
+  border-color: #ffa260;
+  border-radius: 20px;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  cursor: pointer;
+  font-size: 90%;
+  justify-content: center;
+  width: 40%;
+  }
   .modal, .modal-medals {
     width: 80%;
-    height: 80%;
+    height: 60%;
   }
 }
 
@@ -815,14 +977,79 @@ td {
     border-radius: 5px;
     line-height: 70px;
   }
+  .container-slider{
+    width: 82%;
+    padding: 30px;
+    margin-top: 4rem;
+  }
   .box {
     width: 100%;
   }
   .athlete {
     width: 50%;
   }
+  .input-search {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+  }
+  .firstFilter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .secondFilter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .order-button {
+    display:flex;
+    justify-content: center;
+  }
+  .filter {
+    display:flex;
+    justify-content: center;
+    width: 90%;
+    height: 50%;
+    padding: 5px;
+  }
+  .filter-area {
+    display:flex;
+    align-items: center;
+    margin: 30px;
+    flex: 2;
+  }
+  .filter__label {
+    font-weight: 900;
+    font-size: 80%;
+    width: 99px;
+    margin-right: 10px;
+    color: #14213d;
+    font-family: "Open Sans", sans-serif;
+  }
+  .filter select {
+    border: white;
+    border-radius: 50px;
+    justify-self: center;
+    font-size: 15px;
+    width: 100%;
+  }
+  .filter-group {
+    display: flex;
+    align-items: flex-start;
+  }
+  .open, .open2 {
+    justify-content: center;
+    width: 40%;
+  }
   .modal, .modal-medals {
-    width: 80%;
-    height: 80%;
+    width: 95%;
+    height: 60%;
+  }
+  .footer{
+    font-size: 12px;
   }
 }
