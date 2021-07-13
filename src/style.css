@@ -827,7 +827,8 @@ td {
     padding-left: 2%;
     padding-right: 5px;
     margin-left: 8%;
-    margin-top: -5%;
+    margin-top: -3%;
+    width: 40;
   }
   #home {
     font-size: 45px;
@@ -851,6 +852,10 @@ td {
   }
   .nav-toggle {
     display: block;
+  }
+
+  .nav-toggle-cross {
+    transform: translate(-450%, -25%);
   }
   .nav-menu_visible {
     left: 0;
@@ -883,7 +888,7 @@ td {
   .athlete {
     width: 50%;
   }
-  .firstFilter {
+  .firstFilter, .secondFilter {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -936,14 +941,15 @@ td {
   }
   .logo {
     padding: 3%;
-    width: 50%;
+    width: 45%;
     margin: 0%;
   }
   .img-logo {
     padding-left: 2%;
     padding-right: 5px;
     margin-left: 8%;
-    margin-top: -5%;
+    margin-top: -1%;
+    width: 35%;
   }
   #home {
     font-size: 28px;
@@ -968,6 +974,9 @@ td {
   .nav-toggle {
     display: block;
   }
+  .nav-toggle-cross {
+    transform: translate(-300%, -25%);
+  }
   .nav-menu_visible {
     left: 0;
   }
@@ -982,9 +991,9 @@ td {
     line-height: 70px;
   }
   .container-slider{
-    width: 82%;
+    margin-top: 0;
+    width: 80%;
     padding: 30px;
-    margin-top: 4rem;
   }
   .box {
     width: 100%;
@@ -1053,7 +1062,7 @@ td {
     width: 95%;
     height: 60%;
   }
-  .footer{
+  .container-column{
     font-size: 12px;
   }
 }
