@@ -2,6 +2,7 @@
 
 ## Índice
 
+
 * [1. Definición del producto](#1-definición-del-producto)
 * [2. Plan de acción](#2-plan-de-acción)
 * [3. Resumen del proyecto](#3-resumen-del-proyecto)
@@ -10,7 +11,6 @@
 * [6. Test de usabilidad](#6-test-de-usabilidad)
 * [7. Diseño de la interfaz de usuario](#7-diseño-de-la-interfaz-de-usuario)
 * [8. Zeplin](#8-zeplin)
-
 
 ***
 ## 1. Definición del producto
@@ -100,6 +100,9 @@ Yo como aficionado al deporte quiero visualizar una pagina web responsive y pode
 - Ya sea si se ingrese desde una computadora, laptop, Tablet o celular el usuario podrá visualizar la pagina web de manera responsive.
 - El usuario podrá desplazarse para que vea a los atletas o las estadísticas sobre los ganadores de las medallas.
 
+![](capture/Pantalla Desktop 1 AF.JPG)
+![](capture/Pantalla Celular 1 AF.JPG)
+
 ##### HISTORIA N°2:
 Yo como aficionado al deporte quiero poder visualizar a los atletas y poder ver todos sus datos, así como también poder buscarlos por su nombre.
 
@@ -112,6 +115,8 @@ Yo como aficionado al deporte quiero poder visualizar a los atletas y poder ver 
 ##### Definición de terminado:
 - Al ingresar a la página el usuario podrá ver a todos los atletas en tarjetas junto con su avatar, al presionar en cualquier tarjeta de los jugadores, se abrirá un modal con toda su información.
 - Al empezar a escribir en el buscador por nombres se empezarán a quedar solo los atletas en los que en su nombre haya alguna coincidencia con los que se está escribiendo.
+
+![](capture/Pantalla Desktop Modal.JPG)
 
 ##### HISTORIA N°3:
 Yo como aficionado al deporte quiero poder ordenar a los atletas por nombre ya sea de forma ascendente o descendente.
@@ -135,6 +140,8 @@ Yo como aficionado al deporte quiero poder filtrar a los atletas ya sea por gén
 - El usuario al querer filtrar por género, deporte, disciplina, países o medallas presiona en cualquier filtro y puede seleccionar entre las opciones.
 - El usuario puede ver el resultado del filtrado en la pantalla.
 
+![](capture/Pantalla atletas.JPG)
+
 ##### HISTORIA N°5:
 Yo como aficionado al deporte quiero poder ver las estadísticas de los juegos.
 
@@ -146,6 +153,8 @@ Yo como aficionado al deporte quiero poder ver las estadísticas de los juegos.
 ##### Definición de terminado:
 - El usuario puede ver en la tercera pantalla las tablas con la información requerida, puede presionar un botón para poder ver los gráficos, lo que se abrirán en un modal.
 
+![](capture/Pantalla estadisticas.JPG)
+![](capture/Pantalla grafico.JPG)
 
 ## 5. Sketch de solución
 
@@ -161,3 +170,4 @@ Yo como aficionado al deporte quiero poder ver las estadísticas de los juegos.
 
 ## 8. Zeplin
 * [Link a zeplin](https://zpl.io/agmANBM)
+
