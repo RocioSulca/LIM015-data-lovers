@@ -8,7 +8,6 @@ import {
     countryByMedals,
     sortByTotal,
     medalsByGender,
-    reduceByTotal
 } from "./data.js";
 
 import data from "./data/athletes/athletes.js";
@@ -252,7 +251,6 @@ medalsOrdered.forEach((obj) => {
 });
 
 // Chart de medallas por genero
-
 function totalCasesChart(ctx) {
     // eslint-disable-next-line
   new Chart(ctx, {
@@ -285,13 +283,21 @@ function totalCasesChart(ctx) {
 function renderCharts() {
     const ctx = document.getElementById("myChart").getContext("2d");
     totalCasesChart(ctx);
-};
+}
 renderCharts();
 
 let close = document.querySelector(".close-estatistics");
 let open = document.querySelector(".open");
 let modal = document.querySelector(".modal");
 let modalC = document.querySelector(".modal-container");
+
+let slider = document.getElementById("slider");
+navToggle.addEventListener("click",() => {
+    slider.style.display= "none";
+});
+navToggleCross.addEventListener("click",() => {
+    slider.style.display="block";
+ });
 
 //Abriendo modal
 open.addEventListener("click", () => {
@@ -309,7 +315,6 @@ close.addEventListener("click", () => {
     }, 600);
 
 });
-
 
 let medalsFirst = [];
 medalsOrdered.forEach((team) => {
@@ -345,7 +350,7 @@ function medalsByCountries(ctx) {
 function showCharts() {
     const ctx = document.getElementById("myBarChart").getContext("2d");
     medalsByCountries(ctx);
-};
+}
 showCharts();
 
 let closeM = document.querySelector(".close-medals");
