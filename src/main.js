@@ -118,7 +118,7 @@ const showAthletes = (data) => {
 
 // Creando funcion para hacer listas de opciones 
 function listOfOptions(selectCategory, list) {
-    
+
     for (let i = 0; i < list.length; i++) {
         let option = document.createElement("option");
         let txt = document.createTextNode(list[i]);
@@ -139,7 +139,7 @@ function allFilters() {
     const medalValue = selectMedal.value;
     const eventValue = selectEvent.value;
 
-  // R Uno jala al otro, un filtro jala al siguiente
+    // R Uno jala al otro, un filtro jala al siguiente
     const filteredSports = filterByKey(athletesData, sportValue, "sport");
     const filteredCountry = filterByKey(filteredSports, countryValue, "team");
     const filteredMedals = filterByKey(filteredCountry, medalValue, "medal");
@@ -154,7 +154,7 @@ function allFilters() {
     showAthletes(filteredData);
 }
 
-  // R La funcion se cumplira al cambiar los select
+// R La funcion se cumplira al cambiar los select
 // Filter selection
 selectCountry.addEventListener("change", allFilters);
 selectSport.addEventListener("change", allFilters);
@@ -194,7 +194,7 @@ genderFM.forEach((gender) => {
     let gold = medalsByGender(athletesData, gender, "Gold");
     let silver = medalsByGender(athletesData, gender, "Silver");
     let bronze = medalsByGender(athletesData, gender, "Bronze");
-    let total = [gold, silver, bronze].reduce(function(a, b){ return a + b; });
+    let total = [gold, silver, bronze].reduce(function (a, b) { return a + b; });
 
     counter.push({
         Genero: gender,
@@ -224,7 +224,7 @@ countries.forEach((team) => {
     let goldenMedals = countryByMedals(athletesData, team, "Gold");
     let silverMedals = countryByMedals(athletesData, team, "Silver");
     let bronzeMedals = countryByMedals(athletesData, team, "Bronze");
-    let total = [goldenMedals, silverMedals, bronzeMedals].reduce(function(a, b){ return a + b; });
+    let total = [goldenMedals, silverMedals, bronzeMedals].reduce(function (a, b) { return a + b; });
 
     medalsStatistics.push({
         country: team,
@@ -253,31 +253,31 @@ medalsOrdered.forEach((obj) => {
 // Chart de medallas por genero
 function totalCasesChart(ctx) {
     // eslint-disable-next-line
-  new Chart(ctx, {
-      type: "bar",
-      height: 50,
-      data: {
-          labels: counter.map(item => item.Genero),
-          datasets: [
-              {
-                  label: "gold",
-                  backgroundColor: "yellow",
-                  data: counter.map(item => item.Oro),
-              },
-              {
-                  label: "silver",
-                  backgroundColor: "grey",
-                  data: counter.map(item => item.Plata),
-              },
-              {
-                  label: "bronce",
-                  backgroundColor: "brown",
-                  data: counter.map(item => item.Bronce),
-              },
-          ]
-      }
-  });
-  return totalCasesChart;
+    new Chart(ctx, {
+        type: "bar",
+        height: 50,
+        data: {
+            labels: counter.map(item => item.Genero),
+            datasets: [
+                {
+                    label: "gold",
+                    backgroundColor: "yellow",
+                    data: counter.map(item => item.Oro),
+                },
+                {
+                    label: "silver",
+                    backgroundColor: "grey",
+                    data: counter.map(item => item.Plata),
+                },
+                {
+                    label: "bronce",
+                    backgroundColor: "brown",
+                    data: counter.map(item => item.Bronce),
+                },
+            ]
+        }
+    });
+    return totalCasesChart;
 }
 
 function renderCharts() {
@@ -331,20 +331,20 @@ medalsOrdered.forEach((team) => {
 
 function medalsByCountries(ctx) {
     // eslint-disable-next-line
-  new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: medalsFirst.map(item => item.country),
-    datasets: [
-        {
-            label: "total",
-            backgroundColor: "yellow",
-            data: medalsFirst.map(item => item.total),
-        },
-    ]
-}
-});
-  return medalsByCountries;
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: medalsFirst.map(item => item.country),
+            datasets: [
+                {
+                    label: "total",
+                    backgroundColor: "yellow",
+                    data: medalsFirst.map(item => item.total),
+                },
+            ]
+        }
+    });
+    return medalsByCountries;
 }
 
 function showCharts() {
@@ -397,6 +397,13 @@ navToggleCross.addEventListener("click", () => {
     navMenu.classList.toggle("nav-menu_visible");
 });
 
+let slider = document.getElementById("slider");
+navToggle.addEventListener("click", () => {
+    slider.style.display = "none";
+});
+navToggleCross.addEventListener("click", () => {
+    slider.style.display = "block";
+});
 //Abrir y cerrar pantallas
 document.getElementById("athletes").addEventListener("click", () => {
     document.getElementById("firstScreen").style.display = "none";
