@@ -397,12 +397,12 @@ navToggleCross.addEventListener("click", () => {
     navMenu.classList.toggle("nav-menu_visible");
 });
 
-let slider = document.getElementById("slider");
+
 navToggle.addEventListener("click", () => {
-    slider.style.display = "none";
+    document.getElementById("slider").style.display = "none";
 });
 navToggleCross.addEventListener("click", () => {
-    slider.style.display = "block";
+    document.getElementById("slider").style.display = "block";
 });
 //Abrir y cerrar pantallas
 document.getElementById("athletes").addEventListener("click", () => {

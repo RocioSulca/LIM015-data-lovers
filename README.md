@@ -22,36 +22,36 @@ la búsqueda el acceso a información relevante sobre cualquier atleta que quisi
 
 ## 2. Plan de acción
 
-* - Realizar historias de usuario.
+* Realizar historias de usuario.
 
 ### UX
 
-* - Diseñar la aplicación pensando y entendiendo al usuario.
-* - Crear prototipos para obtener feedback e iterar.
-* - Aplicar los principios de diseño visual (contraste, alineación, jerarquía)
-* - Realizar tests de usabilidad.
+* Diseñar la aplicación pensando y entendiendo al usuario.
+* Crear prototipos para obtener feedback e iterar.
+* Aplicar los principios de diseño visual (contraste, alineación, jerarquía)
+* Realizar tests de usabilidad.
 
 ### HTML y CSS
 
-* - Uso de HTML semántico.
-* - Uso de selectores de CSS.
-* - Uso de flexbox en CSS.
+* Uso de HTML semántico.
+* Uso de selectores de CSS.
+* Uso de flexbox en CSS.
 
 ### JavaScript
 
-* - Uso de condicionales.
-* - Uso de bucles.
-* - Uso de funciones (parámetros | argumentos | valor de retorno).
-* - Manipular arrays (filter | map | sort | reduce).
-* - Uso ES modules.
-* - Diferenciar entre expression y statements.
+* Uso de condicionales.
+* Uso de bucles.
+* Uso de funciones (parámetros | argumentos | valor de retorno).
+* Manipular arrays (filter | map | sort | reduce).
+* Uso ES modules.
+* Diferenciar entre expression y statements.
 
 
 ### DOM y Web APIs
 
-* - Uso de selectores del DOM.
-* - Manejo de eventos del DOM.
-* - Manipulación dinámica del DOM.
+* Uso de selectores del DOM.
+* Manejo de eventos del DOM.
+* Manipulación dinámica del DOM.
 
 ### Testing
 
@@ -59,19 +59,19 @@ la búsqueda el acceso a información relevante sobre cualquier atleta que quisi
 
 ### Estructura del código y guía de estilo
 
-* - Organizar y dividir el código en módulos (Modularización).
-* - Uso de identificadores descriptivos.
-* - Uso de linter (ESLINT).
+* Organizar y dividir el código en módulos (Modularización).
+* Uso de identificadores descriptivos.
+* Uso de linter (ESLINT).
 
 ### Git y GitHub
 
-* - Uso de comandos de git (add | commit | pull | status | push).
-* - Manejo de repositorios de GitHub (clone | fork | gh-pages)
-* - Colaboración en Github (branches | pull requests | tags)
+* Uso de comandos de git (add | commit | pull | status | push).
+* Manejo de repositorios de GitHub (clone | fork | gh-pages)
+* Colaboración en Github (branches | pull requests | tags)
 
 ### Hacker edition
 
-* - Uso de Chart.js
+* Uso de Chart.js
 
 
 ## 3. Resumen del proyecto
@@ -100,8 +100,9 @@ Yo como aficionado al deporte quiero visualizar una pagina web responsive y pode
 - Ya sea si se ingrese desde una computadora, laptop, Tablet o celular el usuario podrá visualizar la pagina web de manera responsive.
 - El usuario podrá desplazarse para que vea a los atletas o las estadísticas sobre los ganadores de las medallas.
 
-![](capture/Pantalla Desktop 1 AF.JPG)
-![](capture/Pantalla Celular 1 AF.JPG)
+![Versión desktop](capture/PantallaDesktop1AF.jpg)
+
+![Versión móvil](capture/PantallaCelular1AF.jpg)
 
 ##### HISTORIA N°2:
 Yo como aficionado al deporte quiero poder visualizar a los atletas y poder ver todos sus datos, así como también poder buscarlos por su nombre.
@@ -116,7 +117,7 @@ Yo como aficionado al deporte quiero poder visualizar a los atletas y poder ver 
 - Al ingresar a la página el usuario podrá ver a todos los atletas en tarjetas junto con su avatar, al presionar en cualquier tarjeta de los jugadores, se abrirá un modal con toda su información.
 - Al empezar a escribir en el buscador por nombres se empezarán a quedar solo los atletas en los que en su nombre haya alguna coincidencia con los que se está escribiendo.
 
-![](capture/Pantalla Desktop Modal.JPG)
+![](capture/PantallaDesktopModal.jpg)
 
 ##### HISTORIA N°3:
 Yo como aficionado al deporte quiero poder ordenar a los atletas por nombre ya sea de forma ascendente o descendente.
@@ -140,7 +141,7 @@ Yo como aficionado al deporte quiero poder filtrar a los atletas ya sea por gén
 - El usuario al querer filtrar por género, deporte, disciplina, países o medallas presiona en cualquier filtro y puede seleccionar entre las opciones.
 - El usuario puede ver el resultado del filtrado en la pantalla.
 
-![](capture/Pantalla atletas.JPG)
+![](capture/PantallaAtletas.jpg)
 
 ##### HISTORIA N°5:
 Yo como aficionado al deporte quiero poder ver las estadísticas de los juegos.
@@ -153,8 +154,9 @@ Yo como aficionado al deporte quiero poder ver las estadísticas de los juegos.
 ##### Definición de terminado:
 - El usuario puede ver en la tercera pantalla las tablas con la información requerida, puede presionar un botón para poder ver los gráficos, lo que se abrirán en un modal.
 
-![](capture/Pantalla estadisticas.JPG)
-![](capture/Pantalla grafico.JPG)
+![](capture/PantallaEstadisticas.jpg)
+
+![](capture/PantallaGrafico.jpg)
 
 ## 5. Sketch de solución
 
