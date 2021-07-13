@@ -1,8 +1,7 @@
 header {
   background-color: #ffd200;
   width: 100%;
-  display: flex;
-  position: fixed;
+  display: flex;;
 }
 
 .logo {
