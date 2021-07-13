@@ -11,13 +11,14 @@
 * [6. Test de usabilidad](#6-test-de-usabilidad)
 * [7. Diseño de la interfaz de usuario](#7-diseño-de-la-interfaz-de-usuario)
 * [8. Zeplin](#8-zeplin)
+* [9. Autoras](#9-autoras)
 
 ***
 ## 1. Definición del producto
 
 El producto está diseñado para que sea intuitivo para el usuario y así hacer de su experiencia
 algo bueno para él o ella. Tomamos en cuenta qué tipo de información quisieran visualizar y según
-ese planteamiento se desarrolló cada parte de la página web. Olimpedia le facilita al usuario
+ese planteamiento se desarrolló cada parte de la página web. Olympedia le facilita al usuario
 la búsqueda el acceso a información relevante sobre cualquier atleta que quisiera buscar.
 
 ## 2. Plan de acción
@@ -76,7 +77,7 @@ la búsqueda el acceso a información relevante sobre cualquier atleta que quisi
 
 ## 3. Resumen del proyecto
 
-Olimpedia es una página web donde disponemos información sobre los atletas
+Olympedia es una página web donde disponemos información sobre los atletas
 de las olimpiadas de Brasil 2016; aquí podrás encontrar información específica
 sobre cada uno de los atletas.
 El objetivo principal de la página es satisfacer las necesidades de los aficionados
@@ -159,17 +160,28 @@ Yo como aficionado al deporte quiero poder ver las estadísticas de los juegos.
 ![](capture/PantallaGrafico.jpg)
 
 ## 5. Sketch de solución
-
-
+![](capture/Prototipo1BF.jpg)
+![](capture/Prototipo2BF.jpg)
+![](capture/Prototipo3BF.jpg)
 
 ## 6. Test de usabilidad
 
-
+Con nuestro prototipo en baja fidelidad procedimos a ponerlo a prueba con potenciales usuarios para asi poder recibir nuestro primer feedback.En base a ello hicimos los arreglos y cambios para asi poder realizar un segundo, tercero y hasta un cuarto testeo para lograr dar con el objetivo deseado.
 
 ## 7. Diseño de la interfaz de usuario
+##### Desktop Screen:
+![](capture/PantallaDesktop1AF.jpg)
+![](capture/PantallaDesktop2AF.jpg)
+![](capture/PantallaDesktop3AF.jpg)
 
-
+##### Cellphone Screen:
+![](capture/PantallaCelular1AF.jpg)
+![](capture/PantallaCelular2AF.jpg)
+![](capture/PantallaCelular3AF.jpg)
 
 ## 8. Zeplin
 * [Link a zeplin](https://zpl.io/agmANBM)
 
+## 9. Autoras
+- Maria Campos Sanchez
+- Rocio Sulca Zuloaga

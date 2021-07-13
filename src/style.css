@@ -895,6 +895,11 @@ td {
     margin-top: -15px;
     justify-content: center;
   }
+  .secondFilter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .order-button {
     display:flex;
     justify-content: center;

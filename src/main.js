@@ -377,6 +377,7 @@ closeM.addEventListener("click", () => {
 });
 
 navToggle.addEventListener("click", () => {
+    document.getElementById("slider").style.display = "none";
     navToggle.style.display = "none";
     if (navToggle.style.display === "block") {
         navToggleCross.style.display = "none";
@@ -404,6 +405,7 @@ navToggle.addEventListener("click", () => {
 navToggleCross.addEventListener("click", () => {
     document.getElementById("slider").style.display = "block";
 });
+
 //Abrir y cerrar pantallas
 document.getElementById("athletes").addEventListener("click", () => {
     document.getElementById("firstScreen").style.display = "none";
