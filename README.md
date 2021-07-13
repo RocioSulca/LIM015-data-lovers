@@ -2,20 +2,92 @@
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Historias de usuario](#5-historias-de-usuario)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Consideraciones técnicas](#7-consideraciones-técnicas)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
-* [9. Checklist](#9-checklist)
+
+* [1. Definición del producto](#1-definición-del-producto)
+* [2. Plan de acción](#2-plan-de-acción)
+* [3. Resumen del proyecto](#3-resumen-del-proyecto)
+* [4. Historias de usuario](#4-historias-de-usuario)
+* [5. Sketch de solución](#5-sketch-de-solución)
+* [6. Test de usabilidad](#6-test-de-usabilidad)
+* [7. Diseño de la interfaz de usuario](#7-diseño-de-la-interfaz-de-usuario)
+* [8. Zeplin](#8-zeplin)
 
 ***
+## 1. Definición del producto
+
+El producto está diseñado para que sea intuitivo para el usuario y así hacer de su experiencia
+algo bueno para él o ella. Tomamos en cuenta qué tipo de información quisieran visualizar y según
+ese planteamiento se desarrolló cada parte de la página web. Olimpedia le facilita al usuario
+la búsqueda el acceso a información relevante sobre cualquier atleta que quisiera buscar.
+
+## 2. Plan de acción
+
+* - Realizar historias de usuario.
+
+### UX
+
+* - Diseñar la aplicación pensando y entendiendo al usuario.
+* - Crear prototipos para obtener feedback e iterar.
+* - Aplicar los principios de diseño visual (contraste, alineación, jerarquía)
+* - Realizar tests de usabilidad.
+
+### HTML y CSS
+
+* - Uso de HTML semántico.
+* - Uso de selectores de CSS.
+* - Uso de flexbox en CSS.
+
+### JavaScript
+
+* - Uso de condicionales.
+* - Uso de bucles.
+* - Uso de funciones (parámetros | argumentos | valor de retorno).
+* - Manipular arrays (filter | map | sort | reduce).
+* - Uso ES modules.
+* - Diferenciar entre expression y statements.
 
 
-## 5. Historias de usuario
+### DOM y Web APIs
+
+* - Uso de selectores del DOM.
+* - Manejo de eventos del DOM.
+* - Manipulación dinámica del DOM.
+
+### Testing
+
+* Testeo unitario.
+
+### Estructura del código y guía de estilo
+
+* - Organizar y dividir el código en módulos (Modularización).
+* - Uso de identificadores descriptivos.
+* - Uso de linter (ESLINT).
+
+### Git y GitHub
+
+* - Uso de comandos de git (add | commit | pull | status | push).
+* - Manejo de repositorios de GitHub (clone | fork | gh-pages)
+* - Colaboración en Github (branches | pull requests | tags)
+
+### Hacker edition
+
+* - Uso de Chart.js
+
+
+## 3. Resumen del proyecto
+
+Olimpedia es una página web donde disponemos información sobre los atletas
+de las olimpiadas de Brasil 2016; aquí podrás encontrar información específica
+sobre cada uno de los atletas.
+El objetivo principal de la página es satisfacer las necesidades de los aficionados
+al deporte o personas comunes que estén interesadas en este tema, y así permitirles
+navegar entre los datos que les parecen relevantes, teniendo como herramientas
+el filtrado por país, deporte, disciplina, género y tipo de medalla, así mismo
+puede ordenar alfabeticamente y buscar atletas por nombre. El flujo de navegación
+parte desde una página principal teniendo como opciones ir al apartado de atletas
+o estadísticas, en este último mostramos tablas y gráficos con datos sobre las medallas.
+
+## 4. Historias de usuario
 ##### HISTORIA N°1:
 Yo como aficionado al deporte quiero visualizar una pagina web responsive y poder seleccionar si deseo ver a los atletas o las estadísticas.
 
@@ -84,5 +156,18 @@ Yo como aficionado al deporte quiero poder ver las estadísticas de los juegos.
 ![](capture/Pantalla estadisticas.JPG)
 ![](capture/Pantalla grafico.JPG)
 
+## 5. Sketch de solución
 
+
+
+## 6. Test de usabilidad
+
+
+
+## 7. Diseño de la interfaz de usuario
+
+
+
+## 8. Zeplin
+* [Link a zeplin](https://zpl.io/agmANBM)
 
