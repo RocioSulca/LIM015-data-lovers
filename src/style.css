@@ -784,10 +784,6 @@ td {
   .athlete {
     width: 40%;
   }
-  .modal > .mychart {
-    height: 200px !important;
-    width: 200px !important;
-  }
   .filter-area {
     display:flex;
     align-items: flex-start;
@@ -798,7 +794,7 @@ td {
     width: 40%;
   }
   .modal, .modal-medals {
-    width: 80%;
+    width: 70%;
     height: 60%;
   }
   .modal > .mychart {
@@ -809,10 +805,10 @@ td {
   .input-search {
     padding-top: 4rem;
 }
-.filter {
-  font-size: 13px;
+  .filter {
+    font-size: 13px;
     padding: 15px;
-  width: 280px;
+    width: 280px;
 }
 }
 
