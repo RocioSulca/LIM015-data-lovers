@@ -182,6 +182,6 @@ Con nuestro prototipo en baja fidelidad procedimos a ponerlo a prueba con potenc
 ## 8. Zeplin
 * [Link a zeplin](https://zpl.io/agmANBM)
 
-## 9. Autoras 
+## 9. Autoras
 - Maria Campos Sanchez
 - Rocio Sulca Zuloaga
