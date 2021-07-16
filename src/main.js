@@ -126,7 +126,7 @@ function listOfOptions(selectCategory, list) {
         selectCategory.appendChild(option);
     }
 }
-// R Aplicando la funcion a los select
+
 listOfOptions(selectSport, sports);
 listOfOptions(selectCountry, countries);
 listOfOptions(selectEvent, events);
@@ -139,7 +139,6 @@ function allFilters() {
     const medalValue = selectMedal.value;
     const eventValue = selectEvent.value;
 
-    // R Uno jala al otro, un filtro jala al siguiente
     const filteredSports = filterByKey(athletesData, sportValue, "sport");
     const filteredCountry = filterByKey(filteredSports, countryValue, "team");
     const filteredMedals = filterByKey(filteredCountry, medalValue, "medal");
@@ -154,7 +153,6 @@ function allFilters() {
     showAthletes(filteredData);
 }
 
-// R La funcion se cumplira al cambiar los select
 // Filter selection
 selectCountry.addEventListener("change", allFilters);
 selectSport.addEventListener("change", allFilters);
@@ -204,7 +202,7 @@ genderFM.forEach((gender) => {
         Bronce: bronze,
     });
 });
-// R creando la tabla de estadisticas de medalla por genero
+
 counter.forEach((obj) => {
     let resultFinal = "";
     const boxi = document.createElement("tr");
@@ -255,7 +253,6 @@ function totalCasesChart(ctx) {
     // eslint-disable-next-line
     new Chart(ctx, {
         type: "bar",
-        height: 50,
         data: {
             labels: counter.map(item => item.Genero),
             datasets: [
@@ -290,14 +287,6 @@ let close = document.querySelector(".close-estatistics");
 let open = document.querySelector(".open");
 let modal = document.querySelector(".modal");
 let modalC = document.querySelector(".modal-container");
-
-let slider = document.getElementById("slider");
-navToggle.addEventListener("click",() => {
-    slider.style.display= "none";
-});
-navToggleCross.addEventListener("click",() => {
-    slider.style.display="block";
- });
 
 //Abriendo modal
 open.addEventListener("click", () => {
@@ -377,7 +366,6 @@ closeM.addEventListener("click", () => {
 });
 
 navToggle.addEventListener("click", () => {
-    document.getElementById("slider").style.display = "none";
     navToggle.style.display = "none";
     if (navToggle.style.display === "block") {
         navToggleCross.style.display = "none";
